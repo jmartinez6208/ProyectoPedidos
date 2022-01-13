@@ -47,7 +47,12 @@
     <Reference Include="System.Xml"/>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="DataClasses1.dbml" />
+    <Compile Include="DataClasses1.dbml.layout" />
+    <Compile Include="DataClasses1.designer.cs" />
+    <Compile Include="PedidoDatos.cs" />
+    <Compile Include="UsuarioDatos.cs" />
+    <Compile Include="app.config" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
