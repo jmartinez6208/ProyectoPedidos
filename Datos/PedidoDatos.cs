@@ -10,7 +10,7 @@ namespace Datos
 {
     public static class PedidoDatos
     {
-        public static PedidoEntidades Nuevo (PedidoEntidades pedido)
+        public static PedidoEntidades Nuevo(PedidoEntidades pedido)
         {
             try
             {
@@ -87,7 +87,7 @@ namespace Datos
             List<PedidoEntidades> listaPedidosEntidad = new List<PedidoEntidades>();
             List<Pedidos> listaPedidosLQ = new List<Pedidos>();
 
-            using ( var ctx = new DataClasses1DataContext())
+            using (var ctx = new DataClasses1DataContext())
             {
                 var resultado = from p in ctx.Pedidos
                                 select p;
@@ -114,7 +114,7 @@ namespace Datos
         {
             try
             {
-                using ( var ctx = new DataClasses1DataContext())
+                using (var ctx = new DataClasses1DataContext())
                 {
                     var pedidoLQ = ctx.Pedidos.FirstOrDefault(p => p.id == identificador);
                     ctx.Pedidos.DeleteOnSubmit(pedidoLQ);
@@ -127,7 +127,7 @@ namespace Datos
                 return false;
                 throw;
             }
-            
+
         }
 
         public static List<PedidoEntidades> DevolverListaPedidosPorCliente(int idCliente)

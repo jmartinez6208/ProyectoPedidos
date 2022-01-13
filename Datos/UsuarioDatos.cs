@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 using Entidades;
 
 namespace Datos
@@ -45,7 +46,7 @@ namespace Datos
                 var usuarioLQ = ctx.Usuarios.FirstOrDefault(u => u.usuario == username);
                 usuario.Id = usuarioLQ.id;
                 usuario.IdTipoUsuario = (int)usuarioLQ.idTipoUsuario;
-                usuario.Nombre = usuarioLQ.nombre ;
+                usuario.Nombre = usuarioLQ.nombre;
                 usuario.User = usuarioLQ.usuario;
                 usuario.Contraseña = usuarioLQ.contraseña;
                 usuario.FechaCreacion = (DateTime)usuarioLQ.fechaCreacion;
