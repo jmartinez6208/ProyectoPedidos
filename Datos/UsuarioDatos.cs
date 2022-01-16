@@ -38,20 +38,36 @@ namespace Datos
             }
         }
 
-        public static UsuarioEntidades DevolverUsuarioId(string username)
+        public static UsuarioEntidades DevolverUsuario(string username)
         {
-            UsuarioEntidades usuario = new UsuarioEntidades();
-            using (var ctx = new DataClasses1DataContext())
+            try
             {
-                var usuarioLQ = ctx.Usuarios.FirstOrDefault(u => u.usuario == username);
-                usuario.Id = usuarioLQ.id;
-                usuario.IdTipoUsuario = (int)usuarioLQ.idTipoUsuario;
-                usuario.Nombre = usuarioLQ.nombre;
-                usuario.User = usuarioLQ.usuario;
-                usuario.Contraseña = usuarioLQ.contraseña;
-                usuario.FechaCreacion = (DateTime)usuarioLQ.fechaCreacion;
+                UsuarioEntidades usuario = new UsuarioEntidades();
+                using (var ctx = new DataClasses1DataContext())
+                {
+                    var usuarioLQ = ctx.Usuarios.FirstOrDefault(u => u.usuario == username);
+
+                    if(usuarioLQ != null)
+                    {
+                        usuario.Id = usuarioLQ.id;
+                        usuario.IdTipoUsuario = (int)usuarioLQ.idTipoUsuario;
+                        usuario.Nombre = usuarioLQ.nombre;
+                        usuario.User = usuarioLQ.usuario;
+                        usuario.Contraseña = usuarioLQ.contraseña;
+                        usuario.FechaCreacion = (DateTime)usuarioLQ.fechaCreacion;
+                        return usuario;
+                    }
+                    return null;
+                    
+                }
+                
             }
-            return usuario;
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw;
+            }
         }
+           
     }
 }
