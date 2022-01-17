@@ -1,0 +1,453 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="Nuevo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pedido" type="tns:PedidoEntidades" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="PedidoEntidades">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdCliente" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdRepartidor" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaCreacion" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Estado" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Total" type="s:double" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="NuevoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="NuevoResult" type="tns:PedidoEntidades" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Actualizar">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pedido" type="tns:PedidoEntidades" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ActualizarResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ActualizarResult" type="tns:PedidoEntidades" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DevolverPedidoPorId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="identificador" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DevolverPedidoPorIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DevolverPedidoPorIdResult" type="tns:PedidoEntidades" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DevolverListaPedidos">
+        <s:complexType />
+      </s:element>
+      <s:element name="DevolverListaPedidosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DevolverListaPedidosResult" type="tns:ArrayOfPedidoEntidades" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfPedidoEntidades">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PedidoEntidades" nillable="true" type="tns:PedidoEntidades" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="EliminarPedidoPorId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="identificador" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EliminarPedidoPorIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="EliminarPedidoPorIdResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DevolverListaPedidosPorCliente">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idCliente" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DevolverListaPedidosPorClienteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DevolverListaPedidosPorClienteResult" type="tns:ArrayOfPedidoEntidades" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PedidoEntidades" nillable="true" type="tns:PedidoEntidades" />
+      <s:element name="ArrayOfPedidoEntidades" nillable="true" type="tns:ArrayOfPedidoEntidades" />
+      <s:element name="boolean" type="s:boolean" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="NuevoSoapIn">
+    <wsdl:part name="parameters" element="tns:Nuevo" />
+  </wsdl:message>
+  <wsdl:message name="NuevoSoapOut">
+    <wsdl:part name="parameters" element="tns:NuevoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ActualizarSoapIn">
+    <wsdl:part name="parameters" element="tns:Actualizar" />
+  </wsdl:message>
+  <wsdl:message name="ActualizarSoapOut">
+    <wsdl:part name="parameters" element="tns:ActualizarResponse" />
+  </wsdl:message>
+  <wsdl:message name="DevolverPedidoPorIdSoapIn">
+    <wsdl:part name="parameters" element="tns:DevolverPedidoPorId" />
+  </wsdl:message>
+  <wsdl:message name="DevolverPedidoPorIdSoapOut">
+    <wsdl:part name="parameters" element="tns:DevolverPedidoPorIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="DevolverListaPedidosSoapIn">
+    <wsdl:part name="parameters" element="tns:DevolverListaPedidos" />
+  </wsdl:message>
+  <wsdl:message name="DevolverListaPedidosSoapOut">
+    <wsdl:part name="parameters" element="tns:DevolverListaPedidosResponse" />
+  </wsdl:message>
+  <wsdl:message name="EliminarPedidoPorIdSoapIn">
+    <wsdl:part name="parameters" element="tns:EliminarPedidoPorId" />
+  </wsdl:message>
+  <wsdl:message name="EliminarPedidoPorIdSoapOut">
+    <wsdl:part name="parameters" element="tns:EliminarPedidoPorIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="DevolverListaPedidosPorClienteSoapIn">
+    <wsdl:part name="parameters" element="tns:DevolverListaPedidosPorCliente" />
+  </wsdl:message>
+  <wsdl:message name="DevolverListaPedidosPorClienteSoapOut">
+    <wsdl:part name="parameters" element="tns:DevolverListaPedidosPorClienteResponse" />
+  </wsdl:message>
+  <wsdl:message name="DevolverPedidoPorIdHttpGetIn">
+    <wsdl:part name="identificador" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DevolverPedidoPorIdHttpGetOut">
+    <wsdl:part name="Body" element="tns:PedidoEntidades" />
+  </wsdl:message>
+  <wsdl:message name="DevolverListaPedidosHttpGetIn" />
+  <wsdl:message name="DevolverListaPedidosHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfPedidoEntidades" />
+  </wsdl:message>
+  <wsdl:message name="EliminarPedidoPorIdHttpGetIn">
+    <wsdl:part name="identificador" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="EliminarPedidoPorIdHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="DevolverListaPedidosPorClienteHttpGetIn">
+    <wsdl:part name="idCliente" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DevolverListaPedidosPorClienteHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfPedidoEntidades" />
+  </wsdl:message>
+  <wsdl:message name="DevolverPedidoPorIdHttpPostIn">
+    <wsdl:part name="identificador" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DevolverPedidoPorIdHttpPostOut">
+    <wsdl:part name="Body" element="tns:PedidoEntidades" />
+  </wsdl:message>
+  <wsdl:message name="DevolverListaPedidosHttpPostIn" />
+  <wsdl:message name="DevolverListaPedidosHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfPedidoEntidades" />
+  </wsdl:message>
+  <wsdl:message name="EliminarPedidoPorIdHttpPostIn">
+    <wsdl:part name="identificador" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="EliminarPedidoPorIdHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="DevolverListaPedidosPorClienteHttpPostIn">
+    <wsdl:part name="idCliente" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DevolverListaPedidosPorClienteHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfPedidoEntidades" />
+  </wsdl:message>
+  <wsdl:portType name="PedidoAsmxSoap">
+    <wsdl:operation name="Nuevo">
+      <wsdl:input message="tns:NuevoSoapIn" />
+      <wsdl:output message="tns:NuevoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Actualizar">
+      <wsdl:input message="tns:ActualizarSoapIn" />
+      <wsdl:output message="tns:ActualizarSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DevolverPedidoPorId">
+      <wsdl:input message="tns:DevolverPedidoPorIdSoapIn" />
+      <wsdl:output message="tns:DevolverPedidoPorIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DevolverListaPedidos">
+      <wsdl:input message="tns:DevolverListaPedidosSoapIn" />
+      <wsdl:output message="tns:DevolverListaPedidosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarPedidoPorId">
+      <wsdl:input message="tns:EliminarPedidoPorIdSoapIn" />
+      <wsdl:output message="tns:EliminarPedidoPorIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DevolverListaPedidosPorCliente">
+      <wsdl:input message="tns:DevolverListaPedidosPorClienteSoapIn" />
+      <wsdl:output message="tns:DevolverListaPedidosPorClienteSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="PedidoAsmxHttpGet">
+    <wsdl:operation name="DevolverPedidoPorId">
+      <wsdl:input message="tns:DevolverPedidoPorIdHttpGetIn" />
+      <wsdl:output message="tns:DevolverPedidoPorIdHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DevolverListaPedidos">
+      <wsdl:input message="tns:DevolverListaPedidosHttpGetIn" />
+      <wsdl:output message="tns:DevolverListaPedidosHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarPedidoPorId">
+      <wsdl:input message="tns:EliminarPedidoPorIdHttpGetIn" />
+      <wsdl:output message="tns:EliminarPedidoPorIdHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DevolverListaPedidosPorCliente">
+      <wsdl:input message="tns:DevolverListaPedidosPorClienteHttpGetIn" />
+      <wsdl:output message="tns:DevolverListaPedidosPorClienteHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="PedidoAsmxHttpPost">
+    <wsdl:operation name="DevolverPedidoPorId">
+      <wsdl:input message="tns:DevolverPedidoPorIdHttpPostIn" />
+      <wsdl:output message="tns:DevolverPedidoPorIdHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DevolverListaPedidos">
+      <wsdl:input message="tns:DevolverListaPedidosHttpPostIn" />
+      <wsdl:output message="tns:DevolverListaPedidosHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarPedidoPorId">
+      <wsdl:input message="tns:EliminarPedidoPorIdHttpPostIn" />
+      <wsdl:output message="tns:EliminarPedidoPorIdHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DevolverListaPedidosPorCliente">
+      <wsdl:input message="tns:DevolverListaPedidosPorClienteHttpPostIn" />
+      <wsdl:output message="tns:DevolverListaPedidosPorClienteHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="PedidoAsmxSoap" type="tns:PedidoAsmxSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Nuevo">
+      <soap:operation soapAction="http://tempuri.org/Nuevo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Actualizar">
+      <soap:operation soapAction="http://tempuri.org/Actualizar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DevolverPedidoPorId">
+      <soap:operation soapAction="http://tempuri.org/DevolverPedidoPorId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DevolverListaPedidos">
+      <soap:operation soapAction="http://tempuri.org/DevolverListaPedidos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarPedidoPorId">
+      <soap:operation soapAction="http://tempuri.org/EliminarPedidoPorId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DevolverListaPedidosPorCliente">
+      <soap:operation soapAction="http://tempuri.org/DevolverListaPedidosPorCliente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="PedidoAsmxSoap12" type="tns:PedidoAsmxSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Nuevo">
+      <soap12:operation soapAction="http://tempuri.org/Nuevo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Actualizar">
+      <soap12:operation soapAction="http://tempuri.org/Actualizar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DevolverPedidoPorId">
+      <soap12:operation soapAction="http://tempuri.org/DevolverPedidoPorId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DevolverListaPedidos">
+      <soap12:operation soapAction="http://tempuri.org/DevolverListaPedidos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarPedidoPorId">
+      <soap12:operation soapAction="http://tempuri.org/EliminarPedidoPorId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DevolverListaPedidosPorCliente">
+      <soap12:operation soapAction="http://tempuri.org/DevolverListaPedidosPorCliente" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="PedidoAsmxHttpGet" type="tns:PedidoAsmxHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="DevolverPedidoPorId">
+      <http:operation location="/DevolverPedidoPorId" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DevolverListaPedidos">
+      <http:operation location="/DevolverListaPedidos" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarPedidoPorId">
+      <http:operation location="/EliminarPedidoPorId" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DevolverListaPedidosPorCliente">
+      <http:operation location="/DevolverListaPedidosPorCliente" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="PedidoAsmxHttpPost" type="tns:PedidoAsmxHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="DevolverPedidoPorId">
+      <http:operation location="/DevolverPedidoPorId" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DevolverListaPedidos">
+      <http:operation location="/DevolverListaPedidos" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarPedidoPorId">
+      <http:operation location="/EliminarPedidoPorId" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DevolverListaPedidosPorCliente">
+      <http:operation location="/DevolverListaPedidosPorCliente" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PedidoAsmx">
+    <wsdl:port name="PedidoAsmxSoap" binding="tns:PedidoAsmxSoap">
+      <soap:address location="http://proyectopedidos.somee.com/PedidoAsmx.asmx" />
+    </wsdl:port>
+    <wsdl:port name="PedidoAsmxSoap12" binding="tns:PedidoAsmxSoap12">
+      <soap12:address location="http://proyectopedidos.somee.com/PedidoAsmx.asmx" />
+    </wsdl:port>
+    <wsdl:port name="PedidoAsmxHttpGet" binding="tns:PedidoAsmxHttpGet">
+      <http:address location="http://proyectopedidos.somee.com/PedidoAsmx.asmx" />
+    </wsdl:port>
+    <wsdl:port name="PedidoAsmxHttpPost" binding="tns:PedidoAsmxHttpPost">
+      <http:address location="http://proyectopedidos.somee.com/PedidoAsmx.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

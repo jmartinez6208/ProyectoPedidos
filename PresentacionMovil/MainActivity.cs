@@ -54,40 +54,48 @@ namespace PresentacionMovil
 
         private void Login()
         {
-            try
+            if (usuario.Text.Equals("") || contraseña.Text.Equals(""))
             {
-                usuarioEntidad = clienteAsmx.DevolverUsuario(usuario.Text);
-                var tipoUsuario = usuarioEntidad.IdTipoUsuario;
-                if (usuarioEntidad != null)
+                Toast.MakeText(Application.Context, "Campos incompletos", ToastLength.Short).Show();
+            }
+            else {
+                try
                 {
-                    //Usuario Tipo Cliente
-                    if (usuarioEntidad.Contraseña.Equals(contraseña.Text) && tipoUsuario.Equals(2))
+                    usuarioEntidad = clienteAsmx.DevolverUsuario(usuario.Text);
+                    var tipoUsuario = usuarioEntidad.IdTipoUsuario;
+                    if (usuarioEntidad != null)
                     {
-                        
-                        var intent = new Intent(this, typeof(PedidosActivity));
-                        StartActivity(intent);
+                        //Usuario Tipo Cliente
+                        if (usuarioEntidad.Contraseña.Equals(contraseña.Text) && tipoUsuario.Equals(2))
+                        {
 
-                    //Usuario Tipo Repartidor
-                    }
-                    else if (usuarioEntidad.Contraseña.Equals(contraseña.Text) && tipoUsuario.Equals(3))
-                    {
-                        //intent Repartidor
+                            var intent = new Intent(this, typeof(PedidosActivity));
+                            intent.PutExtra("username", usuarioEntidad.User);
+                            StartActivity(intent);
+
+                            //Usuario Tipo Repartidor
+                        }
+                        else if (usuarioEntidad.Contraseña.Equals(contraseña.Text) && tipoUsuario.Equals(3))
+                        {
+                            //intent Repartidor
+                        }
+                        else
+                        {
+                            Toast.MakeText(Application.Context, "Contraseña incorrecta", ToastLength.Short).Show();
+                        }
                     }
                     else
                     {
-                        Toast.MakeText(Application.Context, "Contraseña incorrecta", ToastLength.Short).Show();
+                        Toast.MakeText(Application.Context, "El usuario: " + usuario.Text + " no existe", ToastLength.Short).Show();
                     }
                 }
-                else
+                catch (Exception ez)
                 {
                     Toast.MakeText(Application.Context, "El usuario: " + usuario.Text + " no existe", ToastLength.Short).Show();
                 }
+
             }
-            catch (Exception ez)
-            {
-                string mensaje = ez.Message.ToString();
-                throw;
-            }
+            
         }
 
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)

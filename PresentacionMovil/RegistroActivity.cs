@@ -36,23 +36,38 @@ namespace PresentacionMovil
 
         private bool RegistrarUsuario()
         {
-            //usuario tipo cliente
-            usuarioEntidad.Nombre = nombre.Text;
-            usuarioEntidad.User = usuario.Text;
-            usuarioEntidad.Contraseña = contraseña.Text;
-            usuarioEntidad.IdTipoUsuario = 2;
-
-            //seteando fecha actual
-            DateTime fechaCreacion = DateTime.Now;
-            usuarioEntidad.FechaCreacion = fechaCreacion;
-
-            usuarioEntidad = clienteAsmx.Nuevo(usuarioEntidad);
-            if (usuarioEntidad != null)
+            if (nombre.Text.Equals("") || usuario.Text.Equals("") || contraseña.Text.Equals(""))
             {
-                Toast.MakeText(Application.Context, "Usuario registrado correctamente.", ToastLength.Short).Show();
-                return true;
+                Toast.MakeText(Application.Context, "Campos Incompletos", ToastLength.Short).Show();
             }
-            return false; 
+            else 
+            {
+                //usuario tipo cliente
+                usuarioEntidad.Nombre = nombre.Text;
+                usuarioEntidad.User = usuario.Text;
+                usuarioEntidad.Contraseña = contraseña.Text;
+                usuarioEntidad.IdTipoUsuario = 2;
+
+                //seteando fecha actual
+                DateTime fechaCreacion = DateTime.Now;
+                usuarioEntidad.FechaCreacion = fechaCreacion;
+
+                UsuarioEntidades usuarioAux = clienteAsmx.DevolverUsuario(usuarioEntidad.User);
+                if (usuarioAux != null)
+                {
+                    Toast.MakeText(Application.Context, "Usuario ya existe en la base de datos", ToastLength.Short).Show();
+                    return false;
+                }
+
+                usuarioEntidad = clienteAsmx.Nuevo(usuarioEntidad);
+                if (usuarioEntidad != null)
+                {
+                    Toast.MakeText(Application.Context, "Usuario registrado correctamente.", ToastLength.Short).Show();
+                    return true;
+                }
+            }
+            return false;
+
         }
 
         private void Registrar_Click(object sender, EventArgs e)
@@ -68,7 +83,7 @@ namespace PresentacionMovil
 
         private void Cancelar_Click(object sender, EventArgs e)
         {
-
+            this.Finish();
         }
 
         //Referencias Botones

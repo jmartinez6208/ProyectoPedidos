@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
       <s:element name="Nuevo">
@@ -40,6 +40,7 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="UsuarioEntidades" nillable="true" type="tns:UsuarioEntidades" />
     </s:schema>
   </wsdl:types>
   <wsdl:message name="NuevoSoapIn">
@@ -54,6 +55,18 @@
   <wsdl:message name="DevolverUsuarioSoapOut">
     <wsdl:part name="parameters" element="tns:DevolverUsuarioResponse" />
   </wsdl:message>
+  <wsdl:message name="DevolverUsuarioHttpGetIn">
+    <wsdl:part name="username" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DevolverUsuarioHttpGetOut">
+    <wsdl:part name="Body" element="tns:UsuarioEntidades" />
+  </wsdl:message>
+  <wsdl:message name="DevolverUsuarioHttpPostIn">
+    <wsdl:part name="username" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DevolverUsuarioHttpPostOut">
+    <wsdl:part name="Body" element="tns:UsuarioEntidades" />
+  </wsdl:message>
   <wsdl:portType name="UsuarioAsmxSoap">
     <wsdl:operation name="Nuevo">
       <wsdl:input message="tns:NuevoSoapIn" />
@@ -62,6 +75,18 @@
     <wsdl:operation name="DevolverUsuario">
       <wsdl:input message="tns:DevolverUsuarioSoapIn" />
       <wsdl:output message="tns:DevolverUsuarioSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="UsuarioAsmxHttpGet">
+    <wsdl:operation name="DevolverUsuario">
+      <wsdl:input message="tns:DevolverUsuarioHttpGetIn" />
+      <wsdl:output message="tns:DevolverUsuarioHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="UsuarioAsmxHttpPost">
+    <wsdl:operation name="DevolverUsuario">
+      <wsdl:input message="tns:DevolverUsuarioHttpPostIn" />
+      <wsdl:output message="tns:DevolverUsuarioHttpPostOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="UsuarioAsmxSoap" type="tns:UsuarioAsmxSoap">
@@ -106,12 +131,42 @@
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
+  <wsdl:binding name="UsuarioAsmxHttpGet" type="tns:UsuarioAsmxHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="DevolverUsuario">
+      <http:operation location="/DevolverUsuario" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="UsuarioAsmxHttpPost" type="tns:UsuarioAsmxHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="DevolverUsuario">
+      <http:operation location="/DevolverUsuario" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
   <wsdl:service name="UsuarioAsmx">
     <wsdl:port name="UsuarioAsmxSoap" binding="tns:UsuarioAsmxSoap">
-      <soap:address location="http://192.168.100.204:555/UsuarioAsmx.asmx" />
+      <soap:address location="http://proyectopedidos.somee.com/UsuarioAsmx.asmx" />
     </wsdl:port>
     <wsdl:port name="UsuarioAsmxSoap12" binding="tns:UsuarioAsmxSoap12">
-      <soap12:address location="http://192.168.100.204:555/UsuarioAsmx.asmx" />
+      <soap12:address location="http://proyectopedidos.somee.com/UsuarioAsmx.asmx" />
+    </wsdl:port>
+    <wsdl:port name="UsuarioAsmxHttpGet" binding="tns:UsuarioAsmxHttpGet">
+      <http:address location="http://proyectopedidos.somee.com/UsuarioAsmx.asmx" />
+    </wsdl:port>
+    <wsdl:port name="UsuarioAsmxHttpPost" binding="tns:UsuarioAsmxHttpPost">
+      <http:address location="http://proyectopedidos.somee.com/UsuarioAsmx.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>
