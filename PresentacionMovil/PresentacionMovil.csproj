@@ -86,6 +86,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
+    <Compile Include="Web References\wcfPedido\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
     <Compile Include="Web References\wcfUsuario\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -111,6 +116,23 @@
     <None Include="Web References\asmxUsuario\UsuarioAsmx.wsdl" />
     <None Include="Web References\asmxUsuario\UsuarioEntidades.datasource">
       <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\wcfPedido\PedidoEntidades.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\wcfPedido\PedidoWCF.wsdl" />
+    <None Include="Web References\wcfPedido\PedidoWCF.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\wcfPedido\PedidoWCF0.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\wcfPedido\PedidoWCF1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\wcfPedido\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <None Include="Web References\wcfUsuario\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
@@ -201,10 +223,10 @@
     <WebReferences Include="Web References\" />
   </ItemGroup>
   <ItemGroup>
-    <WebReferenceUrl Include="http://localhost:55303/UsuarioWCF.svc">
+    <WebReferenceUrl Include="http://proyectopedidos.somee.com/PedidoAsmx.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
-      <RelPath>Web References\wcfUsuario\</RelPath>
-      <UpdateFromURL>http://localhost:55303/UsuarioWCF.svc</UpdateFromURL>
+      <RelPath>Web References\asmxPedido\</RelPath>
+      <UpdateFromURL>http://proyectopedidos.somee.com/PedidoAsmx.asmx</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>
@@ -214,10 +236,10 @@
       <CachedSettingsPropName>
       </CachedSettingsPropName>
     </WebReferenceUrl>
-    <WebReferenceUrl Include="http://proyectopedidos.somee.com/PedidoAsmx.asmx">
+    <WebReferenceUrl Include="http://proyectopedidos.somee.com/PedidoWCF.svc">
       <UrlBehavior>Dynamic</UrlBehavior>
-      <RelPath>Web References\asmxPedido\</RelPath>
-      <UpdateFromURL>http://proyectopedidos.somee.com/PedidoAsmx.asmx</UpdateFromURL>
+      <RelPath>Web References\wcfPedido\</RelPath>
+      <UpdateFromURL>http://proyectopedidos.somee.com/PedidoWCF.svc</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>
@@ -240,12 +262,19 @@
       <CachedSettingsPropName>
       </CachedSettingsPropName>
     </WebReferenceUrl>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Web References\wcfUsuario\UsuarioWCF.disco" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Web References\asmxUsuario\UsuarioAsmx.disco" />
+    <WebReferenceUrl Include="http://proyectopedidos.somee.com/UsuarioWCF.svc">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\wcfUsuario\</RelPath>
+      <UpdateFromURL>http://proyectopedidos.somee.com/UsuarioWCF.svc</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>
+      </CachedAppSettingsObjectName>
+      <CachedSettingsPropName>
+      </CachedSettingsPropName>
+    </WebReferenceUrl>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Entidades\Entidades.csproj">
@@ -254,7 +283,16 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Web References\asmxUsuario\UsuarioAsmx.disco" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="Web References\asmxPedido\PedidoAsmx.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\wcfUsuario\UsuarioWCF.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\wcfPedido\PedidoWCF.disco" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

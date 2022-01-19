@@ -9,7 +9,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-using PresentacionMovil.asmxPedido;
+//using PresentacionMovil.asmxPedido;
+using PresentacionMovil.wcfPedido;
 
 namespace PresentacionMovil.Adaptadores
 {

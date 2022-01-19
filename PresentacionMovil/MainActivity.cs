@@ -5,8 +5,8 @@ using Android.Runtime;
 using AndroidX.AppCompat.App;
 using System;
 
-//using PresentacionMovil.wcfUsuario;
-using PresentacionMovil.asmxUsuario;
+using PresentacionMovil.wcfUsuario;
+//using PresentacionMovil.asmxUsuario;
 using Android.Widget;
 
 namespace PresentacionMovil
@@ -14,9 +14,9 @@ namespace PresentacionMovil
     [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = true)]
     public class MainActivity : AppCompatActivity
     {
-        //UsuarioWCF clienteWCF = new UsuarioWCF();
-        UsuarioAsmx clienteAsmx = new UsuarioAsmx();
-        UsuarioEntidades usuarioEntidad;
+        private UsuarioWCF clienteWCF = new UsuarioWCF();
+        //private UsuarioAsmx clienteAsmx = new UsuarioAsmx();
+        private UsuarioEntidades usuarioEntidad;
         private EditText usuario, contraseña;
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -61,7 +61,7 @@ namespace PresentacionMovil
             else {
                 try
                 {
-                    usuarioEntidad = clienteAsmx.DevolverUsuario(usuario.Text);
+                    usuarioEntidad = clienteWCF.DevolverUsuario(usuario.Text);
                     var tipoUsuario = usuarioEntidad.IdTipoUsuario;
                     if (usuarioEntidad != null)
                     {
@@ -98,12 +98,12 @@ namespace PresentacionMovil
             
         }
 
-        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
+        /*public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {
             Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
 
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
-        }
+        }*/
 
        /* public async bool Login(string user, string password)
         {

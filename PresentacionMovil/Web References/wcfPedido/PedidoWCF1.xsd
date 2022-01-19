@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Entidades" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Entidades" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="PedidoEntidades">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Estado" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FechaCreacion" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="IdCliente" type="xs:int" />
+      <xs:element minOccurs="0" name="IdRepartidor" type="xs:int" />
+      <xs:element minOccurs="0" name="Total" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PedidoEntidades" nillable="true" type="tns:PedidoEntidades" />
+  <xs:complexType name="ArrayOfPedidoEntidades">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PedidoEntidades" nillable="true" type="tns:PedidoEntidades" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPedidoEntidades" nillable="true" type="tns:ArrayOfPedidoEntidades" />
+</xs:schema>

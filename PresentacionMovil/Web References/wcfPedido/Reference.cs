@@ -13,7 +13,7 @@
 // 
 #pragma warning disable 1591
 
-namespace PresentacionMovil.asmxPedido {
+namespace PresentacionMovil.wcfPedido {
     using System;
     using System.Web.Services;
     using System.Diagnostics;
@@ -26,8 +26,8 @@ namespace PresentacionMovil.asmxPedido {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Web.Services.WebServiceBindingAttribute(Name="PedidoAsmxSoap", Namespace="http://tempuri.org/")]
-    public partial class PedidoAsmx : System.Web.Services.Protocols.SoapHttpClientProtocol {
+    [System.Web.Services.WebServiceBindingAttribute(Name="BasicHttpBinding_IPedidoWCF", Namespace="http://tempuri.org/")]
+    public partial class PedidoWCF : System.Web.Services.Protocols.SoapHttpClientProtocol {
         
         private System.Threading.SendOrPostCallback NuevoOperationCompleted;
         
@@ -44,8 +44,8 @@ namespace PresentacionMovil.asmxPedido {
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
-        public PedidoAsmx() {
-            this.Url = "http://proyectopedidos.somee.com/PedidoAsmx.asmx";
+        public PedidoWCF() {
+            this.Url = "http://proyectopedidos.somee.com/PedidoWCF.svc";
             if ((this.IsLocalFileSystemWebService(this.Url) == true)) {
                 this.UseDefaultCredentials = true;
                 this.useDefaultCredentialsSetExplicitly = false;
@@ -98,8 +98,9 @@ namespace PresentacionMovil.asmxPedido {
         public event DevolverListaPedidosPorClienteCompletedEventHandler DevolverListaPedidosPorClienteCompleted;
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/Nuevo", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public PedidoEntidades Nuevo(PedidoEntidades pedido) {
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IPedidoWCF/Nuevo", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public PedidoEntidades Nuevo([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] PedidoEntidades pedido) {
             object[] results = this.Invoke("Nuevo", new object[] {
                         pedido});
             return ((PedidoEntidades)(results[0]));
@@ -127,8 +128,9 @@ namespace PresentacionMovil.asmxPedido {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/Actualizar", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public PedidoEntidades Actualizar(PedidoEntidades pedido) {
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IPedidoWCF/Actualizar", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public PedidoEntidades Actualizar([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] PedidoEntidades pedido) {
             object[] results = this.Invoke("Actualizar", new object[] {
                         pedido});
             return ((PedidoEntidades)(results[0]));
@@ -156,25 +158,28 @@ namespace PresentacionMovil.asmxPedido {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/DevolverPedidoPorId", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public PedidoEntidades DevolverPedidoPorId(int identificador) {
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IPedidoWCF/DevolverPedidoPorId", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public PedidoEntidades DevolverPedidoPorId(int identificador, [System.Xml.Serialization.XmlIgnoreAttribute()] bool identificadorSpecified) {
             object[] results = this.Invoke("DevolverPedidoPorId", new object[] {
-                        identificador});
+                        identificador,
+                        identificadorSpecified});
             return ((PedidoEntidades)(results[0]));
         }
         
         /// <remarks/>
-        public void DevolverPedidoPorIdAsync(int identificador) {
-            this.DevolverPedidoPorIdAsync(identificador, null);
+        public void DevolverPedidoPorIdAsync(int identificador, bool identificadorSpecified) {
+            this.DevolverPedidoPorIdAsync(identificador, identificadorSpecified, null);
         }
         
         /// <remarks/>
-        public void DevolverPedidoPorIdAsync(int identificador, object userState) {
+        public void DevolverPedidoPorIdAsync(int identificador, bool identificadorSpecified, object userState) {
             if ((this.DevolverPedidoPorIdOperationCompleted == null)) {
                 this.DevolverPedidoPorIdOperationCompleted = new System.Threading.SendOrPostCallback(this.OnDevolverPedidoPorIdOperationCompleted);
             }
             this.InvokeAsync("DevolverPedidoPorId", new object[] {
-                        identificador}, this.DevolverPedidoPorIdOperationCompleted, userState);
+                        identificador,
+                        identificadorSpecified}, this.DevolverPedidoPorIdOperationCompleted, userState);
         }
         
         private void OnDevolverPedidoPorIdOperationCompleted(object arg) {
@@ -185,7 +190,9 @@ namespace PresentacionMovil.asmxPedido {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/DevolverListaPedidos", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IPedidoWCF/DevolverListaPedidos", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
+        [return: System.Xml.Serialization.XmlArrayItemAttribute(Namespace="http://schemas.datacontract.org/2004/07/Entidades")]
         public PedidoEntidades[] DevolverListaPedidos() {
             object[] results = this.Invoke("DevolverListaPedidos", new object[0]);
             return ((PedidoEntidades[])(results[0]));
@@ -212,25 +219,28 @@ namespace PresentacionMovil.asmxPedido {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/EliminarPedidoPorId", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public bool EliminarPedidoPorId(int identificador) {
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IPedidoWCF/EliminarPedidoPorId", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void EliminarPedidoPorId(int identificador, [System.Xml.Serialization.XmlIgnoreAttribute()] bool identificadorSpecified, out bool EliminarPedidoPorIdResult, [System.Xml.Serialization.XmlIgnoreAttribute()] out bool EliminarPedidoPorIdResultSpecified) {
             object[] results = this.Invoke("EliminarPedidoPorId", new object[] {
-                        identificador});
-            return ((bool)(results[0]));
+                        identificador,
+                        identificadorSpecified});
+            EliminarPedidoPorIdResult = ((bool)(results[0]));
+            EliminarPedidoPorIdResultSpecified = ((bool)(results[1]));
         }
         
         /// <remarks/>
-        public void EliminarPedidoPorIdAsync(int identificador) {
-            this.EliminarPedidoPorIdAsync(identificador, null);
+        public void EliminarPedidoPorIdAsync(int identificador, bool identificadorSpecified) {
+            this.EliminarPedidoPorIdAsync(identificador, identificadorSpecified, null);
         }
         
         /// <remarks/>
-        public void EliminarPedidoPorIdAsync(int identificador, object userState) {
+        public void EliminarPedidoPorIdAsync(int identificador, bool identificadorSpecified, object userState) {
             if ((this.EliminarPedidoPorIdOperationCompleted == null)) {
                 this.EliminarPedidoPorIdOperationCompleted = new System.Threading.SendOrPostCallback(this.OnEliminarPedidoPorIdOperationCompleted);
             }
             this.InvokeAsync("EliminarPedidoPorId", new object[] {
-                        identificador}, this.EliminarPedidoPorIdOperationCompleted, userState);
+                        identificador,
+                        identificadorSpecified}, this.EliminarPedidoPorIdOperationCompleted, userState);
         }
         
         private void OnEliminarPedidoPorIdOperationCompleted(object arg) {
@@ -241,25 +251,29 @@ namespace PresentacionMovil.asmxPedido {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/DevolverListaPedidosPorCliente", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public PedidoEntidades[] DevolverListaPedidosPorCliente(int idCliente) {
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IPedidoWCF/DevolverListaPedidosPorCliente", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
+        [return: System.Xml.Serialization.XmlArrayItemAttribute(Namespace="http://schemas.datacontract.org/2004/07/Entidades")]
+        public PedidoEntidades[] DevolverListaPedidosPorCliente(int idCliente, [System.Xml.Serialization.XmlIgnoreAttribute()] bool idClienteSpecified) {
             object[] results = this.Invoke("DevolverListaPedidosPorCliente", new object[] {
-                        idCliente});
+                        idCliente,
+                        idClienteSpecified});
             return ((PedidoEntidades[])(results[0]));
         }
         
         /// <remarks/>
-        public void DevolverListaPedidosPorClienteAsync(int idCliente) {
-            this.DevolverListaPedidosPorClienteAsync(idCliente, null);
+        public void DevolverListaPedidosPorClienteAsync(int idCliente, bool idClienteSpecified) {
+            this.DevolverListaPedidosPorClienteAsync(idCliente, idClienteSpecified, null);
         }
         
         /// <remarks/>
-        public void DevolverListaPedidosPorClienteAsync(int idCliente, object userState) {
+        public void DevolverListaPedidosPorClienteAsync(int idCliente, bool idClienteSpecified, object userState) {
             if ((this.DevolverListaPedidosPorClienteOperationCompleted == null)) {
                 this.DevolverListaPedidosPorClienteOperationCompleted = new System.Threading.SendOrPostCallback(this.OnDevolverListaPedidosPorClienteOperationCompleted);
             }
             this.InvokeAsync("DevolverListaPedidosPorCliente", new object[] {
-                        idCliente}, this.DevolverListaPedidosPorClienteOperationCompleted, userState);
+                        idCliente,
+                        idClienteSpecified}, this.DevolverListaPedidosPorClienteOperationCompleted, userState);
         }
         
         private void OnDevolverListaPedidosPorClienteOperationCompleted(object arg) {
@@ -293,48 +307,39 @@ namespace PresentacionMovil.asmxPedido {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/Entidades")]
     public partial class PedidoEntidades {
-        
-        private int idField;
-        
-        private int idClienteField;
-        
-        private int idRepartidorField;
-        
-        private System.DateTime fechaCreacionField;
         
         private string estadoField;
         
+        private System.DateTime fechaCreacionField;
+        
+        private bool fechaCreacionFieldSpecified;
+        
+        private int idField;
+        
+        private bool idFieldSpecified;
+        
+        private int idClienteField;
+        
+        private bool idClienteFieldSpecified;
+        
+        private int idRepartidorField;
+        
+        private bool idRepartidorFieldSpecified;
+        
         private double totalField;
         
-        /// <remarks/>
-        public int Id {
-            get {
-                return this.idField;
-            }
-            set {
-                this.idField = value;
-            }
-        }
+        private bool totalFieldSpecified;
         
         /// <remarks/>
-        public int IdCliente {
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string Estado {
             get {
-                return this.idClienteField;
+                return this.estadoField;
             }
             set {
-                this.idClienteField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int IdRepartidor {
-            get {
-                return this.idRepartidorField;
-            }
-            set {
-                this.idRepartidorField = value;
+                this.estadoField = value;
             }
         }
         
@@ -349,12 +354,76 @@ namespace PresentacionMovil.asmxPedido {
         }
         
         /// <remarks/>
-        public string Estado {
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool FechaCreacionSpecified {
             get {
-                return this.estadoField;
+                return this.fechaCreacionFieldSpecified;
             }
             set {
-                this.estadoField = value;
+                this.fechaCreacionFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int Id {
+            get {
+                return this.idField;
+            }
+            set {
+                this.idField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool IdSpecified {
+            get {
+                return this.idFieldSpecified;
+            }
+            set {
+                this.idFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int IdCliente {
+            get {
+                return this.idClienteField;
+            }
+            set {
+                this.idClienteField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool IdClienteSpecified {
+            get {
+                return this.idClienteFieldSpecified;
+            }
+            set {
+                this.idClienteFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int IdRepartidor {
+            get {
+                return this.idRepartidorField;
+            }
+            set {
+                this.idRepartidorField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool IdRepartidorSpecified {
+            get {
+                return this.idRepartidorFieldSpecified;
+            }
+            set {
+                this.idRepartidorFieldSpecified = value;
             }
         }
         
@@ -365,6 +434,17 @@ namespace PresentacionMovil.asmxPedido {
             }
             set {
                 this.totalField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool TotalSpecified {
+            get {
+                return this.totalFieldSpecified;
+            }
+            set {
+                this.totalFieldSpecified = value;
             }
         }
     }
@@ -491,10 +571,18 @@ namespace PresentacionMovil.asmxPedido {
         }
         
         /// <remarks/>
-        public bool Result {
+        public bool EliminarPedidoPorIdResult {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((bool)(this.results[0]));
+            }
+        }
+        
+        /// <remarks/>
+        public bool EliminarPedidoPorIdResultSpecified {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[1]));
             }
         }
     }

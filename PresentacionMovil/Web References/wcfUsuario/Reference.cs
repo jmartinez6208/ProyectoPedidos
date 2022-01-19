@@ -37,7 +37,7 @@ namespace PresentacionMovil.wcfUsuario {
         
         /// <remarks/>
         public UsuarioWCF() {
-            this.Url = "http://localhost:55303/UsuarioWCF.svc";
+            this.Url = "http://proyectopedidos.somee.com/UsuarioWCF.svc";
             if ((this.IsLocalFileSystemWebService(this.Url) == true)) {
                 this.UseDefaultCredentials = true;
                 this.useDefaultCredentialsSetExplicitly = false;

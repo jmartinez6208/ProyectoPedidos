@@ -9,8 +9,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-using PresentacionMovil.asmxUsuario;
-using PresentacionMovil.asmxPedido;
+using PresentacionMovil.wcfPedido;
+using PresentacionMovil.wcfUsuario;
+
+//using PresentacionMovil.asmxUsuario;
+//using PresentacionMovil.asmxPedido;
 using PresentacionMovil.Adaptadores;
 
 namespace PresentacionMovil
@@ -18,10 +21,16 @@ namespace PresentacionMovil
     [Activity(Label = "PedidosActivity")]
     public class PedidosActivity : Activity
     {
-        private UsuarioAsmx clienteAsmx = new UsuarioAsmx();
+
+        private UsuarioWCF clienteWCF = new UsuarioWCF();
+        //private UsuarioAsmx clienteAsmx = new UsuarioAsmx();
         private UsuarioEntidades usuarioEntidad = new UsuarioEntidades();
 
-        private PedidoAsmx pedidoAsmx = new PedidoAsmx();
+
+        private PedidoWCF pedidoWCF = new PedidoWCF();
+        //private PedidoAsmx pedidoAsmx = new PedidoAsmx();
+        private List<PedidoEntidades> pedidoEntidad = new List<PedidoEntidades>();
+
 
         TextView bienvenido;
         ListView pedidosListView;
@@ -44,11 +53,10 @@ namespace PresentacionMovil
         private void inicializarDatos()
         {
             var username = Intent.Extras.GetString("username");
-            usuarioEntidad = clienteAsmx.DevolverUsuario(username);
+            usuarioEntidad = clienteWCF.DevolverUsuario(username);
             bienvenido.Text = "Bienvenido " + usuarioEntidad.Nombre;
 
-            
-            var pedidoEntidad = pedidoAsmx.DevolverListaPedidos().ToList();
+            pedidoEntidad = pedidoWCF.DevolverListaPedidosPorCliente(usuarioEntidad.Id, true).ToList();
             pedidosListView.Adapter = new PedidosAdapter(this, pedidoEntidad);
         }
     }
