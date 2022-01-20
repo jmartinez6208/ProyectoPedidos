@@ -10,14 +10,17 @@ using System.Linq;
 using System.Text;
 using AndroidX.AppCompat.App;
 
-using PresentacionMovil.asmxUsuario;
+//using PresentacionMovil.asmxUsuario;
+using PresentacionMovil.wcfUsuario;
+
 
 namespace PresentacionMovil
 {
     [Activity(Label = "@string/app_name", Theme = "@style/AppTheme")]
     public class RegistroActivity : Activity
     {
-        private UsuarioAsmx clienteAsmx = new UsuarioAsmx();
+        //private UsuarioAsmx clienteAsmx = new UsuarioAsmx();
+        private UsuarioWCF clienteWCF = new UsuarioWCF();
         private EditText nombre, usuario, contraseña;
         private UsuarioEntidades usuarioEntidad = new UsuarioEntidades();
 
@@ -39,34 +42,48 @@ namespace PresentacionMovil
             if (nombre.Text.Equals("") || usuario.Text.Equals("") || contraseña.Text.Equals(""))
             {
                 Toast.MakeText(Application.Context, "Campos Incompletos", ToastLength.Short).Show();
+                return false;
             }
             else 
             {
-                //usuario tipo cliente
-                usuarioEntidad.Nombre = nombre.Text;
-                usuarioEntidad.User = usuario.Text;
-                usuarioEntidad.Contraseña = contraseña.Text;
-                usuarioEntidad.IdTipoUsuario = 2;
-
-                //seteando fecha actual
-                DateTime fechaCreacion = DateTime.Now;
-                usuarioEntidad.FechaCreacion = fechaCreacion;
-
-                UsuarioEntidades usuarioAux = clienteAsmx.DevolverUsuario(usuarioEntidad.User);
-                if (usuarioAux != null)
+                try
                 {
-                    Toast.MakeText(Application.Context, "Usuario ya existe en la base de datos", ToastLength.Short).Show();
+                    //usuario tipo cliente
+                    usuarioEntidad.Nombre = nombre.Text;
+                    usuarioEntidad.User = usuario.Text;
+                    usuarioEntidad.Contraseña = contraseña.Text;
+                    usuarioEntidad.IdTipoUsuario = 2;
+                    usuarioEntidad.IdTipoUsuarioSpecified = true;
+
+                    //seteando fecha actual
+                    DateTime fechaCreacion = DateTime.Now;
+                    usuarioEntidad.FechaCreacion = fechaCreacion;
+                    
+
+                    UsuarioEntidades usuarioAux = clienteWCF.DevolverUsuario(usuarioEntidad.User);
+                    if (usuarioAux != null)
+                    {
+                        Toast.MakeText(Application.Context, "Usuario ya existe en la base de datos", ToastLength.Short).Show();
+                        return false;
+                    }
+
+                    usuarioEntidad = clienteWCF.Nuevo(usuarioEntidad);
+                    if (usuarioEntidad != null)
+                    {
+                        Toast.MakeText(Application.Context, "Usuario registrado correctamente.", ToastLength.Short).Show();
+                        return true;
+                    }
                     return false;
                 }
-
-                usuarioEntidad = clienteAsmx.Nuevo(usuarioEntidad);
-                if (usuarioEntidad != null)
+                catch (Exception)
                 {
-                    Toast.MakeText(Application.Context, "Usuario registrado correctamente.", ToastLength.Short).Show();
-                    return true;
+                    Toast.MakeText(Application.Context, "No se pudo registrar el usuario!", ToastLength.Short).Show();
+                    return false;
+                    throw;
                 }
+                
             }
-            return false;
+            
 
         }
 

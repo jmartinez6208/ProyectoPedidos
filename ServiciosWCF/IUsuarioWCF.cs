@@ -14,9 +14,11 @@ namespace ServiciosWCF
     public interface IUsuarioWCF
     {
         [OperationContract]
+        [FaultContract(typeof(UsuarioWCF))]
         UsuarioEntidades DevolverUsuario(string username);
 
         [OperationContract]
+        [FaultContract(typeof(UsuarioWCF))]
         UsuarioEntidades Nuevo(UsuarioEntidades usuario);
     }
 }

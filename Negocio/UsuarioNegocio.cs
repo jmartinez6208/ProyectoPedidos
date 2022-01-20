@@ -13,12 +13,8 @@ namespace Negocio
     {
         public static UsuarioEntidades Nuevo(UsuarioEntidades usuario)
         {
-            UsuarioEntidades usuarioValidado = DevolverUsuario(usuario.User);
-            if (usuarioValidado == null)
-            {
-                return UsuarioDatos.Nuevo(usuario);
-            }
-            return null;
+             return UsuarioDatos.Nuevo(usuario);
+            
             
         }
 

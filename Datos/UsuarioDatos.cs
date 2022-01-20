@@ -15,12 +15,12 @@ namespace Datos
             try
             {
                 Usuarios usuarioLQ = new Usuarios();
-                usuarioLQ.id = usuario.Id;
-                usuarioLQ.idTipoUsuario = usuario.IdTipoUsuario;
+                //usuarioLQ.id = usuario.Id;
                 usuarioLQ.nombre = usuario.Nombre;
                 usuarioLQ.usuario = usuario.User;
-                usuarioLQ.fechaCreacion = usuario.FechaCreacion;
                 usuarioLQ.contraseña = usuario.Contraseña;
+                usuarioLQ.idTipoUsuario = usuario.IdTipoUsuario;
+                usuarioLQ.fechaCreacion = usuario.FechaCreacion;
 
                 using (var ctx = new DataClasses1DataContext())
                 {

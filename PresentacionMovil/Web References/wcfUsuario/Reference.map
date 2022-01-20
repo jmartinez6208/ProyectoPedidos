@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <DiscoveryClientResultsFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Results>
-    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://proyectopedidos.somee.com/UsuarioWCF.svc?xsd=xsd1" filename="UsuarioWCF.xsd" />
-    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://proyectopedidos.somee.com/UsuarioWCF.svc?xsd=xsd2" filename="UsuarioWCF0.xsd" />
-    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.ContractReference" url="http://proyectopedidos.somee.com/UsuarioWCF.svc?wsdl" filename="UsuarioWCF.wsdl" />
-    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://proyectopedidos.somee.com/UsuarioWCF.svc?xsd=xsd0" filename="UsuarioWCF1.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://proyectopedidos.somee.com/UsuarioWCF.svc?xsd=xsd3" filename="UsuarioWCF.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://proyectopedidos.somee.com/UsuarioWCF.svc?xsd=xsd0" filename="UsuarioWCF0.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://proyectopedidos.somee.com/UsuarioWCF.svc?xsd=xsd2" filename="UsuarioWCF1.xsd" />
     <DiscoveryClientResult referenceType="System.Web.Services.Discovery.DiscoveryDocumentReference" url="http://proyectopedidos.somee.com/UsuarioWCF.svc?disco" filename="UsuarioWCF.disco" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.ContractReference" url="http://proyectopedidos.somee.com/UsuarioWCF.svc?wsdl" filename="UsuarioWCF.wsdl" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://proyectopedidos.somee.com/UsuarioWCF.svc?xsd=xsd1" filename="UsuarioWCF2.xsd" />
   </Results>
 </DiscoveryClientResultsFile>

@@ -76,16 +76,6 @@
     <Compile Include="RegistroActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Web References\asmxPedido\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.map</DependentUpon>
-    </Compile>
-    <Compile Include="Web References\asmxUsuario\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.map</DependentUpon>
-    </Compile>
     <Compile Include="Web References\wcfPedido\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -101,22 +91,6 @@
     <None Include="Resources\AboutResources.txt" />
     <None Include="Properties\AndroidManifest.xml" />
     <None Include="Assets\AboutAssets.txt" />
-    <None Include="Web References\asmxPedido\PedidoAsmx.wsdl" />
-    <None Include="Web References\asmxPedido\PedidoEntidades.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\asmxPedido\Reference.map">
-      <Generator>MSDiscoCodeGenerator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-    <None Include="Web References\asmxUsuario\Reference.map">
-      <Generator>MSDiscoCodeGenerator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-    <None Include="Web References\asmxUsuario\UsuarioAsmx.wsdl" />
-    <None Include="Web References\asmxUsuario\UsuarioEntidades.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </None>
     <None Include="Web References\wcfPedido\PedidoEntidades.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
@@ -149,6 +123,9 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Web References\wcfUsuario\UsuarioWCF1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\wcfUsuario\UsuarioWCF2.xsd">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
@@ -223,36 +200,16 @@
     <WebReferences Include="Web References\" />
   </ItemGroup>
   <ItemGroup>
-    <WebReferenceUrl Include="http://proyectopedidos.somee.com/PedidoAsmx.asmx">
-      <UrlBehavior>Dynamic</UrlBehavior>
-      <RelPath>Web References\asmxPedido\</RelPath>
-      <UpdateFromURL>http://proyectopedidos.somee.com/PedidoAsmx.asmx</UpdateFromURL>
-      <ServiceLocationURL>
-      </ServiceLocationURL>
-      <CachedDynamicPropName>
-      </CachedDynamicPropName>
-      <CachedAppSettingsObjectName>
-      </CachedAppSettingsObjectName>
-      <CachedSettingsPropName>
-      </CachedSettingsPropName>
-    </WebReferenceUrl>
+    <ProjectReference Include="..\Entidades\Entidades.csproj">
+      <Project>{8f1f179b-f417-4fc3-8e2e-736dcc61c162}</Project>
+      <Name>Entidades</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
     <WebReferenceUrl Include="http://proyectopedidos.somee.com/PedidoWCF.svc">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\wcfPedido\</RelPath>
       <UpdateFromURL>http://proyectopedidos.somee.com/PedidoWCF.svc</UpdateFromURL>
-      <ServiceLocationURL>
-      </ServiceLocationURL>
-      <CachedDynamicPropName>
-      </CachedDynamicPropName>
-      <CachedAppSettingsObjectName>
-      </CachedAppSettingsObjectName>
-      <CachedSettingsPropName>
-      </CachedSettingsPropName>
-    </WebReferenceUrl>
-    <WebReferenceUrl Include="http://proyectopedidos.somee.com/UsuarioAsmx.asmx">
-      <UrlBehavior>Dynamic</UrlBehavior>
-      <RelPath>Web References\asmxUsuario\</RelPath>
-      <UpdateFromURL>http://proyectopedidos.somee.com/UsuarioAsmx.asmx</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>
@@ -275,18 +232,6 @@
       <CachedSettingsPropName>
       </CachedSettingsPropName>
     </WebReferenceUrl>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Entidades\Entidades.csproj">
-      <Project>{8f1f179b-f417-4fc3-8e2e-736dcc61c162}</Project>
-      <Name>Entidades</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Web References\asmxUsuario\UsuarioAsmx.disco" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Web References\asmxPedido\PedidoAsmx.disco" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Web References\wcfUsuario\UsuarioWCF.disco" />
