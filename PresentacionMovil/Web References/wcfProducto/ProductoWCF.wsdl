@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ProductoWCF" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://proyectopedidos.somee.com/ProductoWCF.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://proyectopedidos.somee.com/ProductoWCF.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://proyectopedidos.somee.com/ProductoWCF.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Entidades" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IProductoWCF_DevolverProductoPorId_InputMessage">
+    <wsdl:part name="parameters" element="tns:DevolverProductoPorId" />
+  </wsdl:message>
+  <wsdl:message name="IProductoWCF_DevolverProductoPorId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DevolverProductoPorIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProductoWCF_DevolverListaProductos_InputMessage">
+    <wsdl:part name="parameters" element="tns:DevolverListaProductos" />
+  </wsdl:message>
+  <wsdl:message name="IProductoWCF_DevolverListaProductos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DevolverListaProductosResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProductoWCF_DevolverListaProductosPorCategoria_InputMessage">
+    <wsdl:part name="parameters" element="tns:DevolverListaProductosPorCategoria" />
+  </wsdl:message>
+  <wsdl:message name="IProductoWCF_DevolverListaProductosPorCategoria_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DevolverListaProductosPorCategoriaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProductoWCF_BuscarProducto_InputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarProducto" />
+  </wsdl:message>
+  <wsdl:message name="IProductoWCF_BuscarProducto_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarProductoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IProductoWCF">
+    <wsdl:operation name="DevolverProductoPorId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProductoWCF/DevolverProductoPorId" message="tns:IProductoWCF_DevolverProductoPorId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProductoWCF/DevolverProductoPorIdResponse" message="tns:IProductoWCF_DevolverProductoPorId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DevolverListaProductos">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProductoWCF/DevolverListaProductos" message="tns:IProductoWCF_DevolverListaProductos_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProductoWCF/DevolverListaProductosResponse" message="tns:IProductoWCF_DevolverListaProductos_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DevolverListaProductosPorCategoria">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProductoWCF/DevolverListaProductosPorCategoria" message="tns:IProductoWCF_DevolverListaProductosPorCategoria_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProductoWCF/DevolverListaProductosPorCategoriaResponse" message="tns:IProductoWCF_DevolverListaProductosPorCategoria_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarProducto">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProductoWCF/BuscarProducto" message="tns:IProductoWCF_BuscarProducto_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProductoWCF/BuscarProductoResponse" message="tns:IProductoWCF_BuscarProducto_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IProductoWCF" type="tns:IProductoWCF">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="DevolverProductoPorId">
+      <soap:operation soapAction="http://tempuri.org/IProductoWCF/DevolverProductoPorId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DevolverListaProductos">
+      <soap:operation soapAction="http://tempuri.org/IProductoWCF/DevolverListaProductos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DevolverListaProductosPorCategoria">
+      <soap:operation soapAction="http://tempuri.org/IProductoWCF/DevolverListaProductosPorCategoria" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarProducto">
+      <soap:operation soapAction="http://tempuri.org/IProductoWCF/BuscarProducto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ProductoWCF">
+    <wsdl:port name="BasicHttpBinding_IProductoWCF" binding="tns:BasicHttpBinding_IProductoWCF">
+      <soap:address location="http://proyectopedidos.somee.com/ProductoWCF.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

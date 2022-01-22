@@ -31,7 +31,7 @@ namespace PresentacionMovil
         //private PedidoAsmx pedidoAsmx = new PedidoAsmx();
         private List<PedidoEntidades> pedidoEntidad = new List<PedidoEntidades>();
 
-
+        Button botonPedido;
         TextView bienvenido;
         ListView pedidosListView;
 
@@ -44,10 +44,20 @@ namespace PresentacionMovil
             inicializarDatos();
         }
 
+
         private void botones()
         {
             bienvenido = (TextView)FindViewById(Resource.Id.txtUsuarioPedidos);
             pedidosListView = FindViewById<ListView>(Resource.Id.listViewPedidos);
+            botonPedido = (Button) FindViewById<Button>(Resource.Id.btnNuevoPedido);
+            botonPedido.Click += NuevoPedidoClick; 
+        }
+
+        private void NuevoPedidoClick(object sender, EventArgs e)
+        {
+            var intent = new Intent(this, typeof(ProductosActivity));
+            intent.PutExtra("idCliente",usuarioEntidad.Id);
+            StartActivity(intent);
         }
 
         private void inicializarDatos()

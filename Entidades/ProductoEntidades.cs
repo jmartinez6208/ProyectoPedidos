@@ -12,6 +12,7 @@ namespace Entidades
         public int IdCategoria{ get; set; }
         public string Nombre { get; set; }
         public long Imagen{ get; set; }
+        
 
         public ProductoEntidades() { }
 
@@ -29,7 +30,5 @@ namespace Entidades
             Nombre = nombre;
             Imagen = imagen;
         }
-
-
     }
 }
