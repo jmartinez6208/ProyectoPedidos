@@ -57,7 +57,8 @@ namespace PresentacionMovil
 
                     //seteando fecha actual
                     DateTime fechaCreacion = DateTime.Now;
-                    usuarioEntidad.FechaCreacion = fechaCreacion;
+                    string fecha = fechaCreacion.ToString("dd/MM/yyyy");
+                    usuarioEntidad.FechaCreacion = fecha;
                     
 
                     UsuarioEntidades usuarioAux = clienteWCF.DevolverUsuario(usuarioEntidad.User);

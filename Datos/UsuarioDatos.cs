@@ -55,7 +55,7 @@ namespace Datos
                         usuario.Nombre = usuarioLQ.nombre;
                         usuario.User = usuarioLQ.usuario;
                         usuario.Contraseña = usuarioLQ.contraseña;
-                        usuario.FechaCreacion = (DateTime)usuarioLQ.fechaCreacion;
+                        usuario.FechaCreacion = usuarioLQ.fechaCreacion;
                         return usuario;
                     }
                     return null;

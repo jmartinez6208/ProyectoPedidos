@@ -12,5 +12,17 @@ namespace Entidades
 
         public string Nombre{ get; set; }
         public string Descripcion{ get; set; }
+
+        public CategoriaEntidades()
+        {
+        }
+
+        public CategoriaEntidades(int id, string nombre, string descripcion)
+        {
+            Id = id;
+            Nombre = nombre;
+            Descripcion = descripcion;
+        }
+
     }
 }

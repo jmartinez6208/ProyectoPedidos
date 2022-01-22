@@ -13,11 +13,11 @@ namespace Entidades
         public string Nombre { get; set; }
         public string User { get; set; }
         public string Contraseña { get; set; }
-        public DateTime FechaCreacion { get; set; }
+        public string FechaCreacion { get; set; }
 
         public UsuarioEntidades() { }
 
-        public UsuarioEntidades(int id, int idTipoUsuario, string nombre, string user, string contraseña, DateTime fechaCreacion)
+        public UsuarioEntidades(int id, int idTipoUsuario, string nombre, string user, string contraseña, string fechaCreacion)
         {
             Id = id;
             IdTipoUsuario = idTipoUsuario;

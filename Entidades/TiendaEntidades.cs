@@ -13,6 +13,10 @@ namespace Entidades
         public string Descripcion{ get; set; }
         public string Ubicacion{ get; set; }
 
+        public TiendaEntidades()
+        {
+        }
+
         public TiendaEntidades(int id, string nombre, string descripcion, string ubicacion)
         {
             Id = id;
