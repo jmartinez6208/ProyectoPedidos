@@ -20,5 +20,9 @@ namespace ServiciosWCF
         [OperationContract]
         [FaultContract(typeof(UsuarioWCF))]
         UsuarioEntidades Nuevo(UsuarioEntidades usuario);
+
+        [OperationContract]
+        [FaultContract(typeof(UsuarioWCF))]
+        UsuarioEntidades Login(string username, string password);
     }
 }

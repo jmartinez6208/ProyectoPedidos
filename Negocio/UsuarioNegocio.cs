@@ -23,6 +23,11 @@ namespace Negocio
             return UsuarioDatos.DevolverUsuario(username);
         }
 
+        public static UsuarioEntidades Login(string username, string password)
+        {
+            return UsuarioDatos.Login(username, password);
+        }
+
 
     }
 }

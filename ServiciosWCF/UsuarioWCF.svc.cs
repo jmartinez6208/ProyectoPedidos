@@ -19,6 +19,11 @@ namespace ServiciosWCF
             return UsuarioNegocio.DevolverUsuario(username);
         }
 
+        public UsuarioEntidades Login(string username, string password)
+        {
+            return UsuarioNegocio.Login(username, password);
+        }
+
         public UsuarioEntidades Nuevo(UsuarioEntidades usuario)
         {
             return UsuarioNegocio.Nuevo(usuario);

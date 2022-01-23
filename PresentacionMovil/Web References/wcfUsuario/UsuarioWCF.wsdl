@@ -26,6 +26,15 @@
   <wsdl:message name="IUsuarioWCF_Nuevo_UsuarioWCFFault_FaultMessage">
     <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/ServiciosWCF" name="detail" element="q2:UsuarioWCF" />
   </wsdl:message>
+  <wsdl:message name="IUsuarioWCF_Login_InputMessage">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="IUsuarioWCF_Login_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUsuarioWCF_Login_UsuarioWCFFault_FaultMessage">
+    <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/ServiciosWCF" name="detail" element="q3:UsuarioWCF" />
+  </wsdl:message>
   <wsdl:portType name="IUsuarioWCF">
     <wsdl:operation name="DevolverUsuario">
       <wsdl:input wsaw:Action="http://tempuri.org/IUsuarioWCF/DevolverUsuario" message="tns:IUsuarioWCF_DevolverUsuario_InputMessage" />
@@ -36,6 +45,11 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IUsuarioWCF/Nuevo" message="tns:IUsuarioWCF_Nuevo_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IUsuarioWCF/NuevoResponse" message="tns:IUsuarioWCF_Nuevo_OutputMessage" />
       <wsdl:fault wsaw:Action="http://tempuri.org/IUsuarioWCF/NuevoUsuarioWCFFault" name="UsuarioWCFFault" message="tns:IUsuarioWCF_Nuevo_UsuarioWCFFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUsuarioWCF/Login" message="tns:IUsuarioWCF_Login_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUsuarioWCF/LoginResponse" message="tns:IUsuarioWCF_Login_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IUsuarioWCF/LoginUsuarioWCFFault" name="UsuarioWCFFault" message="tns:IUsuarioWCF_Login_UsuarioWCFFault_FaultMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IUsuarioWCF" type="tns:IUsuarioWCF">
@@ -54,6 +68,18 @@
     </wsdl:operation>
     <wsdl:operation name="Nuevo">
       <soap:operation soapAction="http://tempuri.org/IUsuarioWCF/Nuevo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="UsuarioWCFFault">
+        <soap:fault use="literal" name="UsuarioWCFFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <soap:operation soapAction="http://tempuri.org/IUsuarioWCF/Login" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
