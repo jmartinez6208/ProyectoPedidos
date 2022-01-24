@@ -87,6 +87,7 @@ namespace Datos
             {
                 var resultado = from p in ctx.Productos
                                 where p.nombre.Contains(nombreProducto)
+                                join pt in ctx.Productos_Tiendas on p.id equals pt.idProducto
                                 select p;
 
                 listaProductosCategoriaLQ = resultado.ToList();

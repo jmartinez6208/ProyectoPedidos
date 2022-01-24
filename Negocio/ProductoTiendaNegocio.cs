@@ -20,5 +20,16 @@ namespace Negocio
         {
             return ProductoTiendaDatos.DevolverListaProductosPorCategoria(idCategoria);
         }
+
+        public static List<ProductosTiendaEntidades> DevolverProductosPorNombre(string nombreProducto)
+        {
+            return ProductoTiendaDatos.DevolverProductosPorNombre(nombreProducto);
+        }
+
+        public static ProductosTiendaEntidades DevolverProductoPorId(int idProducto)
+        {
+            return ProductoTiendaDatos.DevolverProductoPorId(idProducto);
+
+        }
     }
 }

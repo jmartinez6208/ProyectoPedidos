@@ -23,5 +23,17 @@ namespace ServiciosWCF
         {
             return ProductoTiendaNegocio.DevolverListaProductosPorCategoria(idCategoria);
         }
+
+        public ProductosTiendaEntidades DevolverProductoPorId(int idProducto)
+        {
+            return ProductoTiendaNegocio.DevolverProductoPorId(idProducto);
+        }
+
+        public List<ProductosTiendaEntidades> DevolverProductosPorNombre(string nombreProducto)
+        {
+            return ProductoTiendaNegocio.DevolverProductosPorNombre(nombreProducto);
+        }
+
+
     }
 }

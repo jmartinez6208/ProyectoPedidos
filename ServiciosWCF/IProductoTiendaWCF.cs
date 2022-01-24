@@ -19,5 +19,11 @@ namespace ServiciosWCF
         [OperationContract]
         List<ProductosTiendaEntidades> DevolverListaProductosPorCategoria(int idCategoria);
 
+        [OperationContract]
+        List<ProductosTiendaEntidades> DevolverProductosPorNombre(string nombreProducto);
+
+        [OperationContract]
+        ProductosTiendaEntidades DevolverProductoPorId(int idProducto);
+
     }
 }

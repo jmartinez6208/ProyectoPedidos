@@ -1,19 +1,15 @@
 ﻿using Android.App;
 using Android.Content;
 using Android.OS;
-using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using PresentacionMovil.Adaptadores;
+using PresentacionMovil.wcfCategorias;
+using PresentacionMovil.wcfProductoTienda;
+using PresentacionMovil.wcfUsuario;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-
-using PresentacionMovil.wcfCategorias;
-using PresentacionMovil.wcfUsuario;
-using PresentacionMovil.wcfProductoTienda;
-
-using PresentacionMovil.Adaptadores;
 
 namespace PresentacionMovil
 {
@@ -28,15 +24,18 @@ namespace PresentacionMovil
         private List<ProductosTiendaEntidades> listaProductos = new List<ProductosTiendaEntidades>();
         private UsuarioEntidades usuarioEntidad = new UsuarioEntidades();
 
+        
+
         Spinner categoriasSpinner;
         ListView productosListView;
+        AutoCompleteTextView buscadorProducto;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.activity_productos);
             // Create your application here
-            botones();
+            referenciaBotones();
             inicializarDatos();
         }
 
@@ -51,16 +50,48 @@ namespace PresentacionMovil
             var adaptador = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleSpinnerItem, items);
             categoriasSpinner.Adapter = adaptador;
 
-            // ListView
+            //Autocomplete Buscar Producto
+            var listaProductosBuscar = wsProductoTienda.DevolverProductosPorNombre(buscadorProducto.Text).ToList();
+            var nombreProductos = new List<string>();
+            foreach (var item in listaProductosBuscar)
+            {
+                nombreProductos.Add(item.NombreProducto);
+            }
+            var adapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleSpinnerItem, nombreProductos);
+            buscadorProducto.Adapter = adapter;
+            buscadorProducto.KeyPress += (object sender, View.KeyEventArgs e) =>
+            {
+                if ((e.KeyCode == Keycode.Enter))
+                {
+                    productosListView.Adapter = new ProductosTiendaAdapter(this, listaProductosBuscar);
+                }
+            };
             
+            // ListView
+
         }
 
-        private void botones()
+        private void referenciaBotones()
         {
             categoriasSpinner = (Spinner)FindViewById<Spinner>(Resource.Id.spinnerCategorias);
             categoriasSpinner.ItemSelected += new EventHandler<AdapterView.ItemSelectedEventArgs>(categoriasSpinner_ItemSelected);
             productosListView = (ListView)FindViewById<ListView>(Resource.Id.listViewProductos);
+            productosListView.ItemClick += clickItemListView;
 
+            //Autocomplete - Buscar Producto 
+            buscadorProducto = FindViewById<AutoCompleteTextView>(Resource.Id.buscarProducto);
+            
+
+        }
+
+        
+        private void clickItemListView(object sender, AdapterView.ItemClickEventArgs e)
+        {
+            FragmentTransaction transaction = FragmentManager.BeginTransaction();
+            DialogProducto dialogProducto = new DialogProducto();
+            dialogProducto.Show(transaction, "Dialog Fragment");
+            var id = (int)e.Id;
+            dialogProducto.RecuperarId(id);
         }
 
         private void categoriasSpinner_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
@@ -71,5 +102,15 @@ namespace PresentacionMovil
             listaProductos = wsProductoTienda.DevolverListaProductosPorCategoria(categoria.Id,true).ToList();
             productosListView.Adapter = new ProductosTiendaAdapter(this, listaProductos);
         }
+
+        private void buscarProducto_ItemEntered(object sender, AdapterView.ItemSelectedEventArgs e)
+        {
+            var txtBuscarProducto = sender as AutoCompleteTextView;
+            var producto = txtBuscarProducto.Text;
+            listaProductos = wsProductoTienda.DevolverProductosPorNombre(producto).ToList();
+            productosListView.Adapter = new ProductosTiendaAdapter(this, listaProductos);
+        }
+
+        
     }
 }

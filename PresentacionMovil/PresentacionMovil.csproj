@@ -71,6 +71,7 @@
     <Compile Include="Adaptadores\PedidosAdapter.cs" />
     <Compile Include="Adaptadores\ProductosTiendaAdapter.cs" />
     <Compile Include="CarritoActivity.cs" />
+    <Compile Include="DialogProducto.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="PedidosActivity.cs" />
     <Compile Include="ProductosActivity.cs" />
@@ -353,6 +354,14 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Web References\wcfProductoTienda\ProductoTiendaWCF.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\lupa.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\dialog_producto.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
