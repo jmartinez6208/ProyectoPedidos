@@ -28,31 +28,52 @@
         android:layout_marginBottom="10dp"
         android:id="@+id/txtNombreProductoSeleccionado" />
 
-    <TextView
-        android:text="Stock"
-        android:layout_below="@id/txtNombreProductoSeleccionado"
+    <RelativeLayout
+        
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:gravity="center"
-        android:layout_marginLeft="100dp"
-        android:layout_marginRight="100dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        android:id="@+id/txtStock" />
+        android:id="@+id/lnrTxt"
+        android:layout_below="@id/txtNombreProductoSeleccionado"
+        android:orientation="horizontal">
+
+        <TextView
+            android:text="Stock"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:gravity="center"
+            android:layout_marginLeft="65dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:id="@+id/txtStock" />
+
+        <TextView
+            android:text="Precio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_toRightOf="@id/txtStock"
+            android:id="@+id/txtPrecio" />
+
+    </RelativeLayout>
 
     <EditText
         android:layout_width="match_parent"
-        android:layout_below="@id/txtStock"
+        android:layout_below="@id/lnrTxt"
         android:layout_height="wrap_content"
         android:id="@+id/txtCantidad"
         android:hint="Cantidad"
         android:gravity="center"
+        android:layout_marginTop="10dp"
         android:layout_marginLeft="100dp"
         android:layout_marginRight="100dp"
         android:inputType="number"
         />
-
+    
     <Button
         android:text="Pedir"
         android:layout_below="@id/txtCantidad"
@@ -61,8 +82,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        android:layout_marginBottom="25dp"
         android:id="@+id/btnPedirProducto" />
+
+    <Button
+        android:text="Cancelar"
+        android:layout_below="@id/btnPedirProducto"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="25dp"
+        android:id="@+id/btnCancelarProducto" />
 
 
 

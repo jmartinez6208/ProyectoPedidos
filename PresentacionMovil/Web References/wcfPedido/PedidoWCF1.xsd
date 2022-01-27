@@ -3,7 +3,7 @@
   <xs:complexType name="PedidoEntidades">
     <xs:sequence>
       <xs:element minOccurs="0" name="Estado" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="FechaCreacion" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FechaCreacion" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Id" type="xs:int" />
       <xs:element minOccurs="0" name="IdCliente" type="xs:int" />
       <xs:element minOccurs="0" name="IdRepartidor" type="xs:int" />

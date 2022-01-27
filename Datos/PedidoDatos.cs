@@ -73,7 +73,7 @@ namespace Datos
                 pedidoEntidades.Id = pedidosLQ.id;
                 pedidoEntidades.IdCliente = (int)pedidosLQ.idCliente;
                 pedidoEntidades.IdRepartidor = (int)pedidosLQ.idRepartidor;
-                pedidoEntidades.FechaCreacion = (DateTime)pedidosLQ.fechaCreacion;
+                pedidoEntidades.FechaCreacion = pedidosLQ.fechaCreacion;
                 pedidoEntidades.Estado = pedidosLQ.estado;
                 pedidoEntidades.Total = (double)pedidosLQ.total;
             }
@@ -101,7 +101,7 @@ namespace Datos
                     item.id,
                     (int)item.idCliente,
                     (int)item.idRepartidor,
-                    (DateTime)item.fechaCreacion,
+                    item.fechaCreacion,
                     item.estado,
                     (double)item.total
                     ));
@@ -150,7 +150,7 @@ namespace Datos
                     item.id,
                     (int)item.idCliente,
                     (int)item.idRepartidor,
-                    (DateTime)item.fechaCreacion,
+                    item.fechaCreacion,
                     item.estado,
                     (double)item.total
                     ));

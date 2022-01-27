@@ -7,6 +7,7 @@ using PresentacionMovil.Adaptadores;
 using PresentacionMovil.wcfCategorias;
 using PresentacionMovil.wcfProductoTienda;
 using PresentacionMovil.wcfUsuario;
+using PresentacionMovil.wcfPedido;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,7 +25,10 @@ namespace PresentacionMovil
         private List<ProductosTiendaEntidades> listaProductos = new List<ProductosTiendaEntidades>();
         private UsuarioEntidades usuarioEntidad = new UsuarioEntidades();
 
-        
+        private PedidoWCF wcfPedido = new PedidoWCF();
+        private PedidoEntidades pedidoEntidad = new PedidoEntidades();
+
+        private int creada = 0;
 
         Spinner categoriasSpinner;
         ListView productosListView;
@@ -37,6 +41,7 @@ namespace PresentacionMovil
             // Create your application here
             referenciaBotones();
             inicializarDatos();
+            CrearPedidoNuevo();
         }
 
         private void inicializarDatos()
@@ -91,7 +96,27 @@ namespace PresentacionMovil
             DialogProducto dialogProducto = new DialogProducto();
             dialogProducto.Show(transaction, "Dialog Fragment");
             var id = (int)e.Id;
+            
             dialogProducto.RecuperarId(id);
+        }
+
+        private void CrearPedidoNuevo()
+        {
+            var idCliente = (int)PedidosActivity.usuarioEntidad.Id;
+            pedidoEntidad.IdCliente = idCliente;
+            pedidoEntidad.IdClienteSpecified = true;
+            pedidoEntidad.IdRepartidor = 8;
+            pedidoEntidad.IdRepartidorSpecified = true;
+            DateTime fechaCreacion = DateTime.Now;
+            string fecha = fechaCreacion.ToString("dd/MM/yyyy");
+            pedidoEntidad.FechaCreacion = fecha;
+            pedidoEntidad.Estado = "nuevo";
+            pedidoEntidad.Total = 0;
+            pedidoEntidad = wcfPedido.Nuevo(pedidoEntidad);
+            if (pedidoEntidad.Id > 0)
+            {
+                Toast.MakeText(Application.Context, pedidoEntidad.Id.ToString(), ToastLength.Short).Show();
+            }
         }
 
         private void categoriasSpinner_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)

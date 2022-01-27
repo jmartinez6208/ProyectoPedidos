@@ -11,12 +11,12 @@ namespace Entidades
         public int Id{ get; set; }
         public int IdCliente{ get; set; }
         public int IdRepartidor{ get; set; }
-        public DateTime FechaCreacion { get; set; }
+        public string FechaCreacion { get; set; }
         public string Estado{ get; set; }
         public double Total{ get; set; }
 
         public PedidoEntidades() { }
-        public PedidoEntidades(int id, int idCliente, int idRepartidor, DateTime fechaCreacion, string estado, double total)
+        public PedidoEntidades(int id, int idCliente, int idRepartidor, string fechaCreacion, string estado, double total)
         {
             Id = id;
             IdCliente = idCliente;

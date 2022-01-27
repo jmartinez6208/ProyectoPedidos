@@ -24,7 +24,7 @@ namespace PresentacionMovil
 
         private UsuarioWCF clienteWCF = new UsuarioWCF();
         //private UsuarioAsmx clienteAsmx = new UsuarioAsmx();
-        private UsuarioEntidades usuarioEntidad = new UsuarioEntidades();
+        public static UsuarioEntidades usuarioEntidad = new UsuarioEntidades();
 
 
         private PedidoWCF pedidoWCF = new PedidoWCF();

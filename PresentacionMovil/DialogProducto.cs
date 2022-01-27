@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 
 using PresentacionMovil.wcfProductoTienda;
+using PresentacionMovil.wcfPedido;
 using Square.Picasso;
 
 namespace PresentacionMovil
@@ -24,8 +25,8 @@ namespace PresentacionMovil
         //Componentes
         ImageView imagen;
         EditText cantidad;
-        TextView nombreProducto, stock;
-        Button botonPedir;
+        TextView nombreProducto, stock, precio;
+        Button botonPedir, btnCancelar;
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
@@ -38,20 +39,31 @@ namespace PresentacionMovil
             nombreProducto = view.FindViewById<TextView>(Resource.Id.txtNombreProductoSeleccionado);
             cantidad = view.FindViewById<EditText>(Resource.Id.txtCantidad);
             stock = view.FindViewById<TextView>(Resource.Id.txtStock);
+            precio = view.FindViewById<TextView>(Resource.Id.txtPrecio);
             botonPedir = view.FindViewById<Button>(Resource.Id.btnPedirProducto);
+            btnCancelar = view.FindViewById<Button>(Resource.Id.btnCancelarProducto);
 
             botonPedir.Click += PedirProducto;
+            btnCancelar.Click += CerrarCuadro;
 
             CargarProducto();
-
-            Toast.MakeText(Application.Context, "id: " + idProductoTienda, ToastLength.Short).Show();
-            
             return view;
+        }
+
+        private void CerrarCuadro(object sender, EventArgs e)
+        {
+            this.Dismiss();
         }
 
         private void PedirProducto(object sender, EventArgs e)
         {
+            creacionPedido();
             this.Dismiss();
+        }
+
+        private void creacionPedido()
+        {
+              
         }
 
         public void RecuperarId(int id)
@@ -69,7 +81,9 @@ namespace PresentacionMovil
             .Load(imgURL)
             .Into(imagen);
             nombreProducto.Text = productoTiendaEntidad.NombreProducto;
-            stock.Text = "Stock : " +productoTiendaEntidad.Stock.ToString();
+            stock.Text = "Stock: " +productoTiendaEntidad.Stock.ToString();
+            precio.Text = "Precio: $" + productoTiendaEntidad.Precio.ToString();
         }
+
     }
 }
