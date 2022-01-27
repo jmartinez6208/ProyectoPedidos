@@ -36,7 +36,7 @@ namespace Datos
                     ProductoDatos.DevolverProductoPorId((int)item.idProducto).Nombre,
                     TiendaDatos.DevolverTiendaPorId((int)item.idTienda).Nombre,
                     ProductoDatos.DevolverProductoPorId((int)item.idProducto).IdCategoria,
-                    ProductoDatos.DevolverProductoPorId((int)item.idProducto).Imagen
+                    ProductoDatos.DevolverProductoPorId((int)item.idProducto).Img
                     ));
             }
 
@@ -67,7 +67,7 @@ namespace Datos
                     ProductoDatos.DevolverProductoPorId((int)item.idProducto).Nombre,
                     TiendaDatos.DevolverTiendaPorId((int)item.idTienda).Nombre,
                     ProductoDatos.DevolverProductoPorId((int)item.idProducto).IdCategoria,
-                    ProductoDatos.DevolverProductoPorId((int)item.idProducto).Imagen
+                    ProductoDatos.DevolverProductoPorId((int)item.idProducto).Img
                     ));
             }
 
@@ -100,7 +100,7 @@ namespace Datos
                     ProductoDatos.DevolverProductoPorId((int)item.idProducto).Nombre,
                     TiendaDatos.DevolverTiendaPorId((int)item.idTienda).Nombre,
                     ProductoDatos.DevolverProductoPorId((int)item.idProducto).IdCategoria,
-                    ProductoDatos.DevolverProductoPorId((int)item.idProducto).Imagen
+                    ProductoDatos.DevolverProductoPorId((int)item.idProducto).Img
                     ));
             }
 
@@ -122,7 +122,8 @@ namespace Datos
                     producto.NombreProducto = ProductoDatos.DevolverProductoPorId((int)resultado.idProducto).Nombre;
                     producto.NombreTienda = TiendaDatos.DevolverTiendaPorId((int)resultado.idTienda).Nombre;
                     producto.IdCategoria = ProductoDatos.DevolverProductoPorId((int)resultado.idProducto).IdCategoria;
-                    producto.Imagen = ProductoDatos.DevolverProductoPorId((int)resultado.idProducto).Imagen;
+                    //producto.Imagen = ProductoDatos.DevolverProductoPorId((int)resultado.idProducto).Imagen;
+                    producto.Img = ProductoDatos.DevolverProductoPorId((int)resultado.idProducto).Img;
             }
             return producto;
 

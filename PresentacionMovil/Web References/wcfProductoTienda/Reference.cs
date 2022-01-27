@@ -255,9 +255,7 @@ namespace PresentacionMovil.wcfProductoTienda {
         
         private bool idTiendaFieldSpecified;
         
-        private long imagenField;
-        
-        private bool imagenFieldSpecified;
+        private string imgField;
         
         private string nombreProductoField;
         
@@ -356,23 +354,13 @@ namespace PresentacionMovil.wcfProductoTienda {
         }
         
         /// <remarks/>
-        public long Imagen {
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string Img {
             get {
-                return this.imagenField;
+                return this.imgField;
             }
             set {
-                this.imagenField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool ImagenSpecified {
-            get {
-                return this.imagenFieldSpecified;
-            }
-            set {
-                this.imagenFieldSpecified = value;
+                this.imgField = value;
             }
         }
         

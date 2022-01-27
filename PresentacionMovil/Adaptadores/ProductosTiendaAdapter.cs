@@ -9,6 +9,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
+using Square.Picasso;
+
 using PresentacionMovil.wcfProductoTienda;
 
 namespace PresentacionMovil.Adaptadores
@@ -46,7 +48,13 @@ namespace PresentacionMovil.Adaptadores
             convertView.FindViewById<TextView>(Resource.Id.txtNombreProducto).Text = item.NombreProducto;
             convertView.FindViewById<TextView>(Resource.Id.txtPrecioProducto).Text = "$ " + item.Precio.ToString();
             convertView.FindViewById<TextView>(Resource.Id.txtTiendaProducto).Text = item.NombreTienda;
+            var imagen = convertView.FindViewById<ImageView>(Resource.Id.imgProducto);
 
+            var imgURL = item.Img;
+
+            Picasso.Get()
+            .Load(imgURL)
+            .Into(imagen);
             return convertView;
         }
     }

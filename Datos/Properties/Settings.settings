@@ -26,5 +26,13 @@
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
       <Value Profile="(Default)">Data Source=PedidosBD.mssql.somee.com;Initial Catalog=PedidosBD;Persist Security Info=True;User ID=ajmpedidos;Password=ajmpedidos</Value>
     </Setting>
+    <Setting Name="PruebaPedidosDBConnectionString" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=PruebaPedidosDB.mssql.somee.com;Initial Catalog=PruebaPedidosDB;Persist Security Info=True;User ID=DavidArcos_SQLLogin_1;Password=bpyrcm2x9y&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=PruebaPedidosDB.mssql.somee.com;Initial Catalog=PruebaPedidosDB;Persist Security Info=True;User ID=DavidArcos_SQLLogin_1;Password=bpyrcm2x9y</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

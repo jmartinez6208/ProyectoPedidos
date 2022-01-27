@@ -12,7 +12,7 @@
       <xs:element minOccurs="0" name="IdCategoria" type="xs:int" />
       <xs:element minOccurs="0" name="IdProducto" type="xs:int" />
       <xs:element minOccurs="0" name="IdTienda" type="xs:int" />
-      <xs:element minOccurs="0" name="Imagen" type="xs:long" />
+      <xs:element minOccurs="0" name="Img" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="NombreProducto" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="NombreTienda" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Precio" type="xs:double" />

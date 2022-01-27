@@ -16,14 +16,14 @@ namespace Entidades
         public string NombreProducto { get; set; }
         public string NombreTienda { get; set; }
         public int IdCategoria { get; set; }
-        public long Imagen { get; set; }
+        public string Img { get; set; }
 
         public ProductosTiendaEntidades()
         {
         }
 
         public ProductosTiendaEntidades(int id, int idTienda, int idProducto, int stock, double precio, 
-            string nombreProducto, string nombreTienda, int idCategoria, long imagen)
+            string nombreProducto, string nombreTienda, int idCategoria, string imagen)
         {
             Id = id;
             IdTienda = idTienda;
@@ -33,7 +33,7 @@ namespace Entidades
             NombreProducto = nombreProducto;
             NombreTienda = nombreTienda;
             IdCategoria = idCategoria;
-            Imagen = imagen;
+            Img = imagen;
         }
     }
 }

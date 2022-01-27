@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 
 using PresentacionMovil.wcfProductoTienda;
+using Square.Picasso;
 
 namespace PresentacionMovil
 {
@@ -61,13 +62,14 @@ namespace PresentacionMovil
         private void CargarProducto()
         {
             productoTiendaEntidad = wcfProductoTienda.DevolverProductoPorId(idProductoTienda, true);
-            //
+
+            var imgURL = productoTiendaEntidad.Img;
+
+            Picasso.Get()
+            .Load(imgURL)
+            .Into(imagen);
             nombreProducto.Text = productoTiendaEntidad.NombreProducto;
             stock.Text = "Stock : " +productoTiendaEntidad.Stock.ToString();
         }
-
-       
-
-        
     }
 }

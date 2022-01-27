@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 using Entidades;
+using System.Drawing;
+using System.IO;
 
 namespace Datos
 {
@@ -20,7 +22,7 @@ namespace Datos
                 productoEntidades.Id = productoLQ.id;
                 productoEntidades.IdCategoria = productoLQ.idCategoria;
                 productoEntidades.Nombre = productoLQ.nombre;
-                productoEntidades.Imagen = (long)productoLQ.imagen;
+                productoEntidades.Img = productoLQ.imagenWeb;
             }
 
             return productoEntidades;
@@ -45,7 +47,7 @@ namespace Datos
                     item.id,
                     (int)item.idCategoria,
                     item.nombre,
-                    (long)item.imagen
+                    item.imagenWeb
                     ));
             }
 
@@ -72,7 +74,7 @@ namespace Datos
                     item.id,
                     item.idCategoria,
                     item.nombre,
-                    (long)item.imagen
+                    item.imagenWeb
                     ));
             }
             return listaProductosCategoria;
@@ -99,10 +101,53 @@ namespace Datos
                     item.id,
                     item.idCategoria,
                     item.nombre,
-                    (long)item.imagen
+                    item.imagenWeb
                     ));
             }
             return productosEncontrados;
+        }
+
+
+        public static byte[] StrToByteArray(string str)
+        {
+            Dictionary<string, byte> hexindex = new Dictionary<string, byte>();
+            for (int i = 0; i <= 255; i++)
+                hexindex.Add(i.ToString("X2"), (byte)i);
+
+            List<byte> hexres = new List<byte>();
+            for (int i = 0; i < str.Length; i += 2)
+                hexres.Add(hexindex[str.Substring(i, 2)]);
+
+            return hexres.ToArray();
+        }
+
+        public static Image ConvertToImage(System.Data.Linq.Binary iBinary)
+        {
+            var arrayBinary = iBinary.ToArray();
+            Image rImage = null;
+
+            using (MemoryStream ms = new MemoryStream(arrayBinary))
+            {
+                rImage = Image.FromStream(ms);
+            }
+            return rImage;
+        }
+
+        byte[] ConvertImageToBytes(Image image)
+        {
+            using (MemoryStream ms = new MemoryStream())
+            {
+                image.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
+                return ms.ToArray();
+            }
+        }
+
+        public Image ConvertByteArrayToImage(byte[] data)
+        {
+            using (MemoryStream ms = new MemoryStream())
+            {
+                return Image.FromStream(ms);
+            }
         }
 
     }

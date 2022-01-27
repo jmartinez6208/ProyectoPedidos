@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B01316AA-8590-4039-8A55-2B4F42FAAA6C}</ProjectGuid>
+    <ProjectGuid>{6401EC28-B515-4B0A-A67D-4984DD07EDBD}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>Consola</RootNamespace>
     <AssemblyName>Consola</AssemblyName>
@@ -35,6 +35,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />

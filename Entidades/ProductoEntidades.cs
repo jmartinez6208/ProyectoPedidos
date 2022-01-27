@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using System.Drawing;
+
 namespace Entidades
 {
     public class ProductoEntidades
@@ -11,7 +13,9 @@ namespace Entidades
         public int Id{ get; set; }
         public int IdCategoria{ get; set; }
         public string Nombre { get; set; }
-        public long Imagen{ get; set; }
+        //public byte[] Imagen{ get; set; }
+
+        public string Img { get; set; }
         
 
         public ProductoEntidades() { }
@@ -23,12 +27,12 @@ namespace Entidades
             Nombre = nombre;
         }
 
-        public ProductoEntidades(int id, int idCategoria, string nombre, long imagen)
+        public ProductoEntidades(int id, int idCategoria, string nombre, string imagen)
         {
             Id = id;
             IdCategoria = idCategoria;
             Nombre = nombre;
-            Imagen = imagen;
+            Img = imagen;
         }
     }
 }
