@@ -66,6 +66,35 @@ namespace Datos
 
         }
 
+        public static List<DetallePedidoEntidades> DevolerListaDetallesPorPedido(int idPedido)
+        {
+            List<DetallePedidoEntidades> listaDetallesPedido = new List<DetallePedidoEntidades>();
+            List<Detalle_Pedidos> listaDetalleLQ = new List<Detalle_Pedidos>();
+
+            using (var ctx = new DataClasses1DataContext())
+            {
+                var resultado = from dp in ctx.Detalle_Pedidos
+                                where dp.idPedido.Equals(idPedido)
+                                select dp;
+
+                listaDetalleLQ = resultado.ToList();
+            }
+
+            foreach (var item in listaDetalleLQ)
+            {
+                listaDetallesPedido.Add(new DetallePedidoEntidades(
+                    item.id,
+                    (int)item.idPedido,
+                    (int)item.idProductoTienda,
+                    (int)item.cantidad,
+                    (double)item.subtotal,
+                    (char)item.conseguido                    
+                    ));
+            }
+
+            return listaDetallesPedido;
+        }
+
 
     }
 }

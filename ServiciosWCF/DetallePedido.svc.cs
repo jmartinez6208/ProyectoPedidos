@@ -23,5 +23,10 @@ namespace ServiciosWCF
         {
             return DetallePedidoNegocio.Nuevo(detallePedido);
         }
+
+        public List<DetallePedidoEntidades> DevolerListaDetallesPorPedido(int idPedido)
+        {
+            return DetallePedidoNegocio.DevolerListaDetallesPorPedido(idPedido);
+        }
     }
 }
