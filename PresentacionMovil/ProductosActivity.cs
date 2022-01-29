@@ -33,6 +33,7 @@ namespace PresentacionMovil
         Spinner categoriasSpinner;
         ListView productosListView;
         AutoCompleteTextView buscadorProducto;
+        Button botonCarrito;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -85,11 +86,19 @@ namespace PresentacionMovil
 
             //Autocomplete - Buscar Producto 
             buscadorProducto = FindViewById<AutoCompleteTextView>(Resource.Id.buscarProducto);
-            
+
+            botonCarrito = (Button)FindViewById<Button>(Resource.Id.btnCarrito);
+            botonCarrito.Click += clickCarrito;
 
         }
 
-        
+        private void clickCarrito(object sender, EventArgs e)
+        {
+            var intent = new Intent(this, typeof(CarritoActivity));
+            intent.PutExtra("idPedido", pedidoEntidad.Id);
+            StartActivity(intent);
+        }
+
         private void clickItemListView(object sender, AdapterView.ItemClickEventArgs e)
         {
             FragmentTransaction transaction = FragmentManager.BeginTransaction();

@@ -41,8 +41,17 @@
         android:minWidth="25px"
         android:minHeight="25px"
         android:layout_width="match_parent"
-        android:layout_height="350dp"
-        android:id="@+id/listView1" />
+        android:layout_height="450dp"
+        android:id="@+id/listViewCarrito" />
+    <TextView
+        android:text="Total:"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="textEnd"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:id="@+id/txtTotalCarrito" />
     <Button
         android:text="Confirmar Pedido"
         android:layout_width="match_parent"
