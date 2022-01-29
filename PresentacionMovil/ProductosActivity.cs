@@ -96,8 +96,9 @@ namespace PresentacionMovil
             DialogProducto dialogProducto = new DialogProducto();
             dialogProducto.Show(transaction, "Dialog Fragment");
             var id = (int)e.Id;
-            
-            dialogProducto.RecuperarId(id);
+            var idPedido = pedidoEntidad.Id;
+            dialogProducto.RecuperarIdProducto(id);
+            dialogProducto.RecuperarIdPedido(idPedido);
         }
 
         private void CrearPedidoNuevo()

@@ -129,5 +129,26 @@ namespace Datos
 
         }
 
+        public static bool actualizarStock(int idProducto, int cantidad)
+        {
+            try
+            {
+                using (var ctx = new DataClasses1DataContext())
+                {
+                    var productoLQ = ctx.Productos_Tiendas.FirstOrDefault(p => p.id == idProducto);
+                    productoLQ.stock = productoLQ.stock - cantidad;
+                    ctx.SubmitChanges();
+                    return true;
+                }
+
+            }
+            catch (Exception)
+            {
+                return false;
+                throw;
+            }
+
+        }
+
     }    
 }

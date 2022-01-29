@@ -11,6 +11,7 @@ using System.Text;
 
 using PresentacionMovil.wcfProductoTienda;
 using PresentacionMovil.wcfPedido;
+using PresentacionMovil.wcfDetallePedido;
 using Square.Picasso;
 
 namespace PresentacionMovil
@@ -18,9 +19,12 @@ namespace PresentacionMovil
     [Obsolete]
     class DialogProducto : DialogFragment
     {
-        private int idProductoTienda;
+        private int idProductoTienda, idPedido;
         private ProductoTiendaWCF wcfProductoTienda = new ProductoTiendaWCF();
         private ProductosTiendaEntidades productoTiendaEntidad = new ProductosTiendaEntidades();
+
+        private DetallePedido wcfDetallePedido = new DetallePedido();
+        private DetallePedidoEntidades detallePedido = new DetallePedidoEntidades();
 
         //Componentes
         ImageView imagen;
@@ -57,16 +61,30 @@ namespace PresentacionMovil
 
         private void PedirProducto(object sender, EventArgs e)
         {
-            creacionPedido();
-            this.Dismiss();
+            detallePedido.Cantidad = Convert.ToInt32(cantidad.Text);
+
+            if (productoTiendaEntidad.Stock >= detallePedido.Cantidad)
+            {
+                detallePedido.CantidadSpecified = true;
+                detallePedido.IdPedidoPertenece = idPedido;
+                detallePedido.IdPedidoPerteneceSpecified = true;
+                detallePedido.IdProductoTienda = idProductoTienda;
+                detallePedido.IdProductoTiendaSpecified = true;
+                detallePedido.ConseguidoSpecified = true;
+                detallePedido.SubtotalSpecified = true;
+                detallePedido = wcfDetallePedido.Nuevo(detallePedido);
+                Toast.MakeText(Application.Context, "Agregado " + cantidad.Text + " de " + productoTiendaEntidad.NombreProducto, ToastLength.Short).Show();
+                this.Dismiss();
+            }
+            else
+            {
+                Toast.MakeText(Application.Context, "Stock Insuficiente", ToastLength.Short).Show();
+            }
+
+            
         }
 
-        private void creacionPedido()
-        {
-              
-        }
-
-        public void RecuperarId(int id)
+        public void RecuperarIdProducto(int id)
         {
             idProductoTienda = id;
         }
@@ -85,5 +103,9 @@ namespace PresentacionMovil
             precio.Text = "Precio: $" + productoTiendaEntidad.Precio.ToString();
         }
 
+        public void RecuperarIdPedido(int id)
+        {
+            idPedido = id;
+        }
     }
 }

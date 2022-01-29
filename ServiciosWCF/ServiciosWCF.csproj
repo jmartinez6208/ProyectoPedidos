@@ -62,6 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="CategoriaWCF.svc" />
+    <Content Include="DetallePedido.svc" />
     <Content Include="PedidoWCF.svc" />
     <Content Include="ProductoTiendaWCF.svc" />
     <Content Include="ProductoWCF.svc" />
@@ -72,7 +73,11 @@
     <Compile Include="CategoriaWCF.svc.cs">
       <DependentUpon>CategoriaWCF.svc</DependentUpon>
     </Compile>
+    <Compile Include="DetallePedido.svc.cs">
+      <DependentUpon>DetallePedido.svc</DependentUpon>
+    </Compile>
     <Compile Include="ICategoriaWCF.cs" />
+    <Compile Include="IDetallePedido.cs" />
     <Compile Include="IPedidoWCF.cs" />
     <Compile Include="IProductoTiendaWCF.cs" />
     <Compile Include="IProductoWCF.cs" />

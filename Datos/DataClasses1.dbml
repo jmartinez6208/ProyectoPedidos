@@ -8,15 +8,29 @@
       <Association Name="Categorias_Productos" Member="Productos" ThisKey="id" OtherKey="idCategoria" Type="Productos" />
     </Type>
   </Table>
+  <Table Name="dbo.Usuarios" Member="Usuarios">
+    <Type Name="Usuarios">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="nombre" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="usuario" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="contraseña" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="idTipoUsuario" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="fechaCreacion" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Association Name="Usuarios_Pedidos" Member="Pedidos" ThisKey="id" OtherKey="idCliente" Type="Pedidos" />
+      <Association Name="Usuarios_Pedidos1" Member="Pedidos1" ThisKey="id" OtherKey="idRepartidor" Type="Pedidos" />
+      <Association Name="TipoUsuarios_Usuarios" Member="TipoUsuarios" ThisKey="idTipoUsuario" OtherKey="id" Type="TipoUsuarios" IsForeignKey="true" />
+    </Type>
+  </Table>
   <Table Name="dbo.Detalle_Pedido" Member="Detalle_Pedidos">
-    <Type Name="Detalle_Pedido">
-      <Column Name="idProductoTienda" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="idPedido" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    <Type Name="Detalle_Pedidos">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="idProductoTienda" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idPedido" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="cantidad" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="subtotal" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="conseguido" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
       <Association Name="Pedidos_Detalle_Pedido" Member="Pedidos" ThisKey="idPedido" OtherKey="id" Type="Pedidos" IsForeignKey="true" />
-      <Association Name="Productos_Tienda_Detalle_Pedido" Member="Productos_Tiendas" Storage="_Productos_Tienda" ThisKey="idProductoTienda" OtherKey="id" Type="Productos_Tiendas" IsForeignKey="true" />
+      <Association Name="Productos_Tienda_Detalle_Pedido" Member="Productos_Tiendas" ThisKey="idProductoTienda" OtherKey="id" Type="Productos_Tiendas" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Pedidos" Member="Pedidos">
@@ -27,9 +41,9 @@
       <Column Name="fechaCreacion" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
       <Column Name="estado" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
       <Column Name="total" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Association Name="Pedidos_Detalle_Pedido" Member="Detalle_Pedidos" ThisKey="id" OtherKey="idPedido" Type="Detalle_Pedido" />
-      <Association Name="Usuarios_Pedidos" Member="Usuario" ThisKey="idCliente" OtherKey="id" Type="Usuarios" IsForeignKey="true" />
-      <Association Name="Usuarios_Pedidos1" Member="Usuarios" ThisKey="idRepartidor" OtherKey="id" Type="Usuarios" IsForeignKey="true" />
+      <Association Name="Pedidos_Detalle_Pedido" Member="Detalle_Pedidos" ThisKey="id" OtherKey="idPedido" Type="Detalle_Pedidos" />
+      <Association Name="Usuarios_Pedidos" Member="Usuarios" ThisKey="idCliente" OtherKey="id" Type="Usuarios" IsForeignKey="true" />
+      <Association Name="Usuarios_Pedidos1" Member="Usuarios1" ThisKey="idRepartidor" OtherKey="id" Type="Usuarios" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Productos" Member="Productos">
@@ -42,6 +56,18 @@
       <Association Name="Categorias_Productos" Member="Categorias" ThisKey="idCategoria" OtherKey="id" Type="Categorias" IsForeignKey="true" />
     </Type>
   </Table>
+  <Table Name="dbo.Productos_Tienda" Member="Productos_Tiendas">
+    <Type Name="Productos_Tiendas">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="idTienda" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idProducto" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="stock" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="precio" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Association Name="Productos_Tienda_Detalle_Pedido" Member="Detalle_Pedidos" ThisKey="id" OtherKey="idProductoTienda" Type="Detalle_Pedidos" />
+      <Association Name="Productos_Productos_Tienda" Member="Productos" ThisKey="idProducto" OtherKey="id" Type="Productos" IsForeignKey="true" />
+      <Association Name="Tiendas_Productos_Tienda" Member="Tiendas" ThisKey="idTienda" OtherKey="id" Type="Tiendas" IsForeignKey="true" />
+    </Type>
+  </Table>
   <Table Name="dbo.Tiendas" Member="Tiendas">
     <Type Name="Tiendas">
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -51,34 +77,11 @@
       <Association Name="Tiendas_Productos_Tienda" Member="Productos_Tiendas" ThisKey="id" OtherKey="idTienda" Type="Productos_Tiendas" />
     </Type>
   </Table>
-  <Table Name="dbo.Productos_Tienda" Member="Productos_Tiendas">
-    <Type Name="Productos_Tiendas">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="idTienda" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="idProducto" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="stock" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="precio" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Association Name="Productos_Tienda_Detalle_Pedido" Member="Detalle_Pedidos" ThisKey="id" OtherKey="idProductoTienda" Type="Detalle_Pedido" />
-      <Association Name="Productos_Productos_Tienda" Member="Productos" ThisKey="idProducto" OtherKey="id" Type="Productos" IsForeignKey="true" />
-      <Association Name="Tiendas_Productos_Tienda" Member="Tiendas" ThisKey="idTienda" OtherKey="id" Type="Tiendas" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.TipoUsuarios" Member="TipoUsuarios">
     <Type Name="TipoUsuarios">
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="tipo" Type="System.String" DbType="NVarChar(25) NOT NULL" CanBeNull="false" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Usuarios" Member="Usuarios">
-    <Type Name="Usuarios">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="nombre" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
-      <Column Name="usuario" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
-      <Column Name="contraseña" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
-      <Column Name="idTipoUsuario" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="fechaCreacion" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
-      <Association Name="Usuarios_Pedidos" Member="Pedidos" ThisKey="id" OtherKey="idCliente" Type="Pedidos" />
-      <Association Name="Usuarios_Pedidos1" Member="Pedidos1" ThisKey="id" OtherKey="idRepartidor" Type="Pedidos" />
+      <Association Name="TipoUsuarios_Usuarios" Member="Usuarios" ThisKey="id" OtherKey="idTipoUsuario" Type="Usuarios" />
     </Type>
   </Table>
 </Database>

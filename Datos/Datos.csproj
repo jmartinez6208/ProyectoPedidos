@@ -49,6 +49,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataClasses1.dbml</DependentUpon>
     </Compile>
+    <Compile Include="DetallePedidoDatos.cs" />
     <Compile Include="PedidoDatos.cs" />
     <Compile Include="ProductoDatos.cs" />
     <Compile Include="ProductoTiendaDatos.cs" />

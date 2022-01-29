@@ -159,6 +159,27 @@ namespace Datos
             return listaPedidosCliente;
         }
 
+        public static bool actualizarTotal(int idPedido, double subtotal)
+        {
+            try
+            {
+                using (var ctx = new DataClasses1DataContext())
+                {
+                    var pedidoLQ = ctx.Pedidos.FirstOrDefault(p => p.id == idPedido);
+                    pedidoLQ.total += subtotal;
+                    ctx.SubmitChanges();
+                    return true;
+                }
+
+            }
+            catch (Exception)
+            {
+                return false;
+                throw;
+            }
+            
+        }
+
        
     }
 }
