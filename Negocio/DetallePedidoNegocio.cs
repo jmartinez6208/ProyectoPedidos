@@ -20,5 +20,10 @@ namespace Negocio
         {
             return DetallePedidoDatos.EliminarDetallePedidoPorId(identificador);
         }
+
+        public static List<DetallePedidoEntidades> DevolerListaDetallesPorPedido(int idPedido)
+        {
+            return DetallePedidoDatos.DevolerListaDetallesPorPedido(idPedido);
+        }
     }
 }

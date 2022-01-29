@@ -18,5 +18,8 @@ namespace ServiciosWCF
 
         [OperationContract]
         bool EliminarDetallePedidoPorId(int identificador);
+
+        [OperationContract]
+        List<DetallePedidoEntidades> DevolerListaDetallesPorPedido(int idPedido);
     }
 }
