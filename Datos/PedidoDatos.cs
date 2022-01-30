@@ -110,6 +110,35 @@ namespace Datos
             return listaPedidosEntidad;
         }
 
+        public static List<PedidoEntidades> DevolverListaPedidosEstadoPendiente()
+        {
+            List<PedidoEntidades> listaPedidosEntidad = new List<PedidoEntidades>();
+            List<Pedidos> listaPedidosLQ = new List<Pedidos>();
+
+            using (var ctx = new DataClasses1DataContext())
+            {
+                var resultado = from p in ctx.Pedidos
+                                where p.estado.Equals("pendiente")
+                                select p;
+
+                listaPedidosLQ = resultado.ToList();
+            }
+
+            foreach (var item in listaPedidosLQ)
+            {
+                listaPedidosEntidad.Add(new PedidoEntidades(
+                    item.id,
+                    (int)item.idCliente,
+                    (int)item.idRepartidor,
+                    item.fechaCreacion,
+                    item.estado,
+                    (double)item.total
+                    ));
+            }
+
+            return listaPedidosEntidad;
+        }
+
         public static bool EliminarPedidoPorId(int identificador)
         {
             try
@@ -194,6 +223,35 @@ namespace Datos
             {
                 var resultado = from p in ctx.Pedidos
                                 where p.idCliente == idCliente
+                                select p;
+
+                listaPedidosLQ = resultado.ToList();
+            }
+
+            foreach (var item in listaPedidosLQ)
+            {
+                listaPedidosCliente.Add(new PedidoEntidades(
+                    item.id,
+                    (int)item.idCliente,
+                    (int)item.idRepartidor,
+                    item.fechaCreacion,
+                    item.estado,
+                    (double)item.total
+                    ));
+            }
+
+            return listaPedidosCliente;
+        }
+
+        public static List<PedidoEntidades> DevolverListaPedidosPorRepartidor(int idRepartidor)
+        {
+            List<PedidoEntidades> listaPedidosCliente = new List<PedidoEntidades>();
+            List<Pedidos> listaPedidosLQ = new List<Pedidos>();
+
+            using (var ctx = new DataClasses1DataContext())
+            {
+                var resultado = from p in ctx.Pedidos
+                                where p.idRepartidor == idRepartidor
                                 select p;
 
                 listaPedidosLQ = resultado.ToList();

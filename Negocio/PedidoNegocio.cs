@@ -31,6 +31,11 @@ namespace Negocio
             return PedidoDatos.DevolverListaPedidos();
         }
 
+        public static List<PedidoEntidades> DevolverListaPedidosEstadoPendiente()
+        {
+            return PedidoDatos.DevolverListaPedidosEstadoPendiente();
+        }
+
         public static bool EliminarPedidoPorId(int identificador)
         {
             return PedidoDatos.EliminarPedidoPorId(identificador);
@@ -40,6 +45,12 @@ namespace Negocio
         {
             return PedidoDatos.DevolverListaPedidosPorCliente(idCliente);
         }
+
+        public static List<PedidoEntidades> DevolverListaPedidosPorRepartidor(int idRepartidor)
+        {
+            return PedidoDatos.DevolverListaPedidosPorRepartidor(idRepartidor);
+        }
+
 
         public static bool ActualizarEstado(int idPedido, string estado)
         {

@@ -26,6 +26,12 @@ namespace ServiciosWCF
         List<PedidoEntidades> DevolverListaPedidos();
 
         [OperationContract]
+        List<PedidoEntidades> DevolverListaPedidosEstadoPendiente();
+
+        [OperationContract]
+        List<PedidoEntidades> DevolverListaPedidosPorRepartidor(int idRepartidor);
+
+        [OperationContract]
         bool EliminarPedidoPorId(int identificador);
 
         [OperationContract]
