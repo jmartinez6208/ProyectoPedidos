@@ -14,8 +14,6 @@ namespace Negocio
         public static UsuarioEntidades Nuevo(UsuarioEntidades usuario)
         {
              return UsuarioDatos.Nuevo(usuario);
-            
-            
         }
 
         public static UsuarioEntidades DevolverUsuario(string username)

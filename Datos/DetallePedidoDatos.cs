@@ -53,6 +53,10 @@ namespace Datos
                 using (var ctx = new DataClasses1DataContext())
                 {
                     var detallePedidoLQ = ctx.Detalle_Pedidos.FirstOrDefault(p => p.id == identificador);
+                    //Restar valor del detalle al total
+                    PedidoDatos.RestarSubtotalDetalle((int)detallePedidoLQ.idPedido, (double)detallePedidoLQ.subtotal);
+                    //Reponer stock
+                    ProductoTiendaDatos.ReponerStock((int)detallePedidoLQ.idProductoTienda, (int)detallePedidoLQ.cantidad);
                     ctx.Detalle_Pedidos.DeleteOnSubmit(detallePedidoLQ);
                     ctx.SubmitChanges();
                     return true;

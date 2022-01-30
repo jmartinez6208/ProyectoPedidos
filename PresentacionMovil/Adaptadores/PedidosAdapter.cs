@@ -9,8 +9,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-//using PresentacionMovil.asmxPedido;
 using PresentacionMovil.wcfPedido;
+using PresentacionMovil.wcfUsuario;
 
 namespace PresentacionMovil.Adaptadores
 {
@@ -21,6 +21,7 @@ namespace PresentacionMovil.Adaptadores
         private Activity _context;
         private List<PedidoEntidades> _pedidos;
 
+        private UsuarioWCF wcfUsuario = new UsuarioWCF();
         public PedidosAdapter(Activity context, List<PedidoEntidades> pedidos)
         {
             _context = context;
@@ -39,6 +40,7 @@ namespace PresentacionMovil.Adaptadores
         public override View GetView(int position, View convertView, ViewGroup parent)
         {
             var item = this[position];
+            var repartidor = wcfUsuario.DevolverUsuarioPorId(item.IdRepartidor, true);
 
             if (convertView == null)
             {
@@ -47,7 +49,7 @@ namespace PresentacionMovil.Adaptadores
 
             convertView.FindViewById<TextView>(Resource.Id.txtIdPedido).Text = "Pedido: " + item.Id;
             convertView.FindViewById<TextView>(Resource.Id.txtFechaPedido).Text = item.FechaCreacion.ToString();
-            convertView.FindViewById<TextView>(Resource.Id.txtRepartidorPedido).Text = "Repartidor: " + item.IdRepartidor;
+            convertView.FindViewById<TextView>(Resource.Id.txtRepartidorPedido).Text = "Repartidor: " + repartidor.Nombre;
             convertView.FindViewById<TextView>(Resource.Id.txtEstadoPedido).Text = "Estado: " + item.Estado;
             convertView.FindViewById<TextView>(Resource.Id.txtTotalPedido).Text = "Total: $" + item.Total.ToString();
 

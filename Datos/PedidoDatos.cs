@@ -214,6 +214,7 @@ namespace Datos
             return listaPedidosCliente;
         }
 
+        //Se aumenta el total cuando se agrega un detalle
         public static bool actualizarTotal(int idPedido, double subtotal)
         {
             try
@@ -233,6 +234,26 @@ namespace Datos
                 throw;
             }
             
+        }
+
+        public static bool RestarSubtotalDetalle(int idPedido, double subtotal)
+        {
+            try
+            {
+                using (var ctx = new DataClasses1DataContext())
+                {
+                    var pedidoLQ = ctx.Pedidos.FirstOrDefault(p => p.id == idPedido);
+                    pedidoLQ.total -= subtotal;
+                    ctx.SubmitChanges();
+                    return true;
+                }
+
+            }
+            catch (Exception)
+            {
+                return false;
+                throw;
+            }
         }
 
         public static bool ActualizarEstado(int idPedido, string estado)

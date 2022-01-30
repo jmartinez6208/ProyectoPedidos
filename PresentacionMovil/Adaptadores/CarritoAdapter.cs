@@ -49,9 +49,9 @@ namespace PresentacionMovil.Adaptadores
             }
 
             convertView.FindViewById<TextView>(Resource.Id.txtCantidadProductoCarrito).Text = "Cantidad: " + item.Cantidad.ToString();
-            convertView.FindViewById<TextView>(Resource.Id.txtSubtotalProductoCarrito).Text = "Subtotal: "+item.Subtotal.ToString();
+            convertView.FindViewById<TextView>(Resource.Id.txtSubtotalProductoCarrito).Text = "Subtotal: $"+item.Subtotal.ToString();
             convertView.FindViewById<TextView>(Resource.Id.txtNombreProductoCarrito).Text = producto.NombreProducto;
-            convertView.FindViewById<TextView>(Resource.Id.txtPrecioProductoCarrito).Text = "Precio: " + producto.Precio.ToString();
+            convertView.FindViewById<TextView>(Resource.Id.txtPrecioProductoCarrito).Text = "Precio: $" + producto.Precio.ToString();
             convertView.FindViewById<TextView>(Resource.Id.txtTiendaProductoCarrito).Text = producto.NombreTienda;
             var imagen = convertView.FindViewById<ImageView>(Resource.Id.imgProductoCarrito);
 
