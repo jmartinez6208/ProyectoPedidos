@@ -131,6 +131,25 @@ namespace Datos
             return listaDetallesPedido;
         }
 
+        public static bool MarcarConseguido(int idDetallePedido)
+        {
+            try
+            {
+                using (var ctx = new DataClasses1DataContext())
+                {
+                    var detallePedidoLQ = ctx.Detalle_Pedidos.FirstOrDefault(p => p.id == idDetallePedido);
+                    detallePedidoLQ.conseguido = 's';
+                    ctx.SubmitChanges();
+                    return true;
+                }
 
+            }
+            catch (Exception)
+            {
+                return false;
+                throw;
+            }
+
+        }
     }
 }

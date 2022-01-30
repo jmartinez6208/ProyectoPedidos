@@ -69,10 +69,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Adaptadores\CarritoAdapter.cs" />
+    <Compile Include="Adaptadores\DetallePedidoRepartidorAdapter.cs" />
     <Compile Include="Adaptadores\PedidosAdapter.cs" />
+    <Compile Include="Adaptadores\PedidosRepartidorAdapter.cs" />
     <Compile Include="Adaptadores\ProductosTiendaAdapter.cs" />
     <Compile Include="CarritoActivity.cs" />
     <Compile Include="DetallePedidoActivity.cs" />
+    <Compile Include="DetallePedidoRepartidor.cs" />
     <Compile Include="DialogProducto.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="PedidosActivity.cs" />
@@ -102,6 +105,11 @@
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
     <Compile Include="Web References\wcfProducto\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\wcfTienda\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
@@ -200,6 +208,23 @@
     <None Include="Web References\wcfProducto\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\wcfTienda\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\wcfTienda\TiendaEntidades.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\wcfTienda\TiendaWCF.wsdl" />
+    <None Include="Web References\wcfTienda\TiendaWCF.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\wcfTienda\TiendaWCF0.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\wcfTienda\TiendaWCF1.xsd">
+      <SubType>Designer</SubType>
     </None>
     <None Include="Web References\wcfUsuario\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
@@ -370,6 +395,19 @@
       <CachedSettingsPropName>
       </CachedSettingsPropName>
     </WebReferenceUrl>
+    <WebReferenceUrl Include="http://proyectopedidos.somee.com/TiendaWCF.svc">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\wcfTienda\</RelPath>
+      <UpdateFromURL>http://proyectopedidos.somee.com/TiendaWCF.svc</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>
+      </CachedAppSettingsObjectName>
+      <CachedSettingsPropName>
+      </CachedSettingsPropName>
+    </WebReferenceUrl>
     <WebReferenceUrl Include="http://proyectopedidos.somee.com/UsuarioWCF.svc">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\wcfUsuario\</RelPath>
@@ -424,6 +462,14 @@
     <AndroidResource Include="Resources\layout\activity_repartidor.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\activity_detalle_repartidor.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\wcfTienda\TiendaWCF.disco" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

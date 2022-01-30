@@ -66,6 +66,7 @@
     <Content Include="PedidoWCF.svc" />
     <Content Include="ProductoTiendaWCF.svc" />
     <Content Include="ProductoWCF.svc" />
+    <Content Include="TiendaWCF.svc" />
     <Content Include="UsuarioWCF.svc" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -81,6 +82,7 @@
     <Compile Include="IPedidoWCF.cs" />
     <Compile Include="IProductoTiendaWCF.cs" />
     <Compile Include="IProductoWCF.cs" />
+    <Compile Include="ITiendaWCF.cs" />
     <Compile Include="IUsuarioWCF.cs" />
     <Compile Include="PedidoWCF.svc.cs">
       <DependentUpon>PedidoWCF.svc</DependentUpon>
@@ -92,6 +94,9 @@
       <DependentUpon>ProductoWCF.svc</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TiendaWCF.svc.cs">
+      <DependentUpon>TiendaWCF.svc</DependentUpon>
+    </Compile>
     <Compile Include="UsuarioWCF.svc.cs">
       <DependentUpon>UsuarioWCF.svc</DependentUpon>
     </Compile>

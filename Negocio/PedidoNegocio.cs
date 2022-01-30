@@ -66,5 +66,10 @@ namespace Negocio
         {
             return PedidoDatos.EliminarPedidosIncompletos();
         }
+
+        public static bool AsignarRepartidor(int idPedido, string estado, int idRepartidor)
+        {
+            return PedidoDatos.AsignarRepartidor(idPedido, estado, idRepartidor);
+        }
     }
 }

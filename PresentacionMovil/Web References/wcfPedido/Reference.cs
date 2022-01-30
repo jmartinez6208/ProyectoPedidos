@@ -51,6 +51,8 @@ namespace PresentacionMovil.wcfPedido {
         
         private System.Threading.SendOrPostCallback EliminarPedidosIncompletosOperationCompleted;
         
+        private System.Threading.SendOrPostCallback AsignarRepartidorOperationCompleted;
+        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
@@ -121,6 +123,9 @@ namespace PresentacionMovil.wcfPedido {
         
         /// <remarks/>
         public event EliminarPedidosIncompletosCompletedEventHandler EliminarPedidosIncompletosCompleted;
+        
+        /// <remarks/>
+        public event AsignarRepartidorCompletedEventHandler AsignarRepartidorCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IPedidoWCF/Nuevo", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -457,6 +462,44 @@ namespace PresentacionMovil.wcfPedido {
             if ((this.EliminarPedidosIncompletosCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.EliminarPedidosIncompletosCompleted(this, new EliminarPedidosIncompletosCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IPedidoWCF/AsignarRepartidor", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void AsignarRepartidor(int idPedido, [System.Xml.Serialization.XmlIgnoreAttribute()] bool idPedidoSpecified, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string estado, int idRepartidor, [System.Xml.Serialization.XmlIgnoreAttribute()] bool idRepartidorSpecified, out bool AsignarRepartidorResult, [System.Xml.Serialization.XmlIgnoreAttribute()] out bool AsignarRepartidorResultSpecified) {
+            object[] results = this.Invoke("AsignarRepartidor", new object[] {
+                        idPedido,
+                        idPedidoSpecified,
+                        estado,
+                        idRepartidor,
+                        idRepartidorSpecified});
+            AsignarRepartidorResult = ((bool)(results[0]));
+            AsignarRepartidorResultSpecified = ((bool)(results[1]));
+        }
+        
+        /// <remarks/>
+        public void AsignarRepartidorAsync(int idPedido, bool idPedidoSpecified, string estado, int idRepartidor, bool idRepartidorSpecified) {
+            this.AsignarRepartidorAsync(idPedido, idPedidoSpecified, estado, idRepartidor, idRepartidorSpecified, null);
+        }
+        
+        /// <remarks/>
+        public void AsignarRepartidorAsync(int idPedido, bool idPedidoSpecified, string estado, int idRepartidor, bool idRepartidorSpecified, object userState) {
+            if ((this.AsignarRepartidorOperationCompleted == null)) {
+                this.AsignarRepartidorOperationCompleted = new System.Threading.SendOrPostCallback(this.OnAsignarRepartidorOperationCompleted);
+            }
+            this.InvokeAsync("AsignarRepartidor", new object[] {
+                        idPedido,
+                        idPedidoSpecified,
+                        estado,
+                        idRepartidor,
+                        idRepartidorSpecified}, this.AsignarRepartidorOperationCompleted, userState);
+        }
+        
+        private void OnAsignarRepartidorOperationCompleted(object arg) {
+            if ((this.AsignarRepartidorCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.AsignarRepartidorCompleted(this, new AsignarRepartidorCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -925,6 +968,40 @@ namespace PresentacionMovil.wcfPedido {
         
         /// <remarks/>
         public bool EliminarPedidosIncompletosResultSpecified {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[1]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4161.0")]
+    public delegate void AsignarRepartidorCompletedEventHandler(object sender, AsignarRepartidorCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4161.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class AsignarRepartidorCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal AsignarRepartidorCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public bool AsignarRepartidorResult {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[0]));
+            }
+        }
+        
+        /// <remarks/>
+        public bool AsignarRepartidorResultSpecified {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((bool)(this.results[1]));

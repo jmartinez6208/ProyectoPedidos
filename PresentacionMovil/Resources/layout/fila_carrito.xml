@@ -23,11 +23,24 @@
         android:minHeight="25px"
         android:layout_marginTop="15dp"
         android:layout_toRightOf="@id/imgProductoCarrito"
-        android:layout_marginLeft="25dp"
+        android:layout_marginLeft="15dp"
         android:id="@+id/txtNombreProductoCarrito" />
 
     <TextView
-        android:text="Precio Producto "
+        android:text=""
+        android:textColor="@android:color/holo_green_light"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_marginTop="15dp"
+        android:layout_toRightOf="@id/txtNombreProductoCarrito"
+        android:layout_marginLeft="10dp"
+        android:id="@+id/txtConseguidoProductoCarrito" />
+
+    <TextView
+        android:text=""
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -38,6 +51,19 @@
         android:layout_marginLeft="10dp"
         android:layout_marginTop="5dp"
         android:id="@+id/txtPrecioProductoCarrito" />
+
+    <TextView
+        android:text=""
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_below="@id/txtNombreProductoCarrito"
+        android:layout_toRightOf="@id/txtTiendaProductoCarrito"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:id="@+id/txtDireccionTiendaCarrito" />
 
     <TextView
         android:text="Tienda Producto "

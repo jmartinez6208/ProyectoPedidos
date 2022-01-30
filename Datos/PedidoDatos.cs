@@ -335,6 +335,28 @@ namespace Datos
 
         }
 
+        public static bool AsignarRepartidor(int idPedido, string estado, int idRepartidor)
+        {
+            try
+            {
+                using (var ctx = new DataClasses1DataContext())
+                {
+                    var pedidoLQ = ctx.Pedidos.FirstOrDefault(p => p.id == idPedido);
+                    pedidoLQ.estado = estado;
+                    pedidoLQ.idRepartidor = idRepartidor;
+                    ctx.SubmitChanges();
+                    return true;
+                }
+
+            }
+            catch (Exception)
+            {
+                return false;
+                throw;
+            }
+
+        }
+
 
     }
 }

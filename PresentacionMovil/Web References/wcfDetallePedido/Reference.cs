@@ -37,6 +37,8 @@ namespace PresentacionMovil.wcfDetallePedido {
         
         private System.Threading.SendOrPostCallback EliminarDetallesPorIdOperationCompleted;
         
+        private System.Threading.SendOrPostCallback MarcarConseguidoOperationCompleted;
+        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
@@ -86,6 +88,9 @@ namespace PresentacionMovil.wcfDetallePedido {
         
         /// <remarks/>
         public event EliminarDetallesPorIdCompletedEventHandler EliminarDetallesPorIdCompleted;
+        
+        /// <remarks/>
+        public event MarcarConseguidoCompletedEventHandler MarcarConseguidoCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IDetallePedido/Nuevo", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -211,6 +216,38 @@ namespace PresentacionMovil.wcfDetallePedido {
             if ((this.EliminarDetallesPorIdCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.EliminarDetallesPorIdCompleted(this, new EliminarDetallesPorIdCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IDetallePedido/MarcarConseguido", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void MarcarConseguido(int idDetallePedido, [System.Xml.Serialization.XmlIgnoreAttribute()] bool idDetallePedidoSpecified, out bool MarcarConseguidoResult, [System.Xml.Serialization.XmlIgnoreAttribute()] out bool MarcarConseguidoResultSpecified) {
+            object[] results = this.Invoke("MarcarConseguido", new object[] {
+                        idDetallePedido,
+                        idDetallePedidoSpecified});
+            MarcarConseguidoResult = ((bool)(results[0]));
+            MarcarConseguidoResultSpecified = ((bool)(results[1]));
+        }
+        
+        /// <remarks/>
+        public void MarcarConseguidoAsync(int idDetallePedido, bool idDetallePedidoSpecified) {
+            this.MarcarConseguidoAsync(idDetallePedido, idDetallePedidoSpecified, null);
+        }
+        
+        /// <remarks/>
+        public void MarcarConseguidoAsync(int idDetallePedido, bool idDetallePedidoSpecified, object userState) {
+            if ((this.MarcarConseguidoOperationCompleted == null)) {
+                this.MarcarConseguidoOperationCompleted = new System.Threading.SendOrPostCallback(this.OnMarcarConseguidoOperationCompleted);
+            }
+            this.InvokeAsync("MarcarConseguido", new object[] {
+                        idDetallePedido,
+                        idDetallePedidoSpecified}, this.MarcarConseguidoOperationCompleted, userState);
+        }
+        
+        private void OnMarcarConseguidoOperationCompleted(object arg) {
+            if ((this.MarcarConseguidoCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.MarcarConseguidoCompleted(this, new MarcarConseguidoCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -505,6 +542,40 @@ namespace PresentacionMovil.wcfDetallePedido {
         
         /// <remarks/>
         public bool EliminarDetallesPorIdResultSpecified {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[1]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4161.0")]
+    public delegate void MarcarConseguidoCompletedEventHandler(object sender, MarcarConseguidoCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4161.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class MarcarConseguidoCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal MarcarConseguidoCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public bool MarcarConseguidoResult {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[0]));
+            }
+        }
+        
+        /// <remarks/>
+        public bool MarcarConseguidoResultSpecified {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((bool)(this.results[1]));

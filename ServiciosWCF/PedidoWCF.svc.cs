@@ -24,6 +24,11 @@ namespace ServiciosWCF
             return PedidoNegocio.ActualizarEstado(idPedido, estado);
         }
 
+        public bool AsignarRepartidor(int idPedido, string estado, int idRepartidor)
+        {
+            return PedidoNegocio.AsignarRepartidor(idPedido, estado, idRepartidor);
+        }
+
         public List<PedidoEntidades> DevolverListaPedidos()
         {
             return PedidoNegocio.DevolverListaPedidos();

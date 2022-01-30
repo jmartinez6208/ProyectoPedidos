@@ -33,5 +33,10 @@ namespace ServiciosWCF
         {
             return DetallePedidoNegocio.EliminarDetallesPorId(identificador);
         }
+
+        public bool MarcarConseguido(int idDetallePedido)
+        {
+            return DetallePedidoNegocio.MarcarConseguido(idDetallePedido);
+        }
     }
 }
