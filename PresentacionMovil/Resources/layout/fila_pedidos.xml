@@ -10,7 +10,7 @@
         android:minWidth="25px"
         android:minHeight="25px"
         android:layout_marginTop="5dp"
-        android:layout_marginLeft="5dp"
+        android:layout_marginLeft="15dp"
         android:layout_alignParentLeft="true"
         android:textColor="@android:color/black"
         android:id="@+id/txtIdPedido" />
@@ -28,7 +28,7 @@
         android:id="@+id/txtFechaPedido" />
 
     <TextView
-        android:text="REPARTIDOR: "
+        android:text=""
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -39,6 +39,19 @@
         android:layout_marginLeft="20dp"
         android:layout_marginTop="10dp"
         android:id="@+id/txtRepartidorPedido" />
+
+    <TextView
+        android:text=""
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_below="@id/txtEstadoPedido"
+        android:layout_toRightOf="@id/txtIdPedido"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:id="@+id/txtClientePedido" />
 
     <TextView
         android:text="ESTADO: "
@@ -70,7 +83,7 @@
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:id="@+id/imgCarro"
-        android:layout_marginRight="5dp"
+        android:layout_marginRight="20dp"
         android:layout_marginTop="5dp"
         android:layout_alignParentRight="true"
         android:layout_marginBottom="10dp"/>

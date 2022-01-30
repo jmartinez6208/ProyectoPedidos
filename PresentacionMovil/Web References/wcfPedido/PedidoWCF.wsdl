@@ -31,6 +31,18 @@
   <wsdl:message name="IPedidoWCF_DevolverListaPedidos_OutputMessage">
     <wsdl:part name="parameters" element="tns:DevolverListaPedidosResponse" />
   </wsdl:message>
+  <wsdl:message name="IPedidoWCF_DevolverListaPedidosEstadoPendiente_InputMessage">
+    <wsdl:part name="parameters" element="tns:DevolverListaPedidosEstadoPendiente" />
+  </wsdl:message>
+  <wsdl:message name="IPedidoWCF_DevolverListaPedidosEstadoPendiente_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DevolverListaPedidosEstadoPendienteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPedidoWCF_DevolverListaPedidosPorRepartidor_InputMessage">
+    <wsdl:part name="parameters" element="tns:DevolverListaPedidosPorRepartidor" />
+  </wsdl:message>
+  <wsdl:message name="IPedidoWCF_DevolverListaPedidosPorRepartidor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DevolverListaPedidosPorRepartidorResponse" />
+  </wsdl:message>
   <wsdl:message name="IPedidoWCF_EliminarPedidoPorId_InputMessage">
     <wsdl:part name="parameters" element="tns:EliminarPedidoPorId" />
   </wsdl:message>
@@ -61,6 +73,12 @@
   <wsdl:message name="IPedidoWCF_EliminarPedidosIncompletos_OutputMessage">
     <wsdl:part name="parameters" element="tns:EliminarPedidosIncompletosResponse" />
   </wsdl:message>
+  <wsdl:message name="IPedidoWCF_AsignarRepartidor_InputMessage">
+    <wsdl:part name="parameters" element="tns:AsignarRepartidor" />
+  </wsdl:message>
+  <wsdl:message name="IPedidoWCF_AsignarRepartidor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AsignarRepartidorResponse" />
+  </wsdl:message>
   <wsdl:portType name="IPedidoWCF">
     <wsdl:operation name="Nuevo">
       <wsdl:input wsaw:Action="http://tempuri.org/IPedidoWCF/Nuevo" message="tns:IPedidoWCF_Nuevo_InputMessage" />
@@ -77,6 +95,14 @@
     <wsdl:operation name="DevolverListaPedidos">
       <wsdl:input wsaw:Action="http://tempuri.org/IPedidoWCF/DevolverListaPedidos" message="tns:IPedidoWCF_DevolverListaPedidos_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IPedidoWCF/DevolverListaPedidosResponse" message="tns:IPedidoWCF_DevolverListaPedidos_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DevolverListaPedidosEstadoPendiente">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPedidoWCF/DevolverListaPedidosEstadoPendiente" message="tns:IPedidoWCF_DevolverListaPedidosEstadoPendiente_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPedidoWCF/DevolverListaPedidosEstadoPendienteResponse" message="tns:IPedidoWCF_DevolverListaPedidosEstadoPendiente_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DevolverListaPedidosPorRepartidor">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPedidoWCF/DevolverListaPedidosPorRepartidor" message="tns:IPedidoWCF_DevolverListaPedidosPorRepartidor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPedidoWCF/DevolverListaPedidosPorRepartidorResponse" message="tns:IPedidoWCF_DevolverListaPedidosPorRepartidor_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="EliminarPedidoPorId">
       <wsdl:input wsaw:Action="http://tempuri.org/IPedidoWCF/EliminarPedidoPorId" message="tns:IPedidoWCF_EliminarPedidoPorId_InputMessage" />
@@ -97,6 +123,10 @@
     <wsdl:operation name="EliminarPedidosIncompletos">
       <wsdl:input wsaw:Action="http://tempuri.org/IPedidoWCF/EliminarPedidosIncompletos" message="tns:IPedidoWCF_EliminarPedidosIncompletos_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IPedidoWCF/EliminarPedidosIncompletosResponse" message="tns:IPedidoWCF_EliminarPedidosIncompletos_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AsignarRepartidor">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPedidoWCF/AsignarRepartidor" message="tns:IPedidoWCF_AsignarRepartidor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPedidoWCF/AsignarRepartidorResponse" message="tns:IPedidoWCF_AsignarRepartidor_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IPedidoWCF" type="tns:IPedidoWCF">
@@ -130,6 +160,24 @@
     </wsdl:operation>
     <wsdl:operation name="DevolverListaPedidos">
       <soap:operation soapAction="http://tempuri.org/IPedidoWCF/DevolverListaPedidos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DevolverListaPedidosEstadoPendiente">
+      <soap:operation soapAction="http://tempuri.org/IPedidoWCF/DevolverListaPedidosEstadoPendiente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DevolverListaPedidosPorRepartidor">
+      <soap:operation soapAction="http://tempuri.org/IPedidoWCF/DevolverListaPedidosPorRepartidor" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -175,6 +223,15 @@
     </wsdl:operation>
     <wsdl:operation name="EliminarPedidosIncompletos">
       <soap:operation soapAction="http://tempuri.org/IPedidoWCF/EliminarPedidosIncompletos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AsignarRepartidor">
+      <soap:operation soapAction="http://tempuri.org/IPedidoWCF/AsignarRepartidor" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

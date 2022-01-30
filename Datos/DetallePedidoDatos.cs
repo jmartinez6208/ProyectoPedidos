@@ -131,30 +131,25 @@ namespace Datos
             return listaDetallesPedido;
         }
 
-        public static int NumeroDetallesPedido(int idPedido)
+        public static bool MarcarConseguido(int idDetallePedido)
         {
             try
             {
                 using (var ctx = new DataClasses1DataContext())
                 {
-                    int conteoDetalles = 0;
-                    var resultado = from p in ctx.Detalle_Pedidos
-                                    where p.idPedido == idPedido
-                                    select p;
-                    conteoDetalles = resultado.Count();
-
-                    return conteoDetalles;
+                    var detallePedidoLQ = ctx.Detalle_Pedidos.FirstOrDefault(p => p.id == idDetallePedido);
+                    detallePedidoLQ.conseguido = 's';
+                    ctx.SubmitChanges();
+                    return true;
                 }
+
             }
             catch (Exception)
             {
-                return 0;
+                return false;
                 throw;
             }
-            
+
         }
-
-
-
     }
 }

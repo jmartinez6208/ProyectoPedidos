@@ -55,6 +55,32 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="DevolverListaPedidosEstadoPendiente">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DevolverListaPedidosEstadoPendienteResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Entidades" minOccurs="0" name="DevolverListaPedidosEstadoPendienteResult" nillable="true" type="q7:ArrayOfPedidoEntidades" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DevolverListaPedidosPorRepartidor">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idRepartidor" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DevolverListaPedidosPorRepartidorResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Entidades" minOccurs="0" name="DevolverListaPedidosPorRepartidorResult" nillable="true" type="q8:ArrayOfPedidoEntidades" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="EliminarPedidoPorId">
     <xs:complexType>
       <xs:sequence>
@@ -79,7 +105,7 @@
   <xs:element name="DevolverListaPedidosPorClienteResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Entidades" minOccurs="0" name="DevolverListaPedidosPorClienteResult" nillable="true" type="q7:ArrayOfPedidoEntidades" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Entidades" minOccurs="0" name="DevolverListaPedidosPorClienteResult" nillable="true" type="q9:ArrayOfPedidoEntidades" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -119,6 +145,22 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="EliminarPedidosIncompletosResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AsignarRepartidor">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idPedido" type="xs:int" />
+        <xs:element minOccurs="0" name="estado" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="idRepartidor" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AsignarRepartidorResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AsignarRepartidorResult" type="xs:boolean" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

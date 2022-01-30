@@ -30,5 +30,10 @@ namespace Negocio
         {
             return DetallePedidoDatos.EliminarDetallesPorId(identificador);
         }
+
+        public static bool MarcarConseguido(int idDetallePedido)
+        {
+            return DetallePedidoDatos.MarcarConseguido(idDetallePedido);
+        }
     }
 }

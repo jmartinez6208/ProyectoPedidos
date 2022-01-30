@@ -45,5 +45,8 @@ namespace ServiciosWCF
 
         [OperationContract]
         bool EliminarPedidosIncompletos();
+
+        [OperationContract]
+        bool AsignarRepartidor(int idPedido, string estado, int idRepartidor);
     }
 }

@@ -21,6 +21,7 @@ namespace Datos
                 tiendaEntidades.Id = tiendaLQ.id;
                 tiendaEntidades.Nombre = tiendaLQ.nombre;
                 tiendaEntidades.Descripcion = tiendaLQ.descripcion;
+                tiendaEntidades.Ubicacion = tiendaLQ.ubicacion;
             }
 
             return tiendaEntidades;
