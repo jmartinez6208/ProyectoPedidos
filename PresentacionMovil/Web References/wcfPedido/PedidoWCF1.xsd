@@ -8,6 +8,7 @@
       <xs:element minOccurs="0" name="IdCliente" type="xs:int" />
       <xs:element minOccurs="0" name="IdRepartidor" type="xs:int" />
       <xs:element minOccurs="0" name="Total" type="xs:double" />
+      <xs:element minOccurs="0" name="TotalConseguido" type="xs:double" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="PedidoEntidades" nillable="true" type="tns:PedidoEntidades" />

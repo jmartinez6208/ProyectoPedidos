@@ -41,6 +41,7 @@
       <Column Name="fechaCreacion" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
       <Column Name="estado" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
       <Column Name="total" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="totalConseguido" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Association Name="Pedidos_Detalle_Pedido" Member="Detalle_Pedidos" ThisKey="id" OtherKey="idPedido" Type="Detalle_Pedidos" />
       <Association Name="Usuarios_Pedidos" Member="Usuarios" ThisKey="idCliente" OtherKey="id" Type="Usuarios" IsForeignKey="true" />
       <Association Name="Usuarios_Pedidos1" Member="Usuarios1" ThisKey="idRepartidor" OtherKey="id" Type="Usuarios" IsForeignKey="true" />

@@ -21,6 +21,7 @@ namespace Datos
                 pedidosLQ.fechaCreacion = pedido.FechaCreacion;
                 pedidosLQ.estado = pedido.Estado;
                 pedidosLQ.total = pedido.Total;
+                pedidosLQ.totalConseguido = pedido.TotalConseguido;
 
                 using (var ctx = new DataClasses1DataContext())
                 {
@@ -51,6 +52,7 @@ namespace Datos
                     pedidosLQ.fechaCreacion = pedido.FechaCreacion;
                     pedidosLQ.estado = pedido.Estado;
                     pedidosLQ.total = pedido.Total;
+                    pedidosLQ.totalConseguido = pedido.TotalConseguido;
 
                     ctx.SubmitChanges();
                 }
@@ -76,6 +78,7 @@ namespace Datos
                 pedidoEntidades.FechaCreacion = pedidosLQ.fechaCreacion;
                 pedidoEntidades.Estado = pedidosLQ.estado;
                 pedidoEntidades.Total = (double)pedidosLQ.total;
+                pedidoEntidades.TotalConseguido = (double)pedidosLQ.totalConseguido;
             }
 
             return pedidoEntidades;
@@ -103,7 +106,8 @@ namespace Datos
                     (int)item.idRepartidor,
                     item.fechaCreacion,
                     item.estado,
-                    (double)item.total
+                    (double)item.total,
+                    (double)item.totalConseguido
                     ));
             }
 
@@ -132,7 +136,8 @@ namespace Datos
                     (int)item.idRepartidor,
                     item.fechaCreacion,
                     item.estado,
-                    (double)item.total
+                    (double)item.total,
+                    (double)item.totalConseguido
                     ));
             }
 
@@ -236,7 +241,8 @@ namespace Datos
                     (int)item.idRepartidor,
                     item.fechaCreacion,
                     item.estado,
-                    (double)item.total
+                    (double)item.total,
+                    (double)item.totalConseguido
                     ));
             }
 
@@ -265,7 +271,8 @@ namespace Datos
                     (int)item.idRepartidor,
                     item.fechaCreacion,
                     item.estado,
-                    (double)item.total
+                    (double)item.total,
+                    (double)item.totalConseguido
                     ));
             }
 
@@ -292,6 +299,27 @@ namespace Datos
                 throw;
             }
             
+        }
+
+        public static bool actualizarTotalConseguido(int idPedido, double subtotal)
+        {
+            try
+            {
+                using (var ctx = new DataClasses1DataContext())
+                {
+                    var pedidoLQ = ctx.Pedidos.FirstOrDefault(p => p.id == idPedido);
+                    pedidoLQ.totalConseguido += subtotal;
+                    ctx.SubmitChanges();
+                    return true;
+                }
+
+            }
+            catch (Exception)
+            {
+                return false;
+                throw;
+            }
+
         }
 
         public static bool RestarSubtotalDetalle(int idPedido, double subtotal)

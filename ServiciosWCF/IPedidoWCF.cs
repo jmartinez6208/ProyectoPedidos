@@ -48,5 +48,8 @@ namespace ServiciosWCF
 
         [OperationContract]
         bool AsignarRepartidor(int idPedido, string estado, int idRepartidor);
+
+        [OperationContract]
+        bool actualizarTotalConseguido(int idPedido, double subtotal);
     }
 }

@@ -102,6 +102,24 @@ namespace Datos
 
         }
 
+        public static DetallePedidoEntidades DevolverDetallePorId(int identificador)
+        {
+            DetallePedidoEntidades detalleEntidades = new DetallePedidoEntidades();
+
+            using (var ctx = new DataClasses1DataContext())
+            {
+                var detalleLQ = ctx.Detalle_Pedidos.FirstOrDefault(p => p.id == identificador);
+                detalleEntidades.Id = detalleLQ.id;
+                detalleEntidades.IdPedidoPertenece = (int)detalleLQ.idPedido;
+                detalleEntidades.IdProductoTienda = (int)detalleLQ.idProductoTienda;
+                detalleEntidades.Subtotal = (double)detalleLQ.subtotal;
+                detalleEntidades.Conseguido = (char)detalleLQ.conseguido;
+                detalleEntidades.Cantidad = (int)detalleLQ.cantidad;
+            }
+
+            return detalleEntidades;
+        }
+
         public static List<DetallePedidoEntidades> DevolerListaDetallesPorPedido(int idPedido)
         {
             List<DetallePedidoEntidades> listaDetallesPedido = new List<DetallePedidoEntidades>();

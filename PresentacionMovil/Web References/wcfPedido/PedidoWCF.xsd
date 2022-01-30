@@ -164,4 +164,19 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="actualizarTotalConseguido">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idPedido" type="xs:int" />
+        <xs:element minOccurs="0" name="subtotal" type="xs:double" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="actualizarTotalConseguidoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="actualizarTotalConseguidoResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

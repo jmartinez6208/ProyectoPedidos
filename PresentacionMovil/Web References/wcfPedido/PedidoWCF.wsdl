@@ -79,6 +79,12 @@
   <wsdl:message name="IPedidoWCF_AsignarRepartidor_OutputMessage">
     <wsdl:part name="parameters" element="tns:AsignarRepartidorResponse" />
   </wsdl:message>
+  <wsdl:message name="IPedidoWCF_actualizarTotalConseguido_InputMessage">
+    <wsdl:part name="parameters" element="tns:actualizarTotalConseguido" />
+  </wsdl:message>
+  <wsdl:message name="IPedidoWCF_actualizarTotalConseguido_OutputMessage">
+    <wsdl:part name="parameters" element="tns:actualizarTotalConseguidoResponse" />
+  </wsdl:message>
   <wsdl:portType name="IPedidoWCF">
     <wsdl:operation name="Nuevo">
       <wsdl:input wsaw:Action="http://tempuri.org/IPedidoWCF/Nuevo" message="tns:IPedidoWCF_Nuevo_InputMessage" />
@@ -127,6 +133,10 @@
     <wsdl:operation name="AsignarRepartidor">
       <wsdl:input wsaw:Action="http://tempuri.org/IPedidoWCF/AsignarRepartidor" message="tns:IPedidoWCF_AsignarRepartidor_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IPedidoWCF/AsignarRepartidorResponse" message="tns:IPedidoWCF_AsignarRepartidor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="actualizarTotalConseguido">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPedidoWCF/actualizarTotalConseguido" message="tns:IPedidoWCF_actualizarTotalConseguido_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPedidoWCF/actualizarTotalConseguidoResponse" message="tns:IPedidoWCF_actualizarTotalConseguido_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IPedidoWCF" type="tns:IPedidoWCF">
@@ -232,6 +242,15 @@
     </wsdl:operation>
     <wsdl:operation name="AsignarRepartidor">
       <soap:operation soapAction="http://tempuri.org/IPedidoWCF/AsignarRepartidor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="actualizarTotalConseguido">
+      <soap:operation soapAction="http://tempuri.org/IPedidoWCF/actualizarTotalConseguido" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

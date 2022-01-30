@@ -25,6 +25,12 @@
   <wsdl:message name="IDetallePedido_DevolerListaDetallesPorPedido_OutputMessage">
     <wsdl:part name="parameters" element="tns:DevolerListaDetallesPorPedidoResponse" />
   </wsdl:message>
+  <wsdl:message name="IDetallePedido_DevolverDetallePorId_InputMessage">
+    <wsdl:part name="parameters" element="tns:DevolverDetallePorId" />
+  </wsdl:message>
+  <wsdl:message name="IDetallePedido_DevolverDetallePorId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DevolverDetallePorIdResponse" />
+  </wsdl:message>
   <wsdl:message name="IDetallePedido_EliminarDetallesPorId_InputMessage">
     <wsdl:part name="parameters" element="tns:EliminarDetallesPorId" />
   </wsdl:message>
@@ -49,6 +55,10 @@
     <wsdl:operation name="DevolerListaDetallesPorPedido">
       <wsdl:input wsaw:Action="http://tempuri.org/IDetallePedido/DevolerListaDetallesPorPedido" message="tns:IDetallePedido_DevolerListaDetallesPorPedido_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IDetallePedido/DevolerListaDetallesPorPedidoResponse" message="tns:IDetallePedido_DevolerListaDetallesPorPedido_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DevolverDetallePorId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDetallePedido/DevolverDetallePorId" message="tns:IDetallePedido_DevolverDetallePorId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDetallePedido/DevolverDetallePorIdResponse" message="tns:IDetallePedido_DevolverDetallePorId_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="EliminarDetallesPorId">
       <wsdl:input wsaw:Action="http://tempuri.org/IDetallePedido/EliminarDetallesPorId" message="tns:IDetallePedido_EliminarDetallesPorId_InputMessage" />
@@ -81,6 +91,15 @@
     </wsdl:operation>
     <wsdl:operation name="DevolerListaDetallesPorPedido">
       <soap:operation soapAction="http://tempuri.org/IDetallePedido/DevolerListaDetallesPorPedido" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DevolverDetallePorId">
+      <soap:operation soapAction="http://tempuri.org/IDetallePedido/DevolverDetallePorId" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

@@ -51,7 +51,6 @@ namespace Negocio
             return PedidoDatos.DevolverListaPedidosPorRepartidor(idRepartidor);
         }
 
-
         public static bool ActualizarEstado(int idPedido, string estado)
         {
             return PedidoDatos.ActualizarEstado(idPedido, estado);
@@ -70,6 +69,11 @@ namespace Negocio
         public static bool AsignarRepartidor(int idPedido, string estado, int idRepartidor)
         {
             return PedidoDatos.AsignarRepartidor(idPedido, estado, idRepartidor);
+        }
+
+        public static bool actualizarTotalConseguido(int idPedido, double subtotal)
+        {
+            return PedidoDatos.actualizarTotalConseguido(idPedido, subtotal);
         }
     }
 }

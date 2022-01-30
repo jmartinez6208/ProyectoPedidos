@@ -850,6 +850,8 @@ namespace Datos
 		
 		private System.Nullable<double> _total;
 		
+		private System.Nullable<double> _totalConseguido;
+		
 		private EntitySet<Detalle_Pedidos> _Detalle_Pedidos;
 		
 		private EntityRef<Usuarios> _Usuarios;
@@ -872,6 +874,8 @@ namespace Datos
     partial void OnestadoChanged();
     partial void OntotalChanging(System.Nullable<double> value);
     partial void OntotalChanged();
+    partial void OntotalConseguidoChanging(System.Nullable<double> value);
+    partial void OntotalConseguidoChanged();
     #endregion
 		
 		public Pedidos()
@@ -1006,6 +1010,26 @@ namespace Datos
 					this._total = value;
 					this.SendPropertyChanged("total");
 					this.OntotalChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_totalConseguido", DbType="Float")]
+		public System.Nullable<double> totalConseguido
+		{
+			get
+			{
+				return this._totalConseguido;
+			}
+			set
+			{
+				if ((this._totalConseguido != value))
+				{
+					this.OntotalConseguidoChanging(value);
+					this.SendPropertyChanging();
+					this._totalConseguido = value;
+					this.SendPropertyChanged("totalConseguido");
+					this.OntotalConseguidoChanged();
 				}
 			}
 		}

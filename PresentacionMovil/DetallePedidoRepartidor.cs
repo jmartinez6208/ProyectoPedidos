@@ -25,6 +25,8 @@ namespace PresentacionMovil
         private DetallePedido wcfDetallePedido = new DetallePedido();
         private List<DetallePedidoEntidades> detallePedidoEntidad = new List<DetallePedidoEntidades>();
 
+
+
         TextView titulo, fecha, total, conseguido;
         Button concluir;
         ListView listaDetalles;
@@ -50,6 +52,7 @@ namespace PresentacionMovil
             titulo.Text = "Pedido por entregar: " + pedidoEntidad.Id;
             fecha.Text = "Fecha: " + pedidoEntidad.FechaCreacion;
             total.Text = "Total: $" + pedidoEntidad.Total;
+            conseguido.Text = "Conseguido: $" + pedidoEntidad.TotalConseguido.ToString();
 
             //ListView
             detallePedidoEntidad = wcfDetallePedido.DevolerListaDetallesPorPedido(idPedido, true).ToList();
@@ -77,16 +80,17 @@ namespace PresentacionMovil
             alert.SetTitle("ProductoConseguido");
             alert.SetMessage("Desea marcar el producto como conseguido?");
 
-            alert.SetPositiveButton("Si, lo tengo", (senderAlert, args) =>
+            alert.SetPositiveButton("Sí, lo tengo", (senderAlert, args) =>
             {
                 try
                 {
                     bool boolxd = true;
                     bool bool2xd = true;
                     wcfDetallePedido.MarcarConseguido((int)e.Id, true, out boolxd, out bool2xd);
+                    var detallePedido = wcfDetallePedido.DevolverDetallePorId((int)e.Id, true);
+                    wcfPedido.actualizarTotalConseguido(pedidoEntidad.Id, true, detallePedido.Subtotal, true, out boolxd, out bool2xd);
                     Toast.MakeText(Application.Context, "Producto conseguido.", ToastLength.Short).Show();
                     inicializarDatos();
-
                 }
                 catch (Exception)
                 {

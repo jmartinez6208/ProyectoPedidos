@@ -38,5 +38,10 @@ namespace ServiciosWCF
         {
             return DetallePedidoNegocio.MarcarConseguido(idDetallePedido);
         }
+
+        public DetallePedidoEntidades DevolverDetallePorId(int identificador)
+        {
+            return DetallePedidoNegocio.DevolverDetallePorId(identificador);
+        }
     }
 }

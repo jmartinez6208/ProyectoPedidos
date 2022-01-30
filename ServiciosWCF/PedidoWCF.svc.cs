@@ -73,5 +73,10 @@ namespace ServiciosWCF
         {
             return PedidoNegocio.Nuevo(pedido);
         }
+
+        public bool actualizarTotalConseguido(int idPedido, double subtotal)
+        {
+            return PedidoNegocio.actualizarTotalConseguido(idPedido, subtotal);
+        }
     }
 }

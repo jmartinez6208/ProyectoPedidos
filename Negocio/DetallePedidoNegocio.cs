@@ -21,6 +21,11 @@ namespace Negocio
             return DetallePedidoDatos.EliminarDetallePedidoPorId(identificador);
         }
 
+        public static DetallePedidoEntidades DevolverDetallePorId(int identificador)
+        {
+            return DetallePedidoDatos.DevolverDetallePorId(identificador);
+        }
+
         public static List<DetallePedidoEntidades> DevolerListaDetallesPorPedido(int idPedido)
         {
             return DetallePedidoDatos.DevolerListaDetallesPorPedido(idPedido);
