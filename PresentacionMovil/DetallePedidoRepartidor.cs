@@ -87,10 +87,9 @@ namespace PresentacionMovil
         private void conseguirDetalle(object sender, AdapterView.ItemClickEventArgs e)
         {
             var detallePedido = wcfDetallePedido.DevolverDetallePorId((int)e.Id, true);
-
             if (detallePedido.Conseguido.Equals('n'))
             {
-                var idDetalle = (int)e.Id;
+
                 AlertDialog.Builder alert = new AlertDialog.Builder(this);
                 alert.SetTitle("Producto Conseguido");
                 alert.SetMessage("Desea marcar el producto como conseguido?");
@@ -101,7 +100,7 @@ namespace PresentacionMovil
                     {
                         bool boolxd = true;
                         bool bool2xd = true;
-                        wcfDetallePedido.MarcarConseguido((int)e.Id, true, 's', true, out boolxd, out bool2xd);
+                        wcfDetallePedido.MarcarConseguido(detallePedido.Id, true, 's', true, out boolxd, out bool2xd);
                         wcfPedido.actualizarTotalConseguido(pedidoEntidad.Id, true, detallePedido.Subtotal, true, out boolxd, out bool2xd);
                         Toast.MakeText(Application.Context, "Producto conseguido.", ToastLength.Short).Show();
                         inicializarDatos();
@@ -125,7 +124,6 @@ namespace PresentacionMovil
 
             if (detallePedido.Conseguido.Equals('s'))
             {
-                var idDetalle = (int)e.Id;
                 AlertDialog.Builder alert = new AlertDialog.Builder(this);
                 alert.SetTitle("Desmarcar producto conseguido");
                 alert.SetMessage("Desea marcar el producto como NO conseguido?");
@@ -136,7 +134,7 @@ namespace PresentacionMovil
                     {
                         bool boolxd = true;
                         bool bool2xd = true;
-                        wcfDetallePedido.MarcarConseguido((int)e.Id, true, 'n', true, out boolxd, out bool2xd);
+                        wcfDetallePedido.MarcarConseguido(detallePedido.Id, true, 'n', true, out boolxd, out bool2xd);
                         wcfPedido.actualizarTotalConseguido(pedidoEntidad.Id, true, (detallePedido.Subtotal*-1), true, out boolxd, out bool2xd);
                         Toast.MakeText(Application.Context, "Producto descartado.", ToastLength.Short).Show();
                         inicializarDatos();

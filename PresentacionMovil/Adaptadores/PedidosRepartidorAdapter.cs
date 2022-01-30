@@ -48,6 +48,11 @@ namespace PresentacionMovil.Adaptadores
                 convertView = _context.LayoutInflater.Inflate(Resource.Layout.fila_pedidos, null);
             }
 
+            if (item.Estado.Equals("asignado"))
+            {
+                convertView.FindViewById<TextView>(Resource.Id.txtUrgentePedido).Text = "URGENTE";
+            }
+
             convertView.FindViewById<TextView>(Resource.Id.txtIdPedido).Text = "Pedido: " + item.Id;
             convertView.FindViewById<TextView>(Resource.Id.txtFechaPedido).Text = item.FechaCreacion.ToString();
             convertView.FindViewById<TextView>(Resource.Id.txtEstadoPedido).Text = "Estado: " + item.Estado;

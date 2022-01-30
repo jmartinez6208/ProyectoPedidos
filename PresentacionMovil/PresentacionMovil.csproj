@@ -78,6 +78,7 @@
     <Compile Include="DetallePedidoRepartidor.cs" />
     <Compile Include="DialogProducto.cs" />
     <Compile Include="MainActivity.cs" />
+    <Compile Include="MisPedidosRepartidorActivity.cs" />
     <Compile Include="PedidosActivity.cs" />
     <Compile Include="ProductosActivity.cs" />
     <Compile Include="RegistroActivity.cs" />
@@ -470,6 +471,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Web References\wcfTienda\TiendaWCF.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\activity_mispedidos_repartidor.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

@@ -41,6 +41,37 @@ namespace PresentacionMovil
             inicializarDatos();
         }
 
+        public override void OnBackPressed()
+        {
+            AlertDialog.Builder alert = new AlertDialog.Builder(this);
+            alert.SetTitle("Salir");
+            alert.SetMessage(repartidorEntidad.Nombre+ " desea salir de la sesión actual?");
+
+            alert.SetPositiveButton("Si", (senderAlert, args) =>
+            {
+                try
+                {
+                    var intent = new Intent(this, typeof(MainActivity));
+                    StartActivity(intent);
+                    this.Finish();
+                }
+                catch (Exception)
+                {
+                    Toast.MakeText(Application.Context, "No se puede salir.", ToastLength.Short).Show();
+                    throw;
+                }
+
+            });
+
+            alert.SetNegativeButton("No", (senderAlert, args) =>
+            {
+                inicializarDatos();
+            });
+
+            Dialog dialog = alert.Create();
+            dialog.Show();
+        }
+
         private void inicializarDatos()
         {
             userRepartidor = Intent.Extras.GetString("username","na");
@@ -59,10 +90,19 @@ namespace PresentacionMovil
         {
             nombre = FindViewById<TextView>(Resource.Id.txtRepartidor);            
             misPedidos = FindViewById<Button>(Resource.Id.btnRepartidorMisPedidos);
+            misPedidos.Click += clickMisPedidos;
 
             listaPedidos = FindViewById<ListView>(Resource.Id.listViewPedidosRepartidor);
             listaPedidos.ItemClick += clickListaPedido;
 
+        }
+
+        private void clickMisPedidos(object sender, EventArgs e)
+        {
+            var intent = new Intent(this, typeof(MisPedidosRepartidorActivity));
+            intent.PutExtra("username", repartidorEntidad.User);
+            StartActivity(intent);
+            this.Finish();
         }
 
         private void clickListaPedido(object sender, AdapterView.ItemClickEventArgs e)

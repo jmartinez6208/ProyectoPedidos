@@ -51,7 +51,6 @@ namespace PresentacionMovil
         private void inicializarDatos()
         {
             idPedido = Intent.Extras.GetInt("idPedido");
-            Toast.MakeText(Application.Context, idPedido.ToString(), ToastLength.Short).Show();
 
             //ListView
             detallePedidoEntidad = wcfDetallePedido.DevolerListaDetallesPorPedido(idPedido, true).ToList();

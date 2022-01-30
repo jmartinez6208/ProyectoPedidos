@@ -78,6 +78,19 @@
         android:layout_marginLeft="20dp"
         android:id="@+id/txtTotalPedido" />
 
+    <TextView
+        android:text=""
+        android:textColor="@android:color/holo_green_dark"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@id/txtTotalPedido"
+        android:layout_marginLeft="20dp"
+        android:id="@+id/txtUrgentePedido" />
+
     <ImageView
         android:src="@drawable/carro"
         android:layout_width="80dp"

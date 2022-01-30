@@ -44,6 +44,36 @@ namespace PresentacionMovil
             inicializarDatos();
         }
 
+        public override void OnBackPressed()
+        {
+            AlertDialog.Builder alert = new AlertDialog.Builder(this);
+            alert.SetTitle("Salir");
+            alert.SetMessage(usuarioEntidad.Nombre + " desea salir de la sesión actual?");
+
+            alert.SetPositiveButton("Si", (senderAlert, args) =>
+            {
+                try
+                {
+                    var intent = new Intent(this, typeof(MainActivity));
+                    StartActivity(intent);
+                    this.Finish();
+                }
+                catch (Exception)
+                {
+                    Toast.MakeText(Application.Context, "No se puede salir.", ToastLength.Short).Show();
+                    throw;
+                }
+
+            });
+
+            alert.SetNegativeButton("No", (senderAlert, args) =>
+            {
+                inicializarDatos();
+            });
+
+            Dialog dialog = alert.Create();
+            dialog.Show();
+        }
 
         private void botones()
         {

@@ -74,7 +74,7 @@ namespace PresentacionMovil
                             var intent = new Intent(this, typeof(PedidosActivity));
                             intent.PutExtra("username", usuarioEntidad.User);
                             StartActivity(intent);
-
+                            this.Finish();
                             
                         }
                         //Si es un Usuario Tipo Repartidor
@@ -83,6 +83,7 @@ namespace PresentacionMovil
                             var intent = new Intent(this, typeof(RepartidorActivity));
                             intent.PutExtra("username", usuarioEntidad.User);
                             StartActivity(intent);
+                            this.Finish();
                         }
                     }
                     else
