@@ -19,6 +19,18 @@
   <wsdl:message name="IDetallePedido_EliminarDetallePedidoPorId_OutputMessage">
     <wsdl:part name="parameters" element="tns:EliminarDetallePedidoPorIdResponse" />
   </wsdl:message>
+  <wsdl:message name="IDetallePedido_DevolerListaDetallesPorPedido_InputMessage">
+    <wsdl:part name="parameters" element="tns:DevolerListaDetallesPorPedido" />
+  </wsdl:message>
+  <wsdl:message name="IDetallePedido_DevolerListaDetallesPorPedido_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DevolerListaDetallesPorPedidoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDetallePedido_EliminarDetallesPorId_InputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarDetallesPorId" />
+  </wsdl:message>
+  <wsdl:message name="IDetallePedido_EliminarDetallesPorId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarDetallesPorIdResponse" />
+  </wsdl:message>
   <wsdl:portType name="IDetallePedido">
     <wsdl:operation name="Nuevo">
       <wsdl:input wsaw:Action="http://tempuri.org/IDetallePedido/Nuevo" message="tns:IDetallePedido_Nuevo_InputMessage" />
@@ -27,6 +39,14 @@
     <wsdl:operation name="EliminarDetallePedidoPorId">
       <wsdl:input wsaw:Action="http://tempuri.org/IDetallePedido/EliminarDetallePedidoPorId" message="tns:IDetallePedido_EliminarDetallePedidoPorId_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IDetallePedido/EliminarDetallePedidoPorIdResponse" message="tns:IDetallePedido_EliminarDetallePedidoPorId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DevolerListaDetallesPorPedido">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDetallePedido/DevolerListaDetallesPorPedido" message="tns:IDetallePedido_DevolerListaDetallesPorPedido_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDetallePedido/DevolerListaDetallesPorPedidoResponse" message="tns:IDetallePedido_DevolerListaDetallesPorPedido_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarDetallesPorId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDetallePedido/EliminarDetallesPorId" message="tns:IDetallePedido_EliminarDetallesPorId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDetallePedido/EliminarDetallesPorIdResponse" message="tns:IDetallePedido_EliminarDetallesPorId_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IDetallePedido" type="tns:IDetallePedido">
@@ -42,6 +62,24 @@
     </wsdl:operation>
     <wsdl:operation name="EliminarDetallePedidoPorId">
       <soap:operation soapAction="http://tempuri.org/IDetallePedido/EliminarDetallePedidoPorId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DevolerListaDetallesPorPedido">
+      <soap:operation soapAction="http://tempuri.org/IDetallePedido/DevolerListaDetallesPorPedido" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarDetallesPorId">
+      <soap:operation soapAction="http://tempuri.org/IDetallePedido/EliminarDetallesPorId" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

@@ -29,4 +29,32 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="DevolerListaDetallesPorPedido">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idPedido" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DevolerListaDetallesPorPedidoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Entidades" minOccurs="0" name="DevolerListaDetallesPorPedidoResult" nillable="true" type="q3:ArrayOfDetallePedidoEntidades" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EliminarDetallesPorId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="identificador" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EliminarDetallesPorIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="EliminarDetallesPorIdResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

@@ -19,6 +19,11 @@ namespace ServiciosWCF
             return UsuarioNegocio.DevolverUsuario(username);
         }
 
+        public UsuarioEntidades DevolverUsuarioPorId(int identificador)
+        {
+            return UsuarioNegocio.DevolverUsuarioPorId(identificador);
+        }
+
         public UsuarioEntidades Login(string username, string password)
         {
             return UsuarioNegocio.Login(username, password);

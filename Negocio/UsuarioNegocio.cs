@@ -28,6 +28,10 @@ namespace Negocio
             return UsuarioDatos.Login(username, password);
         }
 
+        public static UsuarioEntidades DevolverUsuarioPorId(int identificador) 
+        {
+            return UsuarioDatos.DevolverUsuarioPorId(identificador);
+        }
 
     }
 }

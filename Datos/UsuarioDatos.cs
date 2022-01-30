@@ -70,6 +70,37 @@ namespace Datos
             }
         }
 
+        public static UsuarioEntidades DevolverUsuarioPorId(int identificador)
+        {
+            try
+            {
+                UsuarioEntidades usuario = new UsuarioEntidades();
+                using (var ctx = new DataClasses1DataContext())
+                {
+                    var usuarioLQ = ctx.Usuarios.FirstOrDefault(u => u.id == identificador);
+
+                    if (usuarioLQ != null)
+                    {
+                        usuario.Id = usuarioLQ.id;
+                        usuario.IdTipoUsuario = (int)usuarioLQ.idTipoUsuario;
+                        usuario.Nombre = usuarioLQ.nombre;
+                        usuario.User = usuarioLQ.usuario;
+                        usuario.Contraseña = usuarioLQ.contraseña;
+                        usuario.FechaCreacion = usuarioLQ.fechaCreacion;
+                        return usuario;
+                    }
+                    return null;
+
+                }
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw;
+            }
+        }
+
         public static UsuarioEntidades Login(string username, string password)
         {
             try

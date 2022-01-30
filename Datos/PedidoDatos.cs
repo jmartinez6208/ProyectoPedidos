@@ -130,6 +130,61 @@ namespace Datos
 
         }
 
+        public static bool EliminarPedidosPorEstado()
+        {
+            try
+            {
+                using (var ctx = new DataClasses1DataContext())
+                {
+                    var pedidoLQ = from p in ctx.Pedidos
+                                   where p.estado.Equals("nuevo")
+                                   select p;
+                    ctx.Pedidos.DeleteAllOnSubmit(pedidoLQ);
+                    ctx.SubmitChanges();
+                    return true;
+                }
+            }
+            catch (Exception)
+            {
+                return false;
+                throw;
+            }
+
+        }
+
+        public static bool EliminarPedidosIncompletos()
+        {
+            List<Pedidos> listaPedidosLQ = new List<Pedidos>();
+
+            try
+            {
+                using (var ctx = new DataClasses1DataContext())
+                {
+                    var resultado = from p in ctx.Pedidos
+                                    where p.estado.Equals("nuevo")
+                                    select p;
+
+                    listaPedidosLQ = resultado.ToList();
+
+                    foreach (var item in listaPedidosLQ)
+                    {
+                        DetallePedidoDatos.EliminarDetallesPorId(item.id);
+                        ctx.Pedidos.DeleteOnSubmit(item);
+                        ctx.SubmitChanges();
+                    }
+
+                    return true;
+
+                }
+            }
+            catch (Exception)
+            {
+                return false;
+                throw;
+            }
+
+        }
+
         public static List<PedidoEntidades> DevolverListaPedidosPorCliente(int idCliente)
         {
             List<PedidoEntidades> listaPedidosCliente = new List<PedidoEntidades>();
@@ -180,6 +235,27 @@ namespace Datos
             
         }
 
-       
+        public static bool ActualizarEstado(int idPedido, string estado)
+        {
+            try
+            {
+                using (var ctx = new DataClasses1DataContext())
+                {
+                    var pedidoLQ = ctx.Pedidos.FirstOrDefault(p => p.id == idPedido);
+                    pedidoLQ.estado = estado;
+                    ctx.SubmitChanges();
+                    return true;
+                }
+
+            }
+            catch (Exception)
+            {
+                return false;
+                throw;
+            }
+
+        }
+
+
     }
 }

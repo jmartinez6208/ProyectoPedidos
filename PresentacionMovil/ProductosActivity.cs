@@ -23,12 +23,17 @@ namespace PresentacionMovil
 
         private ProductoTiendaWCF wsProductoTienda = new ProductoTiendaWCF();
         private List<ProductosTiendaEntidades> listaProductos = new List<ProductosTiendaEntidades>();
+
+        private UsuarioWCF wcfUsuario = new UsuarioWCF();
         private UsuarioEntidades usuarioEntidad = new UsuarioEntidades();
 
         private PedidoWCF wcfPedido = new PedidoWCF();
         private PedidoEntidades pedidoEntidad = new PedidoEntidades();
 
         private int creada = 0;
+
+        private int idCliente, idPedido;
+        private int intento;
 
         Spinner categoriasSpinner;
         ListView productosListView;
@@ -42,11 +47,19 @@ namespace PresentacionMovil
             // Create your application here
             referenciaBotones();
             inicializarDatos();
-            CrearPedidoNuevo();
+            if (intento == 1)
+            {
+                CrearPedidoNuevo();
+            }
         }
 
         private void inicializarDatos()
         {
+            intento = Intent.Extras.GetInt("origen", 0);
+            idPedido = Intent.Extras.GetInt("idPedidoCarrito", 0);
+            idCliente = (int)PedidosActivity.usuarioEntidad.Id;
+            usuarioEntidad = wcfUsuario.DevolverUsuarioPorId(idCliente, true);
+
             listaCategorias = wsCategoria.DevolverListaCategoria().ToList();
             var items = new List<string>();
             foreach (var item in listaCategorias)
@@ -77,6 +90,13 @@ namespace PresentacionMovil
 
         }
 
+        public override void OnBackPressed()
+        {
+            var intent = new Intent(this, typeof(PedidosActivity));
+            intent.PutExtra("username", usuarioEntidad.User);
+            StartActivity(intent);
+        }
+
         private void referenciaBotones()
         {
             categoriasSpinner = (Spinner)FindViewById<Spinner>(Resource.Id.spinnerCategorias);
@@ -95,8 +115,9 @@ namespace PresentacionMovil
         private void clickCarrito(object sender, EventArgs e)
         {
             var intent = new Intent(this, typeof(CarritoActivity));
-            intent.PutExtra("idPedido", pedidoEntidad.Id);
+            intent.PutExtra("idPedido", idPedido);
             StartActivity(intent);
+            this.Finish();
         }
 
         private void clickItemListView(object sender, AdapterView.ItemClickEventArgs e)
@@ -105,14 +126,13 @@ namespace PresentacionMovil
             DialogProducto dialogProducto = new DialogProducto();
             dialogProducto.Show(transaction, "Dialog Fragment");
             var id = (int)e.Id;
-            var idPedido = pedidoEntidad.Id;
+            //idPedido = pedidoEntidad.Id;
             dialogProducto.RecuperarIdProducto(id);
             dialogProducto.RecuperarIdPedido(idPedido);
         }
 
         private void CrearPedidoNuevo()
         {
-            var idCliente = (int)PedidosActivity.usuarioEntidad.Id;
             pedidoEntidad.IdCliente = idCliente;
             pedidoEntidad.IdClienteSpecified = true;
             pedidoEntidad.IdRepartidor = 8;
@@ -125,6 +145,7 @@ namespace PresentacionMovil
             pedidoEntidad = wcfPedido.Nuevo(pedidoEntidad);
             if (pedidoEntidad.Id > 0)
             {
+                idPedido = pedidoEntidad.Id;
                 Toast.MakeText(Application.Context, pedidoEntidad.Id.ToString(), ToastLength.Short).Show();
             }
         }

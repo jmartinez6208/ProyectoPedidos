@@ -19,6 +19,11 @@ namespace ServiciosWCF
             return PedidoNegocio.Actualizar(pedido);
         }
 
+        public bool ActualizarEstado(int idPedido, string estado)
+        {
+            return PedidoNegocio.ActualizarEstado(idPedido, estado);
+        }
+
         public List<PedidoEntidades> DevolverListaPedidos()
         {
             return PedidoNegocio.DevolverListaPedidos();
@@ -37,6 +42,16 @@ namespace ServiciosWCF
         public bool EliminarPedidoPorId(int identificador)
         {
             return PedidoNegocio.EliminarPedidoPorId(identificador);
+        }
+
+        public bool EliminarPedidosIncompletos()
+        {
+            return PedidoNegocio.EliminarPedidosIncompletos();
+        }
+
+        public bool EliminarPedidosPorEstado()
+        {
+            return PedidoNegocio.EliminarPedidosPorEstado();
         }
 
         public PedidoEntidades Nuevo(PedidoEntidades pedido)

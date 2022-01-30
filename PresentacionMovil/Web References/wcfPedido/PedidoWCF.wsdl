@@ -43,6 +43,24 @@
   <wsdl:message name="IPedidoWCF_DevolverListaPedidosPorCliente_OutputMessage">
     <wsdl:part name="parameters" element="tns:DevolverListaPedidosPorClienteResponse" />
   </wsdl:message>
+  <wsdl:message name="IPedidoWCF_ActualizarEstado_InputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizarEstado" />
+  </wsdl:message>
+  <wsdl:message name="IPedidoWCF_ActualizarEstado_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizarEstadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPedidoWCF_EliminarPedidosPorEstado_InputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarPedidosPorEstado" />
+  </wsdl:message>
+  <wsdl:message name="IPedidoWCF_EliminarPedidosPorEstado_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarPedidosPorEstadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPedidoWCF_EliminarPedidosIncompletos_InputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarPedidosIncompletos" />
+  </wsdl:message>
+  <wsdl:message name="IPedidoWCF_EliminarPedidosIncompletos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarPedidosIncompletosResponse" />
+  </wsdl:message>
   <wsdl:portType name="IPedidoWCF">
     <wsdl:operation name="Nuevo">
       <wsdl:input wsaw:Action="http://tempuri.org/IPedidoWCF/Nuevo" message="tns:IPedidoWCF_Nuevo_InputMessage" />
@@ -67,6 +85,18 @@
     <wsdl:operation name="DevolverListaPedidosPorCliente">
       <wsdl:input wsaw:Action="http://tempuri.org/IPedidoWCF/DevolverListaPedidosPorCliente" message="tns:IPedidoWCF_DevolverListaPedidosPorCliente_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IPedidoWCF/DevolverListaPedidosPorClienteResponse" message="tns:IPedidoWCF_DevolverListaPedidosPorCliente_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarEstado">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPedidoWCF/ActualizarEstado" message="tns:IPedidoWCF_ActualizarEstado_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPedidoWCF/ActualizarEstadoResponse" message="tns:IPedidoWCF_ActualizarEstado_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarPedidosPorEstado">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPedidoWCF/EliminarPedidosPorEstado" message="tns:IPedidoWCF_EliminarPedidosPorEstado_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPedidoWCF/EliminarPedidosPorEstadoResponse" message="tns:IPedidoWCF_EliminarPedidosPorEstado_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarPedidosIncompletos">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPedidoWCF/EliminarPedidosIncompletos" message="tns:IPedidoWCF_EliminarPedidosIncompletos_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPedidoWCF/EliminarPedidosIncompletosResponse" message="tns:IPedidoWCF_EliminarPedidosIncompletos_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IPedidoWCF" type="tns:IPedidoWCF">
@@ -118,6 +148,33 @@
     </wsdl:operation>
     <wsdl:operation name="DevolverListaPedidosPorCliente">
       <soap:operation soapAction="http://tempuri.org/IPedidoWCF/DevolverListaPedidosPorCliente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarEstado">
+      <soap:operation soapAction="http://tempuri.org/IPedidoWCF/ActualizarEstado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarPedidosPorEstado">
+      <soap:operation soapAction="http://tempuri.org/IPedidoWCF/EliminarPedidosPorEstado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarPedidosIncompletos">
+      <soap:operation soapAction="http://tempuri.org/IPedidoWCF/EliminarPedidosIncompletos" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

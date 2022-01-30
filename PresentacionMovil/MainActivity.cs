@@ -80,7 +80,9 @@ namespace PresentacionMovil
                         //Si es un Usuario Tipo Repartidor
                         if (tipoUsuario.Equals(3))
                         {
-                            //intent Repartidor
+                            var intent = new Intent(this, typeof(RepartidorActivity));
+                            intent.PutExtra("username", usuarioEntidad.User);
+                            StartActivity(intent);
                         }
                     }
                     else

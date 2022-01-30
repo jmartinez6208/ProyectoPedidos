@@ -24,5 +24,9 @@ namespace ServiciosWCF
         [OperationContract]
         [FaultContract(typeof(UsuarioWCF))]
         UsuarioEntidades Login(string username, string password);
+
+        [OperationContract]
+        [FaultContract(typeof(UsuarioWCF))]
+        UsuarioEntidades DevolverUsuarioPorId(int identificador);
     }
 }

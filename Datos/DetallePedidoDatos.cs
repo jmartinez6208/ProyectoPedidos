@@ -66,6 +66,38 @@ namespace Datos
 
         }
 
+        public static bool EliminarDetallesPorId(int identificador)
+        {
+            List<Detalle_Pedidos> listaPedidosLQ = new List<Detalle_Pedidos>();
+
+            try
+            {
+                using (var ctx = new DataClasses1DataContext())
+                {
+                    var resultado = from p in ctx.Detalle_Pedidos
+                                    where p.idPedido == identificador
+                                    select p;
+
+                    listaPedidosLQ = resultado.ToList();
+
+                    foreach (var item in listaPedidosLQ)
+                    {
+                        ctx.Detalle_Pedidos.DeleteOnSubmit(item);
+                        ctx.SubmitChanges();
+                    }
+
+                    return true;
+
+                }
+            }
+            catch (Exception)
+            {
+                return false;
+                throw;
+            }
+
+        }
+
         public static List<DetallePedidoEntidades> DevolerListaDetallesPorPedido(int idPedido)
         {
             List<DetallePedidoEntidades> listaDetallesPedido = new List<DetallePedidoEntidades>();

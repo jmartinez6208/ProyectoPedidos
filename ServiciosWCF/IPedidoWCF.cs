@@ -31,13 +31,13 @@ namespace ServiciosWCF
         [OperationContract]
         List<PedidoEntidades> DevolverListaPedidosPorCliente(int idCliente);
 
+        [OperationContract]
+        bool ActualizarEstado(int idPedido, string estado);
 
+        [OperationContract]
+        bool EliminarPedidosPorEstado();
 
-
-
-
-
-
-
+        [OperationContract]
+        bool EliminarPedidosIncompletos();
     }
 }

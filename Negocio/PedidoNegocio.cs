@@ -40,5 +40,20 @@ namespace Negocio
         {
             return PedidoDatos.DevolverListaPedidosPorCliente(idCliente);
         }
+
+        public static bool ActualizarEstado(int idPedido, string estado)
+        {
+            return PedidoDatos.ActualizarEstado(idPedido, estado);
+        }
+
+        public static bool EliminarPedidosPorEstado()
+        {
+            return PedidoDatos.EliminarPedidosPorEstado();
+        }
+
+        public static bool EliminarPedidosIncompletos() 
+        {
+            return PedidoDatos.EliminarPedidosIncompletos();
+        }
     }
 }

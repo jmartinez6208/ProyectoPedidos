@@ -49,15 +49,52 @@ namespace PresentacionMovil
         {
             bienvenido = (TextView)FindViewById(Resource.Id.txtUsuarioPedidos);
             pedidosListView = FindViewById<ListView>(Resource.Id.listViewPedidos);
+            pedidosListView.ItemClick += clickItemListView;
             botonPedido = (Button) FindViewById<Button>(Resource.Id.btnNuevoPedido);
-            botonPedido.Click += NuevoPedidoClick; 
+            botonPedido.Click += NuevoPedidoClick;
+        }
+
+        private void clickItemListView(object sender, AdapterView.ItemClickEventArgs e)
+        {
+            var idPedido = (int)e.Id;
+            var intent = new Intent(this, typeof(DetallePedidoActivity));
+            intent.PutExtra("idPedidoDet", idPedido);
+            StartActivity(intent);
+            this.Finish();
         }
 
         private void NuevoPedidoClick(object sender, EventArgs e)
         {
-            var intent = new Intent(this, typeof(ProductosActivity));
-            intent.PutExtra("idCliente",usuarioEntidad.Id);
-            StartActivity(intent);
+            AlertDialog.Builder alert = new AlertDialog.Builder(this);
+            alert.SetTitle("Crear nuevo pedido?");
+            alert.SetMessage("Si crea un nuevo pedido se eliminarán los pedidos que no haya confirmado.");
+
+            alert.SetPositiveButton("Crear nuevo", (senderAlert, args) =>
+            {
+                try
+                {
+                    bool boolxd = true;
+                    bool bool2xd = true;
+                    pedidoWCF.EliminarPedidosIncompletos(out boolxd, out bool2xd);
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+
+                var intent = new Intent(this, typeof(ProductosActivity));
+                intent.PutExtra("origen", 1);
+                StartActivity(intent);
+            });
+
+            alert.SetNegativeButton("No", (senderAlert, args) =>
+            {
+                
+            });
+
+            Dialog dialog = alert.Create();
+            dialog.Show();
         }
 
         private void inicializarDatos()

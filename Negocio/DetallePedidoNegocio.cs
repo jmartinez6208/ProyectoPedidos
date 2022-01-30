@@ -25,5 +25,10 @@ namespace Negocio
         {
             return DetallePedidoDatos.DevolerListaDetallesPorPedido(idPedido);
         }
+
+        public static bool EliminarDetallesPorId(int identificador)
+        {
+            return DetallePedidoDatos.EliminarDetallesPorId(identificador);
+        }
     }
 }

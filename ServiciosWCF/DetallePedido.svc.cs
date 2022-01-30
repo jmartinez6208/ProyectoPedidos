@@ -28,5 +28,10 @@ namespace ServiciosWCF
         {
             return DetallePedidoNegocio.DevolerListaDetallesPorPedido(idPedido);
         }
+
+        public bool EliminarDetallesPorId(int identificador)
+        {
+            return DetallePedidoNegocio.EliminarDetallesPorId(identificador);
+        }
     }
 }

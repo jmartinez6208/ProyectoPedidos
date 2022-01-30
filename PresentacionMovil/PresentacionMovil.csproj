@@ -72,11 +72,13 @@
     <Compile Include="Adaptadores\PedidosAdapter.cs" />
     <Compile Include="Adaptadores\ProductosTiendaAdapter.cs" />
     <Compile Include="CarritoActivity.cs" />
+    <Compile Include="DetallePedidoActivity.cs" />
     <Compile Include="DialogProducto.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="PedidosActivity.cs" />
     <Compile Include="ProductosActivity.cs" />
     <Compile Include="RegistroActivity.cs" />
+    <Compile Include="RepartidorActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Web References\wcfCategorias\Reference.cs">
@@ -410,6 +412,16 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\fila_carrito.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\activity_detallePedido.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\activity_repartidor.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
