@@ -131,6 +131,30 @@ namespace Datos
             return listaDetallesPedido;
         }
 
+        public static int NumeroDetallesPedido(int idPedido)
+        {
+            try
+            {
+                using (var ctx = new DataClasses1DataContext())
+                {
+                    int conteoDetalles = 0;
+                    var resultado = from p in ctx.Detalle_Pedidos
+                                    where p.idPedido == idPedido
+                                    select p;
+                    conteoDetalles = resultado.Count();
+
+                    return conteoDetalles;
+                }
+            }
+            catch (Exception)
+            {
+                return 0;
+                throw;
+            }
+            
+        }
+
+
 
     }
 }
