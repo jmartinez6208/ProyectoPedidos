@@ -257,7 +257,8 @@ namespace Datos
             using (var ctx = new DataClasses1DataContext())
             {
                 var resultado = from p in ctx.Pedidos
-                                where p.idRepartidor == idRepartidor
+                                where p.idRepartidor == idRepartidor && (p.estado.Equals("asignado") || p.estado.Equals("completado"))  
+                                orderby p.estado
                                 select p;
 
                 listaPedidosLQ = resultado.ToList();
