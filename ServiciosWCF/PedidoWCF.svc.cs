@@ -29,9 +29,19 @@ namespace ServiciosWCF
             return PedidoNegocio.DevolverListaPedidos();
         }
 
+        public List<PedidoEntidades> DevolverListaPedidosEstadoPendiente()
+        {
+            return PedidoNegocio.DevolverListaPedidosEstadoPendiente();
+        }
+
         public List<PedidoEntidades> DevolverListaPedidosPorCliente(int idCliente)
         {
             return PedidoNegocio.DevolverListaPedidosPorCliente(idCliente);
+        }
+
+        public List<PedidoEntidades> DevolverListaPedidosPorRepartidor(int idRepartidor)
+        {
+            return PedidoNegocio.DevolverListaPedidosPorRepartidor(idRepartidor);
         }
 
         public PedidoEntidades DevolverPedidoPorId(int identificador)
