@@ -53,6 +53,11 @@ namespace PresentacionMovil.Adaptadores
                 convertView.FindViewById<TextView>(Resource.Id.txtUrgentePedido).Text = "URGENTE";
             }
 
+            if (item.Estado.Equals("completado"))
+            {
+                convertView.FindViewById<TextView>(Resource.Id.txtConseguidoPedido).Text = "Pagado $: " + item.TotalConseguido.ToString();
+            }
+
             convertView.FindViewById<TextView>(Resource.Id.txtIdPedido).Text = "Pedido: " + item.Id;
             convertView.FindViewById<TextView>(Resource.Id.txtFechaPedido).Text = item.FechaCreacion.ToString();
             convertView.FindViewById<TextView>(Resource.Id.txtEstadoPedido).Text = "Estado: " + item.Estado;
