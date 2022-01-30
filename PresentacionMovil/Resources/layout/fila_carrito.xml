@@ -41,6 +41,19 @@
 
     <TextView
         android:text=""
+        android:textColor="@android:color/holo_red_light"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_marginTop="15dp"
+        android:layout_toRightOf="@id/txtNombreProductoCarrito"
+        android:layout_marginLeft="10dp"
+        android:id="@+id/txtNoConseguidoProductoCarrito" />
+
+    <TextView
+        android:text=""
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

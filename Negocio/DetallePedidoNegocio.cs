@@ -36,9 +36,9 @@ namespace Negocio
             return DetallePedidoDatos.EliminarDetallesPorId(identificador);
         }
 
-        public static bool MarcarConseguido(int idDetallePedido)
+        public static bool MarcarConseguido(int idDetallePedido, char estado)
         {
-            return DetallePedidoDatos.MarcarConseguido(idDetallePedido);
+            return DetallePedidoDatos.MarcarConseguido(idDetallePedido, estado);
         }
     }
 }

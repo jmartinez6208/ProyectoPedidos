@@ -149,14 +149,14 @@ namespace Datos
             return listaDetallesPedido;
         }
 
-        public static bool MarcarConseguido(int idDetallePedido)
+        public static bool MarcarConseguido(int idDetallePedido, char estado)
         {
             try
             {
                 using (var ctx = new DataClasses1DataContext())
                 {
                     var detallePedidoLQ = ctx.Detalle_Pedidos.FirstOrDefault(p => p.id == idDetallePedido);
-                    detallePedidoLQ.conseguido = 's';
+                    detallePedidoLQ.conseguido = estado;
                     ctx.SubmitChanges();
                     return true;
                 }

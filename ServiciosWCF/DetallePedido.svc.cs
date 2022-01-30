@@ -34,9 +34,9 @@ namespace ServiciosWCF
             return DetallePedidoNegocio.EliminarDetallesPorId(identificador);
         }
 
-        public bool MarcarConseguido(int idDetallePedido)
+        public bool MarcarConseguido(int idDetallePedido, char estado)
         {
-            return DetallePedidoNegocio.MarcarConseguido(idDetallePedido);
+            return DetallePedidoNegocio.MarcarConseguido(idDetallePedido, estado);
         }
 
         public DetallePedidoEntidades DevolverDetallePorId(int identificador)

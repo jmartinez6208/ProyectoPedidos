@@ -29,6 +29,6 @@ namespace ServiciosWCF
         bool EliminarDetallesPorId(int identificador);
 
         [OperationContract]
-        bool MarcarConseguido(int idDetallePedido);
+        bool MarcarConseguido(int idDetallePedido, char estado);
     }
 }

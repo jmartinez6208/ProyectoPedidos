@@ -54,6 +54,12 @@ namespace PresentacionMovil.Adaptadores
             if (item.Conseguido.Equals('s'))
             {
                 convertView.FindViewById<TextView>(Resource.Id.txtConseguidoProductoCarrito).Text = "CONSEGUIDO";
+                convertView.FindViewById<TextView>(Resource.Id.txtNoConseguidoProductoCarrito).Enabled = false;
+            }
+            if (item.Conseguido.Equals('n'))
+            {
+                convertView.FindViewById<TextView>(Resource.Id.txtNoConseguidoProductoCarrito).Text = "CONSEGUIR";
+                convertView.FindViewById<TextView>(Resource.Id.txtConseguidoProductoCarrito).Enabled = false;
             }
 
             convertView.FindViewById<TextView>(Resource.Id.txtCantidadProductoCarrito).Text = "Cantidad: " + item.Cantidad.ToString();
