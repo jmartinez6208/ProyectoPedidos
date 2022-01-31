@@ -70,7 +70,7 @@ namespace PresentacionMovil
             categoriasSpinner.Adapter = adaptador;
 
             //Autocomplete Buscar Producto
-            var listaProductosBuscar = wsProductoTienda.DevolverProductosPorNombre(buscadorProducto.Text).ToList();
+            /*var listaProductosBuscar = wsProductoTienda.DevolverProductosPorNombre(buscadorProducto.Text).ToList();
             var nombreProductos = new List<string>();
             foreach (var item in listaProductosBuscar)
             {
@@ -84,10 +84,7 @@ namespace PresentacionMovil
                 {
                     productosListView.Adapter = new ProductosTiendaAdapter(this, listaProductosBuscar);
                 }
-            };
-            
-            // ListView
-
+            };*/
         }
 
         public override void OnBackPressed()
@@ -159,14 +156,18 @@ namespace PresentacionMovil
             productosListView.Adapter = new ProductosTiendaAdapter(this, listaProductos);
         }
 
-        private void buscarProducto_ItemEntered(object sender, AdapterView.ItemSelectedEventArgs e)
+        public override bool DispatchKeyEvent(KeyEvent e)
         {
-            var txtBuscarProducto = sender as AutoCompleteTextView;
-            var producto = txtBuscarProducto.Text;
-            listaProductos = wsProductoTienda.DevolverProductosPorNombre(producto).ToList();
-            productosListView.Adapter = new ProductosTiendaAdapter(this, listaProductos);
+            if (e.KeyCode == Keycode.Enter)
+            {
+                var listaProductosBuscar = wsProductoTienda.DevolverProductosPorNombre(buscadorProducto.Text).ToList();
+                productosListView.Adapter = new ProductosTiendaAdapter(this, listaProductosBuscar);
+                return true;
+            }
+            return false;
+            
         }
 
-        
+
     }
 }
