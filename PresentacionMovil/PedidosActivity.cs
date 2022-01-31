@@ -50,7 +50,7 @@ namespace PresentacionMovil
             alert.SetTitle("Salir");
             alert.SetMessage(usuarioEntidad.Nombre + " desea salir de la sesión actual?");
 
-            alert.SetPositiveButton("Si", (senderAlert, args) =>
+            alert.SetPositiveButton("Sí", (senderAlert, args) =>
             {
                 try
                 {

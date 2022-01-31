@@ -73,7 +73,7 @@ namespace PresentacionMovil
                 detallePedido.ConseguidoSpecified = true;
                 detallePedido.SubtotalSpecified = true;
                 detallePedido = wcfDetallePedido.Nuevo(detallePedido);
-                Toast.MakeText(Application.Context, "Agregado " + cantidad.Text + " de " + productoTiendaEntidad.NombreProducto, ToastLength.Short).Show();
+                Toast.MakeText(Application.Context, "Agregado " + cantidad.Text + " " + productoTiendaEntidad.NombreProducto + " al carrito.", ToastLength.Short).Show();
                 this.Dismiss();
             }
             else

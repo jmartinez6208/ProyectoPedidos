@@ -21,7 +21,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"/>
 
-        <AutoCompleteTextView
+        <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Buscar Producto"
@@ -58,6 +58,9 @@
             android:layout_height="450dp"
             android:layout_marginTop="10dp"
             android:id="@+id/listViewProductos" />
+
+       
+            
         <Button
             android:text="Ver carrito"
             android:layout_width="match_parent"
@@ -68,5 +71,7 @@
             android:layout_marginRight="50dp"
             android:id="@+id/btnCarrito" />
 
-    </LinearLayout>
+            
+     </LinearLayout>
+ 
 </ScrollView>

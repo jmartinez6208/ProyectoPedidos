@@ -37,7 +37,7 @@ namespace PresentacionMovil
 
         Spinner categoriasSpinner;
         ListView productosListView;
-        AutoCompleteTextView buscadorProducto;
+        EditText buscadorProducto;
         Button botonCarrito;
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -51,6 +51,9 @@ namespace PresentacionMovil
             {
                 CrearPedidoNuevo();
             }
+
+            buscarProducto();
+
         }
 
         private void inicializarDatos()
@@ -77,14 +80,8 @@ namespace PresentacionMovil
                 nombreProductos.Add(item.NombreProducto);
             }
             var adapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleSpinnerItem, nombreProductos);
-            buscadorProducto.Adapter = adapter;
-            buscadorProducto.KeyPress += (object sender, View.KeyEventArgs e) =>
-            {
-                if ((e.KeyCode == Keycode.Enter))
-                {
-                    productosListView.Adapter = new ProductosTiendaAdapter(this, listaProductosBuscar);
-                }
-            };*/
+            buscadorProducto.Adapter = adapter;*/
+           
         }
 
         public override void OnBackPressed()
@@ -102,7 +99,7 @@ namespace PresentacionMovil
             productosListView.ItemClick += clickItemListView;
 
             //Autocomplete - Buscar Producto 
-            buscadorProducto = FindViewById<AutoCompleteTextView>(Resource.Id.buscarProducto);
+            buscadorProducto = FindViewById<EditText>(Resource.Id.buscarProducto);
 
             botonCarrito = (Button)FindViewById<Button>(Resource.Id.btnCarrito);
             botonCarrito.Click += clickCarrito;
@@ -156,18 +153,26 @@ namespace PresentacionMovil
             productosListView.Adapter = new ProductosTiendaAdapter(this, listaProductos);
         }
 
-        public override bool DispatchKeyEvent(KeyEvent e)
+        private void buscarProducto()
         {
-            if (e.KeyCode == Keycode.Enter)
+            buscadorProducto.KeyPress += (object sender, View.KeyEventArgs e) =>
             {
-                var listaProductosBuscar = wsProductoTienda.DevolverProductosPorNombre(buscadorProducto.Text).ToList();
-                productosListView.Adapter = new ProductosTiendaAdapter(this, listaProductosBuscar);
-                return true;
-            }
-            return false;
-            
-        }
-
-
+                e.Handled = false;
+                if (e.Event.Action == KeyEventActions.Down && e.KeyCode == Keycode.Enter)
+                {
+                    var listaProductosBuscar = wsProductoTienda.DevolverProductosPorNombre(buscadorProducto.Text).ToList();
+                    if (listaProductosBuscar.Count() > 0)
+                    {
+                        productosListView.Adapter = new ProductosTiendaAdapter(this, listaProductosBuscar);
+                    }
+                    else
+                    {
+                        Toast.MakeText(Application.Context, "Producto no encontrado!", ToastLength.Short).Show();
+                    }
+                    
+                    e.Handled = true;
+                }
+            };
+        }    
     }
 }
