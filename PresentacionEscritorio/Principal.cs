@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PresentacionEscritorio
 {
-    static class Program
+    static class Principal
     {
         /// <summary>
         /// Punto de entrada principal para la aplicación.
@@ -16,7 +17,7 @@ namespace PresentacionEscritorio
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new Login());
         }
     }
 }

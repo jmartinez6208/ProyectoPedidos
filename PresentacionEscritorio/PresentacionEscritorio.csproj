@@ -48,21 +48,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Connected Services\wsUsuarioAsmx\Reference.cs">
+    <Compile Include="Principal.cs" />
+    <Compile Include="Connected Services\wcfUsuario\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="GestorRepartidores.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="GestorRepartidores.Designer.cs">
+      <DependentUpon>GestorRepartidores.cs</DependentUpon>
     </Compile>
-    <Compile Include="Program.cs" />
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="GestorRepartidores.resx">
+      <DependentUpon>GestorRepartidores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -72,17 +81,24 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="Connected Services\wsUsuarioAsmx\PresentacionEscritorio.wsUsuarioAsmx.DevolverUsuarioResponse.datasource">
+    <None Include="Connected Services\wcfUsuario\PresentacionEscritorio.wcfUsuario.UsuarioEntidades.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\wsUsuarioAsmx\PresentacionEscritorio.wsUsuarioAsmx.NuevoResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
+    <None Include="Connected Services\wcfUsuario\UsuarioWCF.wsdl" />
+    <None Include="Connected Services\wcfUsuario\UsuarioWCF.xsd">
+      <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\wsUsuarioAsmx\PresentacionEscritorio.wsUsuarioAsmx.UsuarioEntidades.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
+    <None Include="Connected Services\wcfUsuario\UsuarioWCF1.xsd">
+      <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\wsUsuarioAsmx\UsuarioAsmx.wsdl" />
+    <None Include="Connected Services\wcfUsuario\UsuarioWCF2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\wcfUsuario\UsuarioWCF3.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -100,19 +116,22 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Connected Services\wsUsuarioAsmx\" />
+    <WCFMetadataStorage Include="Connected Services\wcfUsuario\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\wsUsuarioAsmx\UsuarioAsmx.disco" />
+    <None Include="Resources\cerrar.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\wsUsuarioAsmx\configuration91.svcinfo" />
+    <None Include="Connected Services\wcfUsuario\UsuarioWCF.disco" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\wsUsuarioAsmx\configuration.svcinfo" />
+    <None Include="Connected Services\wcfUsuario\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\wsUsuarioAsmx\Reference.svcmap">
+    <None Include="Connected Services\wcfUsuario\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\wcfUsuario\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

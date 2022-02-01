@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="huks1/8vG6+xZN8igNdrjZk0uDYgMp0IC0VV/6EvEOs=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="om1XXQtMI9QlBXfQ4jSdCZ4SyagKmMmiMA57mo5ML0A=">
   <bindingConfigurations>
-    <bindingConfiguration bindingType="basicHttpBinding" name="UsuarioAsmxSoap">
+    <bindingConfiguration bindingType="basicHttpBinding" name="BasicHttpBinding_IUsuarioWCF">
       <properties>
         <property path="/name" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>UsuarioAsmxSoap</serializedValue>
+          <serializedValue>BasicHttpBinding_IUsuarioWCF</serializedValue>
         </property>
         <property path="/closeTimeout" isComplexType="false" isExplicitlyDefined="true" clrType="System.TimeSpan, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -112,10 +112,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="UsuarioAsmxSoap" contract="wsUsuarioAsmx.UsuarioAsmxSoap" bindingType="basicHttpBinding" address="http://localhost:55766/UsuarioAsmx.asmx" bindingConfiguration="UsuarioAsmxSoap">
+    <endpoint name="BasicHttpBinding_IUsuarioWCF" contract="wcfUsuario.IUsuarioWCF" bindingType="basicHttpBinding" address="http://proyectopedidos.somee.com/UsuarioWCF.svc" bindingConfiguration="BasicHttpBinding_IUsuarioWCF">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://localhost:55766/UsuarioAsmx.asmx</serializedValue>
+          <serializedValue>http://proyectopedidos.somee.com/UsuarioWCF.svc</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -124,10 +124,10 @@
           <serializedValue>basicHttpBinding</serializedValue>
         </property>
         <property path="/bindingConfiguration" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>UsuarioAsmxSoap</serializedValue>
+          <serializedValue>BasicHttpBinding_IUsuarioWCF</serializedValue>
         </property>
         <property path="/contract" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>wsUsuarioAsmx.UsuarioAsmxSoap</serializedValue>
+          <serializedValue>wcfUsuario.IUsuarioWCF</serializedValue>
         </property>
         <property path="/headers" isComplexType="true" isExplicitlyDefined="false" clrType="System.ServiceModel.Configuration.AddressHeaderCollectionElement, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>System.ServiceModel.Configuration.AddressHeaderCollectionElement</serializedValue>
@@ -187,7 +187,7 @@
           <serializedValue>False</serializedValue>
         </property>
         <property path="/name" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>UsuarioAsmxSoap</serializedValue>
+          <serializedValue>BasicHttpBinding_IUsuarioWCF</serializedValue>
         </property>
         <property path="/kind" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
