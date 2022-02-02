@@ -14,8 +14,10 @@ namespace Entidades
         public string FechaCreacion { get; set; }
         public string Estado{ get; set; }
         public double Total{ get; set; }
-
+        public string NombreCliente { get; set; }
+        public string NombreRepartidor { get; set; }
         public double TotalConseguido { get; set; }
+
         public PedidoEntidades() { }
         public PedidoEntidades(int id, int idCliente, int idRepartidor, string fechaCreacion, string estado, double total, double totalConseguido)
         {
@@ -25,6 +27,20 @@ namespace Entidades
             FechaCreacion = fechaCreacion;
             Estado = estado;
             Total = total;
+            TotalConseguido = totalConseguido;
+        }
+
+        public PedidoEntidades(int id, int idCliente, int idRepartidor, string fechaCreacion, string estado, double total, 
+            string nombreCliente, string nombreRepartidor, double totalConseguido)
+        {
+            Id = id;
+            IdCliente = idCliente;
+            IdRepartidor = idRepartidor;
+            FechaCreacion = fechaCreacion;
+            Estado = estado;
+            Total = total;
+            NombreCliente = nombreCliente;
+            NombreRepartidor = nombreRepartidor;
             TotalConseguido = totalConseguido;
         }
     }

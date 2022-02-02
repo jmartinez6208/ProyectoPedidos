@@ -38,6 +38,12 @@ namespace PresentacionEscritorio.wcfPedidos {
         private int IdRepartidorField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NombreClienteField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NombreRepartidorField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double TotalField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -114,6 +120,32 @@ namespace PresentacionEscritorio.wcfPedidos {
                 if ((this.IdRepartidorField.Equals(value) != true)) {
                     this.IdRepartidorField = value;
                     this.RaisePropertyChanged("IdRepartidor");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string NombreCliente {
+            get {
+                return this.NombreClienteField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NombreClienteField, value) != true)) {
+                    this.NombreClienteField = value;
+                    this.RaisePropertyChanged("NombreCliente");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string NombreRepartidor {
+            get {
+                return this.NombreRepartidorField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NombreRepartidorField, value) != true)) {
+                    this.NombreRepartidorField = value;
+                    this.RaisePropertyChanged("NombreRepartidor");
                 }
             }
         }

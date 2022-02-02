@@ -26,7 +26,7 @@ namespace PresentacionEscritorio
         private PedidoWCFClient wcfPedido = new PedidoWCFClient();
         private PedidoEntidades pedidoEntidad = new PedidoEntidades();
 
-        private List<DetallePedidoClient> wcfDetallePedido = new List<DetallePedidoClient>();
+        private DetallePedidoClient wcfDetallePedido = new DetallePedidoClient();
         private List<DetallePedidoEntidades> listaDetallePedidos = new List<DetallePedidoEntidades>();
 
         private List<string> estadosPedido = new List<string>();
@@ -45,7 +45,6 @@ namespace PresentacionEscritorio
             estadosPedido.Add("Asignado");
             estadosPedido.Add("Completado");
             CargarComboBox();
-
             CargarTabla();
         }
 
@@ -78,6 +77,7 @@ namespace PresentacionEscritorio
         private void ComboBoxEstadoPedidoCambio(object sender, EventArgs e)
         {
             CargarTabla();
+            LimpiarCampos();
         }
 
         private void btn_Limpiar_Click(object sender, EventArgs e)
@@ -91,6 +91,7 @@ namespace PresentacionEscritorio
             textBox_Fecha.Text = "";
             textBox_Total.Text = "";
             textBox_Conseguido.Text = "";
+            textBox_Estado.Text = "";
 
             comboBox_Clientes.SelectedIndex = -1;
             comboBox_Repartidores.SelectedIndex = -1;
@@ -110,10 +111,63 @@ namespace PresentacionEscritorio
             textBox_Fecha.Text = pedidoEntidad.FechaCreacion.ToString();
             textBox_Total.Text = pedidoEntidad.Total.ToString();
             textBox_Conseguido.Text = pedidoEntidad.TotalConseguido.ToString();
+            textBox_Estado.Text = pedidoEntidad.Estado.ToString();
 
             comboBox_Clientes.SelectedValue = pedidoEntidad.IdCliente;
             comboBox_Repartidores.SelectedValue = pedidoEntidad.IdRepartidor;
 
+
+        }
+
+        private void btn_Eliminar_Click(object sender, EventArgs e)
+        {
+            EliminarPedido();
+        }
+
+        private void EliminarPedido()
+        {
+            int id = Convert.ToInt32(textBox_Id.Text);
+            if (wcfDetallePedido.EliminarDetallesPorId(id))
+            {
+                if (wcfPedido.EliminarPedidoPorId(id))
+                {
+                    MessageBox.Show("Pedido eliminado correctamente.");
+                    LimpiarCampos();
+                    CargarTabla();
+                    pedidoEntidad = new PedidoEntidades();
+                }
+            }
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            GuardarPedido();
+        }
+
+        private void GuardarPedido()
+        {
+            pedidoEntidad.Estado = textBox_Estado.Text;
+            pedidoEntidad.IdCliente = Convert.ToInt32(comboBox_Clientes.SelectedValue.ToString());
+            pedidoEntidad.IdRepartidor = Convert.ToInt32(comboBox_Repartidores.SelectedValue.ToString());
+            pedidoEntidad.Total = Convert.ToDouble(textBox_Total.Text);
+            pedidoEntidad.TotalConseguido = Convert.ToDouble(textBox_Conseguido.Text);
+
+            if (textBox_Fecha.Text.Equals(""))
+            {
+                DateTime fechaCreacion = DateTime.Now;
+                string fecha = fechaCreacion.ToString("dd/MM/yyyy");
+                pedidoEntidad.FechaCreacion = fecha;
+            }
+            else {
+                pedidoEntidad.FechaCreacion = textBox_Fecha.Text;
+            }
+            
+            wcfPedido.Nuevo(pedidoEntidad);
+
+            MessageBox.Show("Los datos se almacenaron corerectamente.");
+            LimpiarCampos();
+            CargarTabla();
+            pedidoEntidad = new PedidoEntidades();
 
         }
     }

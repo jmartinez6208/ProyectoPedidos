@@ -19,7 +19,14 @@ namespace Negocio
 
         public static PedidoEntidades Nuevo(PedidoEntidades pedido)
         {
-            return PedidoDatos.Nuevo(pedido);
+            if (pedido.Id == 0)
+            {
+                return PedidoDatos.Nuevo(pedido);
+            }
+            else {
+                return PedidoDatos.Actualizar(pedido);
+            }
+            
         }
 
         public static PedidoEntidades Actualizar(PedidoEntidades pedido)

@@ -48,6 +48,13 @@ namespace PresentacionEscritorio
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TipoUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.user = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contraseña = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fechaCreacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idTipoUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Repartidores)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -68,6 +75,14 @@ namespace PresentacionEscritorio
             // dataGridView_Repartidores
             // 
             this.dataGridView_Repartidores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_Repartidores.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id,
+            this.nombre,
+            this.TipoUsuario,
+            this.user,
+            this.contraseña,
+            this.fechaCreacion,
+            this.idTipoUsuario});
             this.dataGridView_Repartidores.Location = new System.Drawing.Point(18, 21);
             this.dataGridView_Repartidores.Name = "dataGridView_Repartidores";
             this.dataGridView_Repartidores.RowHeadersWidth = 51;
@@ -227,6 +242,71 @@ namespace PresentacionEscritorio
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
+            // id
+            // 
+            this.id.DataPropertyName = "id";
+            this.id.HeaderText = "ID";
+            this.id.MinimumWidth = 6;
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Width = 70;
+            // 
+            // nombre
+            // 
+            this.nombre.DataPropertyName = "nombre";
+            this.nombre.HeaderText = "NOMBRE";
+            this.nombre.MinimumWidth = 6;
+            this.nombre.Name = "nombre";
+            this.nombre.ReadOnly = true;
+            this.nombre.Width = 110;
+            // 
+            // TipoUsuario
+            // 
+            this.TipoUsuario.DataPropertyName = "TipoUsuario";
+            this.TipoUsuario.HeaderText = "TIPO USUARIO";
+            this.TipoUsuario.MinimumWidth = 6;
+            this.TipoUsuario.Name = "TipoUsuario";
+            this.TipoUsuario.ReadOnly = true;
+            this.TipoUsuario.Width = 110;
+            // 
+            // user
+            // 
+            this.user.DataPropertyName = "user";
+            this.user.HeaderText = "USUARIO";
+            this.user.MinimumWidth = 6;
+            this.user.Name = "user";
+            this.user.ReadOnly = true;
+            this.user.Width = 75;
+            // 
+            // contraseña
+            // 
+            this.contraseña.DataPropertyName = "contraseña";
+            this.contraseña.HeaderText = "CONTRASEÑA";
+            this.contraseña.MinimumWidth = 6;
+            this.contraseña.Name = "contraseña";
+            this.contraseña.ReadOnly = true;
+            this.contraseña.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.contraseña.Visible = false;
+            this.contraseña.Width = 125;
+            // 
+            // fechaCreacion
+            // 
+            this.fechaCreacion.DataPropertyName = "fechaCreacion";
+            this.fechaCreacion.HeaderText = "FECHA CREACIÓN";
+            this.fechaCreacion.MinimumWidth = 6;
+            this.fechaCreacion.Name = "fechaCreacion";
+            this.fechaCreacion.ReadOnly = true;
+            // 
+            // idTipoUsuario
+            // 
+            this.idTipoUsuario.DataPropertyName = "idTipoUsuario";
+            this.idTipoUsuario.HeaderText = "IDTIPOUSUARIO";
+            this.idTipoUsuario.MinimumWidth = 6;
+            this.idTipoUsuario.Name = "idTipoUsuario";
+            this.idTipoUsuario.ReadOnly = true;
+            this.idTipoUsuario.Visible = false;
+            this.idTipoUsuario.Width = 125;
+            // 
             // Repartidor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -267,5 +347,12 @@ namespace PresentacionEscritorio
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TipoUsuario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn user;
+        private System.Windows.Forms.DataGridViewTextBoxColumn contraseña;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fechaCreacion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idTipoUsuario;
     }
 }

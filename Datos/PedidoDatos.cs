@@ -167,6 +167,8 @@ namespace Datos
                     item.fechaCreacion,
                     item.estado,
                     (double)item.total,
+                    UsuarioDatos.DevolverUsuarioPorId((int)item.idCliente).Nombre,
+                    UsuarioDatos.DevolverUsuarioPorId((int)item.idRepartidor).Nombre,
                     (double)item.totalConseguido
                     ));
             }
