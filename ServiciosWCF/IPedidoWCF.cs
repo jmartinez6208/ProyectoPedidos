@@ -51,5 +51,8 @@ namespace ServiciosWCF
 
         [OperationContract]
         bool actualizarTotalConseguido(int idPedido, double subtotal);
+
+        [OperationContract]
+        List<PedidoEntidades> DevolverListaPedidosPorEstado(string estado);
     }
 }

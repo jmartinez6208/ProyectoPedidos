@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="de14873b-4216-4f4e-a19a-e4d204148d89" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://proyectopedidos.somee.com/DetallePedido.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="DetallePedido.disco" MetadataType="Disco" ID="38a3ca2c-f035-4403-bfe0-05eb6c926472" SourceId="1" SourceUrl="http://proyectopedidos.somee.com/DetallePedido.svc?disco" />
+    <MetadataFile FileName="DetallePedido.xsd" MetadataType="Schema" ID="59429d56-d30a-4850-aa32-43d8b666292f" SourceId="1" SourceUrl="http://proyectopedidos.somee.com/DetallePedido.svc?xsd=xsd0" />
+    <MetadataFile FileName="DetallePedido1.xsd" MetadataType="Schema" ID="d3dd29f7-f761-42e1-afe7-62e3e40e5627" SourceId="1" SourceUrl="http://proyectopedidos.somee.com/DetallePedido.svc?xsd=xsd2" />
+    <MetadataFile FileName="DetallePedido.wsdl" MetadataType="Wsdl" ID="a36bfec1-0378-4144-a1d6-7b2a6f7b394e" SourceId="1" SourceUrl="http://proyectopedidos.somee.com/DetallePedido.svc?wsdl" />
+    <MetadataFile FileName="DetallePedido2.xsd" MetadataType="Schema" ID="713d591e-2330-4927-8d40-8830632d1bd9" SourceId="1" SourceUrl="http://proyectopedidos.somee.com/DetallePedido.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

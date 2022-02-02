@@ -43,5 +43,10 @@ namespace ServiciosWCF
         {
             return UsuarioNegocio.EliminarRepartidorPorId(identificador);
         }
+
+        public List<UsuarioEntidades> DevolverListaClientes()
+        {
+            return UsuarioNegocio.DevolverListaClientes();
+        }
     }
 }

@@ -48,6 +48,10 @@ namespace Negocio
             return UsuarioDatos.DevolverListaRepartidores();
         }
 
+        public static List<UsuarioEntidades> DevolverListaClientes()
+        {
+            return UsuarioDatos.DevolverListaClientes();
+        }
 
     }
 }

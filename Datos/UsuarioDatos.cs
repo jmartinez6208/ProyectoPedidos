@@ -208,6 +208,39 @@ namespace Datos
             }
         }
 
+        public static List<UsuarioEntidades> DevolverListaClientes()
+        {
+            try
+            {
+                List<UsuarioEntidades> listaCasosEntidad = new List<UsuarioEntidades>();
+                using (var ctx = new DataClasses1DataContext())
+                {
+                    var resultado = from r in ctx.Usuarios
+                                    where r.idTipoUsuario == 2
+                                    select r;
+
+                    foreach (var item in resultado)
+                    {
+                        listaCasosEntidad.Add(new UsuarioEntidades(
+                            item.id,
+                            (int)item.idTipoUsuario,
+                            item.nombre,
+                            item.usuario,
+                            item.contraseña,
+                            item.fechaCreacion,
+                            UsuarioDatos.DevolverTipoUsuario((int)item.idTipoUsuario)));
+                    }
+
+                    return listaCasosEntidad;
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
         public static bool EliminarRepartidorPorId(int identificador)
         {
             try

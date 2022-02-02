@@ -78,5 +78,10 @@ namespace ServiciosWCF
         {
             return PedidoNegocio.actualizarTotalConseguido(idPedido, subtotal);
         }
+
+        public List<PedidoEntidades> DevolverListaPedidosPorEstado(string estado)
+        {
+            return PedidoNegocio.DevolverListaPedidosPorEstado(estado);
+        }
     }
 }

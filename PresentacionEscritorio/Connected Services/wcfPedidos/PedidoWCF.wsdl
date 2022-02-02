@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="PedidoWCF" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://proyectopedidos.somee.com/PedidoWCF.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://proyectopedidos.somee.com/PedidoWCF.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://proyectopedidos.somee.com/PedidoWCF.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Entidades" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IPedidoWCF_Nuevo_InputMessage">
+    <wsdl:part name="parameters" element="tns:Nuevo" />
+  </wsdl:message>
+  <wsdl:message name="IPedidoWCF_Nuevo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:NuevoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPedidoWCF_Actualizar_InputMessage">
+    <wsdl:part name="parameters" element="tns:Actualizar" />
+  </wsdl:message>
+  <wsdl:message name="IPedidoWCF_Actualizar_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizarResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPedidoWCF_DevolverPedidoPorId_InputMessage">
+    <wsdl:part name="parameters" element="tns:DevolverPedidoPorId" />
+  </wsdl:message>
+  <wsdl:message name="IPedidoWCF_DevolverPedidoPorId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DevolverPedidoPorIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPedidoWCF_DevolverListaPedidos_InputMessage">
+    <wsdl:part name="parameters" element="tns:DevolverListaPedidos" />
+  </wsdl:message>
+  <wsdl:message name="IPedidoWCF_DevolverListaPedidos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DevolverListaPedidosResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPedidoWCF_DevolverListaPedidosEstadoPendiente_InputMessage">
+    <wsdl:part name="parameters" element="tns:DevolverListaPedidosEstadoPendiente" />
+  </wsdl:message>
+  <wsdl:message name="IPedidoWCF_DevolverListaPedidosEstadoPendiente_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DevolverListaPedidosEstadoPendienteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPedidoWCF_DevolverListaPedidosPorRepartidor_InputMessage">
+    <wsdl:part name="parameters" element="tns:DevolverListaPedidosPorRepartidor" />
+  </wsdl:message>
+  <wsdl:message name="IPedidoWCF_DevolverListaPedidosPorRepartidor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DevolverListaPedidosPorRepartidorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPedidoWCF_EliminarPedidoPorId_InputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarPedidoPorId" />
+  </wsdl:message>
+  <wsdl:message name="IPedidoWCF_EliminarPedidoPorId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarPedidoPorIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPedidoWCF_DevolverListaPedidosPorCliente_InputMessage">
+    <wsdl:part name="parameters" element="tns:DevolverListaPedidosPorCliente" />
+  </wsdl:message>
+  <wsdl:message name="IPedidoWCF_DevolverListaPedidosPorCliente_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DevolverListaPedidosPorClienteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPedidoWCF_ActualizarEstado_InputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizarEstado" />
+  </wsdl:message>
+  <wsdl:message name="IPedidoWCF_ActualizarEstado_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizarEstadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPedidoWCF_EliminarPedidosPorEstado_InputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarPedidosPorEstado" />
+  </wsdl:message>
+  <wsdl:message name="IPedidoWCF_EliminarPedidosPorEstado_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarPedidosPorEstadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPedidoWCF_EliminarPedidosIncompletos_InputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarPedidosIncompletos" />
+  </wsdl:message>
+  <wsdl:message name="IPedidoWCF_EliminarPedidosIncompletos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarPedidosIncompletosResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPedidoWCF_AsignarRepartidor_InputMessage">
+    <wsdl:part name="parameters" element="tns:AsignarRepartidor" />
+  </wsdl:message>
+  <wsdl:message name="IPedidoWCF_AsignarRepartidor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AsignarRepartidorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPedidoWCF_actualizarTotalConseguido_InputMessage">
+    <wsdl:part name="parameters" element="tns:actualizarTotalConseguido" />
+  </wsdl:message>
+  <wsdl:message name="IPedidoWCF_actualizarTotalConseguido_OutputMessage">
+    <wsdl:part name="parameters" element="tns:actualizarTotalConseguidoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPedidoWCF_DevolverListaPedidosPorEstado_InputMessage">
+    <wsdl:part name="parameters" element="tns:DevolverListaPedidosPorEstado" />
+  </wsdl:message>
+  <wsdl:message name="IPedidoWCF_DevolverListaPedidosPorEstado_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DevolverListaPedidosPorEstadoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IPedidoWCF">
+    <wsdl:operation name="Nuevo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPedidoWCF/Nuevo" message="tns:IPedidoWCF_Nuevo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPedidoWCF/NuevoResponse" message="tns:IPedidoWCF_Nuevo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Actualizar">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPedidoWCF/Actualizar" message="tns:IPedidoWCF_Actualizar_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPedidoWCF/ActualizarResponse" message="tns:IPedidoWCF_Actualizar_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DevolverPedidoPorId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPedidoWCF/DevolverPedidoPorId" message="tns:IPedidoWCF_DevolverPedidoPorId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPedidoWCF/DevolverPedidoPorIdResponse" message="tns:IPedidoWCF_DevolverPedidoPorId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DevolverListaPedidos">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPedidoWCF/DevolverListaPedidos" message="tns:IPedidoWCF_DevolverListaPedidos_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPedidoWCF/DevolverListaPedidosResponse" message="tns:IPedidoWCF_DevolverListaPedidos_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DevolverListaPedidosEstadoPendiente">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPedidoWCF/DevolverListaPedidosEstadoPendiente" message="tns:IPedidoWCF_DevolverListaPedidosEstadoPendiente_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPedidoWCF/DevolverListaPedidosEstadoPendienteResponse" message="tns:IPedidoWCF_DevolverListaPedidosEstadoPendiente_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DevolverListaPedidosPorRepartidor">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPedidoWCF/DevolverListaPedidosPorRepartidor" message="tns:IPedidoWCF_DevolverListaPedidosPorRepartidor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPedidoWCF/DevolverListaPedidosPorRepartidorResponse" message="tns:IPedidoWCF_DevolverListaPedidosPorRepartidor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarPedidoPorId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPedidoWCF/EliminarPedidoPorId" message="tns:IPedidoWCF_EliminarPedidoPorId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPedidoWCF/EliminarPedidoPorIdResponse" message="tns:IPedidoWCF_EliminarPedidoPorId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DevolverListaPedidosPorCliente">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPedidoWCF/DevolverListaPedidosPorCliente" message="tns:IPedidoWCF_DevolverListaPedidosPorCliente_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPedidoWCF/DevolverListaPedidosPorClienteResponse" message="tns:IPedidoWCF_DevolverListaPedidosPorCliente_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarEstado">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPedidoWCF/ActualizarEstado" message="tns:IPedidoWCF_ActualizarEstado_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPedidoWCF/ActualizarEstadoResponse" message="tns:IPedidoWCF_ActualizarEstado_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarPedidosPorEstado">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPedidoWCF/EliminarPedidosPorEstado" message="tns:IPedidoWCF_EliminarPedidosPorEstado_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPedidoWCF/EliminarPedidosPorEstadoResponse" message="tns:IPedidoWCF_EliminarPedidosPorEstado_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarPedidosIncompletos">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPedidoWCF/EliminarPedidosIncompletos" message="tns:IPedidoWCF_EliminarPedidosIncompletos_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPedidoWCF/EliminarPedidosIncompletosResponse" message="tns:IPedidoWCF_EliminarPedidosIncompletos_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AsignarRepartidor">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPedidoWCF/AsignarRepartidor" message="tns:IPedidoWCF_AsignarRepartidor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPedidoWCF/AsignarRepartidorResponse" message="tns:IPedidoWCF_AsignarRepartidor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="actualizarTotalConseguido">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPedidoWCF/actualizarTotalConseguido" message="tns:IPedidoWCF_actualizarTotalConseguido_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPedidoWCF/actualizarTotalConseguidoResponse" message="tns:IPedidoWCF_actualizarTotalConseguido_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DevolverListaPedidosPorEstado">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPedidoWCF/DevolverListaPedidosPorEstado" message="tns:IPedidoWCF_DevolverListaPedidosPorEstado_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPedidoWCF/DevolverListaPedidosPorEstadoResponse" message="tns:IPedidoWCF_DevolverListaPedidosPorEstado_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IPedidoWCF" type="tns:IPedidoWCF">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Nuevo">
+      <soap:operation soapAction="http://tempuri.org/IPedidoWCF/Nuevo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Actualizar">
+      <soap:operation soapAction="http://tempuri.org/IPedidoWCF/Actualizar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DevolverPedidoPorId">
+      <soap:operation soapAction="http://tempuri.org/IPedidoWCF/DevolverPedidoPorId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DevolverListaPedidos">
+      <soap:operation soapAction="http://tempuri.org/IPedidoWCF/DevolverListaPedidos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DevolverListaPedidosEstadoPendiente">
+      <soap:operation soapAction="http://tempuri.org/IPedidoWCF/DevolverListaPedidosEstadoPendiente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DevolverListaPedidosPorRepartidor">
+      <soap:operation soapAction="http://tempuri.org/IPedidoWCF/DevolverListaPedidosPorRepartidor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarPedidoPorId">
+      <soap:operation soapAction="http://tempuri.org/IPedidoWCF/EliminarPedidoPorId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DevolverListaPedidosPorCliente">
+      <soap:operation soapAction="http://tempuri.org/IPedidoWCF/DevolverListaPedidosPorCliente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarEstado">
+      <soap:operation soapAction="http://tempuri.org/IPedidoWCF/ActualizarEstado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarPedidosPorEstado">
+      <soap:operation soapAction="http://tempuri.org/IPedidoWCF/EliminarPedidosPorEstado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarPedidosIncompletos">
+      <soap:operation soapAction="http://tempuri.org/IPedidoWCF/EliminarPedidosIncompletos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AsignarRepartidor">
+      <soap:operation soapAction="http://tempuri.org/IPedidoWCF/AsignarRepartidor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="actualizarTotalConseguido">
+      <soap:operation soapAction="http://tempuri.org/IPedidoWCF/actualizarTotalConseguido" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DevolverListaPedidosPorEstado">
+      <soap:operation soapAction="http://tempuri.org/IPedidoWCF/DevolverListaPedidosPorEstado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PedidoWCF">
+    <wsdl:port name="BasicHttpBinding_IPedidoWCF" binding="tns:BasicHttpBinding_IPedidoWCF">
+      <soap:address location="http://proyectopedidos.somee.com/PedidoWCF.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

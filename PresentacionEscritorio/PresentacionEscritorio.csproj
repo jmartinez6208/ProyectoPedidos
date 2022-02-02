@@ -48,6 +48,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Connected Services\wcfDetallePedido\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\wcfPedidos\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="PedidosForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,6 +111,32 @@
     <EmbeddedResource Include="Repartidor.resx">
       <DependentUpon>Repartidor.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Connected Services\wcfDetallePedido\DetallePedido.wsdl" />
+    <None Include="Connected Services\wcfDetallePedido\DetallePedido.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\wcfDetallePedido\DetallePedido1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\wcfDetallePedido\DetallePedido2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\wcfDetallePedido\PresentacionEscritorio.wcfDetallePedido.DetallePedidoEntidades.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\wcfPedidos\PedidoWCF.wsdl" />
+    <None Include="Connected Services\wcfPedidos\PedidoWCF.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\wcfPedidos\PedidoWCF1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\wcfPedidos\PedidoWCF2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\wcfPedidos\PresentacionEscritorio.wcfPedidos.PedidoEntidades.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\wcfUsuario\PresentacionEscritorio.wcfUsuario.UsuarioEntidades.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -134,6 +170,8 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\wcfDetallePedido\" />
+    <WCFMetadataStorage Include="Connected Services\wcfPedidos\" />
     <WCFMetadataStorage Include="Connected Services\wcfUsuario\" />
   </ItemGroup>
   <ItemGroup>
@@ -150,6 +188,36 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\wcfUsuario\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\wcfPedidos\PedidoWCF.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\wcfPedidos\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\wcfPedidos\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\wcfPedidos\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\wcfDetallePedido\DetallePedido.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\wcfDetallePedido\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\wcfDetallePedido\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\wcfDetallePedido\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

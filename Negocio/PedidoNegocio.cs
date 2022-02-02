@@ -11,6 +11,12 @@ namespace Negocio
 {
     public static class PedidoNegocio
     {
+
+        public static List<PedidoEntidades> DevolverListaPedidosPorEstado(string estado)
+        {
+            return PedidoDatos.DevolverListaPedidosPorEstado(estado);
+        }
+
         public static PedidoEntidades Nuevo(PedidoEntidades pedido)
         {
             return PedidoDatos.Nuevo(pedido);
