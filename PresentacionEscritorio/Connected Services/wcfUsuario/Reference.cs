@@ -38,6 +38,9 @@ namespace PresentacionEscritorio.wcfUsuario {
         private string NombreField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TipoUsuarioField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string UserField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
@@ -111,6 +114,19 @@ namespace PresentacionEscritorio.wcfUsuario {
                 if ((object.ReferenceEquals(this.NombreField, value) != true)) {
                     this.NombreField = value;
                     this.RaisePropertyChanged("Nombre");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string TipoUsuario {
+            get {
+                return this.TipoUsuarioField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TipoUsuarioField, value) != true)) {
+                    this.TipoUsuarioField = value;
+                    this.RaisePropertyChanged("TipoUsuario");
                 }
             }
         }
@@ -198,6 +214,20 @@ namespace PresentacionEscritorio.wcfUsuario {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUsuarioWCF/DevolverUsuarioPorId", ReplyAction="http://tempuri.org/IUsuarioWCF/DevolverUsuarioPorIdResponse")]
         System.Threading.Tasks.Task<PresentacionEscritorio.wcfUsuario.UsuarioEntidades> DevolverUsuarioPorIdAsync(int identificador);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUsuarioWCF/DevolverListaRepartidores", ReplyAction="http://tempuri.org/IUsuarioWCF/DevolverListaRepartidoresResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(PresentacionEscritorio.wcfUsuario.UsuarioWCF), Action="http://tempuri.org/IUsuarioWCF/DevolverListaRepartidoresUsuarioWCFFault", Name="UsuarioWCF", Namespace="http://schemas.datacontract.org/2004/07/ServiciosWCF")]
+        PresentacionEscritorio.wcfUsuario.UsuarioEntidades[] DevolverListaRepartidores();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUsuarioWCF/DevolverListaRepartidores", ReplyAction="http://tempuri.org/IUsuarioWCF/DevolverListaRepartidoresResponse")]
+        System.Threading.Tasks.Task<PresentacionEscritorio.wcfUsuario.UsuarioEntidades[]> DevolverListaRepartidoresAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUsuarioWCF/EliminarRepartidorPorId", ReplyAction="http://tempuri.org/IUsuarioWCF/EliminarRepartidorPorIdResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(PresentacionEscritorio.wcfUsuario.UsuarioWCF), Action="http://tempuri.org/IUsuarioWCF/EliminarRepartidorPorIdUsuarioWCFFault", Name="UsuarioWCF", Namespace="http://schemas.datacontract.org/2004/07/ServiciosWCF")]
+        bool EliminarRepartidorPorId(int identificador);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUsuarioWCF/EliminarRepartidorPorId", ReplyAction="http://tempuri.org/IUsuarioWCF/EliminarRepartidorPorIdResponse")]
+        System.Threading.Tasks.Task<bool> EliminarRepartidorPorIdAsync(int identificador);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -257,6 +287,22 @@ namespace PresentacionEscritorio.wcfUsuario {
         
         public System.Threading.Tasks.Task<PresentacionEscritorio.wcfUsuario.UsuarioEntidades> DevolverUsuarioPorIdAsync(int identificador) {
             return base.Channel.DevolverUsuarioPorIdAsync(identificador);
+        }
+        
+        public PresentacionEscritorio.wcfUsuario.UsuarioEntidades[] DevolverListaRepartidores() {
+            return base.Channel.DevolverListaRepartidores();
+        }
+        
+        public System.Threading.Tasks.Task<PresentacionEscritorio.wcfUsuario.UsuarioEntidades[]> DevolverListaRepartidoresAsync() {
+            return base.Channel.DevolverListaRepartidoresAsync();
+        }
+        
+        public bool EliminarRepartidorPorId(int identificador) {
+            return base.Channel.EliminarRepartidorPorId(identificador);
+        }
+        
+        public System.Threading.Tasks.Task<bool> EliminarRepartidorPorIdAsync(int identificador) {
+            return base.Channel.EliminarRepartidorPorIdAsync(identificador);
         }
     }
 }

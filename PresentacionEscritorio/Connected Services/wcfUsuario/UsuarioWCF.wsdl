@@ -44,6 +44,24 @@
   <wsdl:message name="IUsuarioWCF_DevolverUsuarioPorId_UsuarioWCFFault_FaultMessage">
     <wsdl:part xmlns:q4="http://schemas.datacontract.org/2004/07/ServiciosWCF" name="detail" element="q4:UsuarioWCF" />
   </wsdl:message>
+  <wsdl:message name="IUsuarioWCF_DevolverListaRepartidores_InputMessage">
+    <wsdl:part name="parameters" element="tns:DevolverListaRepartidores" />
+  </wsdl:message>
+  <wsdl:message name="IUsuarioWCF_DevolverListaRepartidores_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DevolverListaRepartidoresResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUsuarioWCF_DevolverListaRepartidores_UsuarioWCFFault_FaultMessage">
+    <wsdl:part xmlns:q5="http://schemas.datacontract.org/2004/07/ServiciosWCF" name="detail" element="q5:UsuarioWCF" />
+  </wsdl:message>
+  <wsdl:message name="IUsuarioWCF_EliminarRepartidorPorId_InputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarRepartidorPorId" />
+  </wsdl:message>
+  <wsdl:message name="IUsuarioWCF_EliminarRepartidorPorId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarRepartidorPorIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUsuarioWCF_EliminarRepartidorPorId_UsuarioWCFFault_FaultMessage">
+    <wsdl:part xmlns:q6="http://schemas.datacontract.org/2004/07/ServiciosWCF" name="detail" element="q6:UsuarioWCF" />
+  </wsdl:message>
   <wsdl:portType name="IUsuarioWCF">
     <wsdl:operation name="DevolverUsuario">
       <wsdl:input wsaw:Action="http://tempuri.org/IUsuarioWCF/DevolverUsuario" message="tns:IUsuarioWCF_DevolverUsuario_InputMessage" />
@@ -64,6 +82,16 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IUsuarioWCF/DevolverUsuarioPorId" message="tns:IUsuarioWCF_DevolverUsuarioPorId_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IUsuarioWCF/DevolverUsuarioPorIdResponse" message="tns:IUsuarioWCF_DevolverUsuarioPorId_OutputMessage" />
       <wsdl:fault wsaw:Action="http://tempuri.org/IUsuarioWCF/DevolverUsuarioPorIdUsuarioWCFFault" name="UsuarioWCFFault" message="tns:IUsuarioWCF_DevolverUsuarioPorId_UsuarioWCFFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DevolverListaRepartidores">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUsuarioWCF/DevolverListaRepartidores" message="tns:IUsuarioWCF_DevolverListaRepartidores_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUsuarioWCF/DevolverListaRepartidoresResponse" message="tns:IUsuarioWCF_DevolverListaRepartidores_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IUsuarioWCF/DevolverListaRepartidoresUsuarioWCFFault" name="UsuarioWCFFault" message="tns:IUsuarioWCF_DevolverListaRepartidores_UsuarioWCFFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarRepartidorPorId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUsuarioWCF/EliminarRepartidorPorId" message="tns:IUsuarioWCF_EliminarRepartidorPorId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUsuarioWCF/EliminarRepartidorPorIdResponse" message="tns:IUsuarioWCF_EliminarRepartidorPorId_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IUsuarioWCF/EliminarRepartidorPorIdUsuarioWCFFault" name="UsuarioWCFFault" message="tns:IUsuarioWCF_EliminarRepartidorPorId_UsuarioWCFFault_FaultMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IUsuarioWCF" type="tns:IUsuarioWCF">
@@ -106,6 +134,30 @@
     </wsdl:operation>
     <wsdl:operation name="DevolverUsuarioPorId">
       <soap:operation soapAction="http://tempuri.org/IUsuarioWCF/DevolverUsuarioPorId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="UsuarioWCFFault">
+        <soap:fault use="literal" name="UsuarioWCFFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DevolverListaRepartidores">
+      <soap:operation soapAction="http://tempuri.org/IUsuarioWCF/DevolverListaRepartidores" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="UsuarioWCFFault">
+        <soap:fault use="literal" name="UsuarioWCFFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarRepartidorPorId">
+      <soap:operation soapAction="http://tempuri.org/IUsuarioWCF/EliminarRepartidorPorId" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

@@ -14,7 +14,7 @@ using PresentacionEscritorio.wcfUsuario;
 
 namespace PresentacionEscritorio
 {
-    public partial class Login : Form
+    public partial class LoginForm : Form
     {
         //propiedades
         private UsuarioWCFClient wcfUsuario = new UsuarioWCFClient();
@@ -23,7 +23,7 @@ namespace PresentacionEscritorio
 
         private String usuario, contraseña;
 
-        public Login()
+        public LoginForm()
         {
             InitializeComponent();
         }
@@ -108,7 +108,7 @@ namespace PresentacionEscritorio
         {
             if (iniciarSesion())
             {
-                GestorRepartidores ventana = new GestorRepartidores();
+                GeneralForm ventana = new GeneralForm();
                 this.Visible = false;
                 ventana.Show();
             }

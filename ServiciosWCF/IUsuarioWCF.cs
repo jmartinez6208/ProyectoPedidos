@@ -28,5 +28,13 @@ namespace ServiciosWCF
         [OperationContract]
         [FaultContract(typeof(UsuarioWCF))]
         UsuarioEntidades DevolverUsuarioPorId(int identificador);
+
+        [OperationContract]
+        [FaultContract(typeof(UsuarioWCF))]
+        List<UsuarioEntidades> DevolverListaRepartidores();
+
+        [OperationContract]
+        [FaultContract(typeof(UsuarioWCF))]
+        bool EliminarRepartidorPorId(int identificador);
     }
 }

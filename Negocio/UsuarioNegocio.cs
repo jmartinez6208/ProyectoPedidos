@@ -13,7 +13,19 @@ namespace Negocio
     {
         public static UsuarioEntidades Nuevo(UsuarioEntidades usuario)
         {
-             return UsuarioDatos.Nuevo(usuario);
+            if (usuario.Id == 0)
+            {
+                return UsuarioDatos.Nuevo(usuario);
+            }
+            else
+            {
+                return UsuarioDatos.Actualizar(usuario);
+            }  
+        }
+
+        public static bool EliminarRepartidorPorId(int identificador)
+        {
+            return UsuarioDatos.EliminarRepartidorPorId(identificador);
         }
 
         public static UsuarioEntidades DevolverUsuario(string username)
@@ -30,6 +42,12 @@ namespace Negocio
         {
             return UsuarioDatos.DevolverUsuarioPorId(identificador);
         }
+
+        public static List<UsuarioEntidades> DevolverListaRepartidores()
+        {
+            return UsuarioDatos.DevolverListaRepartidores();
+        }
+
 
     }
 }

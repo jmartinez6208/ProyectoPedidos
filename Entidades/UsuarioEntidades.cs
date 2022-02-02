@@ -15,6 +15,8 @@ namespace Entidades
         public string Contraseña { get; set; }
         public string FechaCreacion { get; set; }
 
+        public string TipoUsuario{ get; set; }
+
         public UsuarioEntidades() { }
 
         public UsuarioEntidades(int id, int idTipoUsuario, string nombre, string user, string contraseña, string fechaCreacion)
@@ -25,6 +27,17 @@ namespace Entidades
             User = user;
             Contraseña = contraseña;
             FechaCreacion = fechaCreacion;
+        }
+
+        public UsuarioEntidades(int id, int idTipoUsuario, string nombre, string user, string contraseña, string fechaCreacion, string tipo)
+        {
+            Id = id;
+            IdTipoUsuario = idTipoUsuario;
+            Nombre = nombre;
+            User = user;
+            Contraseña = contraseña;
+            FechaCreacion = fechaCreacion;
+            TipoUsuario = tipo;
         }
 
 

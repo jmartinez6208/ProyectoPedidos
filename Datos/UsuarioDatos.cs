@@ -39,6 +39,30 @@ namespace Datos
             }
         }
 
+        public static UsuarioEntidades Actualizar(UsuarioEntidades usuarioEntidad)
+        {
+            try
+            {
+                using (var ctx = new DataClasses1DataContext())
+                {
+                    var usuarioLQ = ctx.Usuarios.FirstOrDefault(p => p.id == usuarioEntidad.Id);
+                    usuarioLQ.id = usuarioEntidad.Id;
+                    usuarioLQ.idTipoUsuario = usuarioEntidad.IdTipoUsuario;
+                    usuarioLQ.nombre = usuarioEntidad.Nombre;
+                    usuarioLQ.fechaCreacion = usuarioEntidad.FechaCreacion;
+                    usuarioLQ.usuario = usuarioEntidad.User;
+                    usuarioLQ.contraseña = GetSHA256(usuarioEntidad.Contraseña);
+                    ctx.SubmitChanges();
+                }
+                return usuarioEntidad;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
         public static UsuarioEntidades DevolverUsuario(string username)
         {
             try
@@ -132,6 +156,77 @@ namespace Datos
             }
         }
 
+        public static string DevolverTipoUsuario(int id)
+        {
+            try
+            {
+                string tipoUsuario = "";
+                using (var ctx = new DataClasses1DataContext())
+                {
+                    var resultado = ctx.TipoUsuarios.FirstOrDefault(n => n.id == id);
+                    tipoUsuario = resultado.tipo;
+                    return tipoUsuario;
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public static List<UsuarioEntidades> DevolverListaRepartidores()
+        {
+            try
+            {
+                List<UsuarioEntidades> listaCasosEntidad = new List<UsuarioEntidades>();
+                using (var ctx = new DataClasses1DataContext())
+                {
+                    var resultado = from r in ctx.Usuarios
+                                    where r.idTipoUsuario == 3
+                                    select r;
+
+                    foreach (var item in resultado)
+                    {
+                        listaCasosEntidad.Add(new UsuarioEntidades(
+                            item.id,
+                            (int)item.idTipoUsuario,
+                            item.nombre,
+                            item.usuario,
+                            item.contraseña,
+                            item.fechaCreacion,
+                            UsuarioDatos.DevolverTipoUsuario((int)item.idTipoUsuario)));
+                    }
+
+                    return listaCasosEntidad;
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public static bool EliminarRepartidorPorId(int identificador)
+        {
+            try
+            {
+                using (var ctx = new DataClasses1DataContext())
+                {
+                    var repartidorLQ = ctx.Usuarios.FirstOrDefault(p => p.id == identificador);
+                    ctx.Usuarios.DeleteOnSubmit(repartidorLQ);
+                    ctx.SubmitChanges();
+                    return true;
+                }
+            }
+            catch (Exception)
+            {
+                return false;
+                throw;
+            }
+
+        }
         public static string GetSHA256(string str)
         {
             SHA256 sha256 = SHA256Managed.Create();

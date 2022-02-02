@@ -33,5 +33,15 @@ namespace ServiciosWCF
         {
             return UsuarioNegocio.Nuevo(usuario);
         }
+
+        public List<UsuarioEntidades> DevolverListaRepartidores()
+        {
+            return UsuarioNegocio.DevolverListaRepartidores();
+        }
+
+        public bool EliminarRepartidorPorId(int identificador)
+        {
+            return UsuarioNegocio.EliminarRepartidorPorId(identificador);
+        }
     }
 }

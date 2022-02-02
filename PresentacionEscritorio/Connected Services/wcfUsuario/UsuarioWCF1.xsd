@@ -58,4 +58,30 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="DevolverListaRepartidores">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DevolverListaRepartidoresResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Entidades" minOccurs="0" name="DevolverListaRepartidoresResult" nillable="true" type="q6:ArrayOfUsuarioEntidades" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EliminarRepartidorPorId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="identificador" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EliminarRepartidorPorIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="EliminarRepartidorPorIdResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>
