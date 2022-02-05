@@ -57,9 +57,10 @@ namespace PresentacionEscritorio
             // btnMinimizar
             // 
             this.btnMinimizar.Image = ((System.Drawing.Image)(resources.GetObject("btnMinimizar.Image")));
-            this.btnMinimizar.Location = new System.Drawing.Point(680, 12);
+            this.btnMinimizar.Location = new System.Drawing.Point(510, 10);
+            this.btnMinimizar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnMinimizar.Name = "btnMinimizar";
-            this.btnMinimizar.Size = new System.Drawing.Size(26, 20);
+            this.btnMinimizar.Size = new System.Drawing.Size(20, 16);
             this.btnMinimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnMinimizar.TabIndex = 8;
             this.btnMinimizar.TabStop = false;
@@ -68,9 +69,10 @@ namespace PresentacionEscritorio
             // btnCerrar
             // 
             this.btnCerrar.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrar.Image")));
-            this.btnCerrar.Location = new System.Drawing.Point(712, 12);
+            this.btnCerrar.Location = new System.Drawing.Point(534, 10);
+            this.btnCerrar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(26, 20);
+            this.btnCerrar.Size = new System.Drawing.Size(20, 16);
             this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnCerrar.TabIndex = 7;
             this.btnCerrar.TabStop = false;
@@ -87,8 +89,9 @@ namespace PresentacionEscritorio
             this.panelSideMenu.Controls.Add(this.panelLogo);
             this.panelSideMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelSideMenu.Location = new System.Drawing.Point(0, 0);
+            this.panelSideMenu.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panelSideMenu.Name = "panelSideMenu";
-            this.panelSideMenu.Size = new System.Drawing.Size(244, 800);
+            this.panelSideMenu.Size = new System.Drawing.Size(183, 650);
             this.panelSideMenu.TabIndex = 9;
             this.panelSideMenu.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelSideMenu_MouseDown);
             // 
@@ -99,9 +102,10 @@ namespace PresentacionEscritorio
             this.panelSubMenuReportes.Controls.Add(this.btnReporte2);
             this.panelSubMenuReportes.Controls.Add(this.btnReporte1);
             this.panelSubMenuReportes.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelSubMenuReportes.Location = new System.Drawing.Point(0, 229);
+            this.panelSubMenuReportes.Location = new System.Drawing.Point(0, 187);
+            this.panelSubMenuReportes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panelSubMenuReportes.Name = "panelSubMenuReportes";
-            this.panelSubMenuReportes.Size = new System.Drawing.Size(244, 120);
+            this.panelSubMenuReportes.Size = new System.Drawing.Size(183, 137);
             this.panelSubMenuReportes.TabIndex = 3;
             // 
             // btnReporte3
@@ -111,12 +115,13 @@ namespace PresentacionEscritorio
             this.btnReporte3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReporte3.Font = new System.Drawing.Font("Nirmala UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReporte3.ForeColor = System.Drawing.Color.Snow;
-            this.btnReporte3.Location = new System.Drawing.Point(0, 80);
+            this.btnReporte3.Location = new System.Drawing.Point(0, 102);
+            this.btnReporte3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnReporte3.Name = "btnReporte3";
-            this.btnReporte3.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnReporte3.Size = new System.Drawing.Size(244, 40);
+            this.btnReporte3.Padding = new System.Windows.Forms.Padding(26, 0, 0, 0);
+            this.btnReporte3.Size = new System.Drawing.Size(183, 36);
             this.btnReporte3.TabIndex = 2;
-            this.btnReporte3.Text = "Reporte 3";
+            this.btnReporte3.Text = "Ventas por Tienda";
             this.btnReporte3.TextAlign = System.Drawing.ContentAlignment.TopLeft;
             this.btnReporte3.UseVisualStyleBackColor = true;
             this.btnReporte3.Click += new System.EventHandler(this.btnReporte3_Click);
@@ -128,12 +133,13 @@ namespace PresentacionEscritorio
             this.btnReporte2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReporte2.Font = new System.Drawing.Font("Nirmala UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReporte2.ForeColor = System.Drawing.Color.Snow;
-            this.btnReporte2.Location = new System.Drawing.Point(0, 40);
+            this.btnReporte2.Location = new System.Drawing.Point(0, 53);
+            this.btnReporte2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnReporte2.Name = "btnReporte2";
-            this.btnReporte2.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnReporte2.Size = new System.Drawing.Size(244, 40);
+            this.btnReporte2.Padding = new System.Windows.Forms.Padding(26, 0, 0, 0);
+            this.btnReporte2.Size = new System.Drawing.Size(183, 49);
             this.btnReporte2.TabIndex = 1;
-            this.btnReporte2.Text = "Reporte 2";
+            this.btnReporte2.Text = "Pedidos por Repartidor";
             this.btnReporte2.TextAlign = System.Drawing.ContentAlignment.TopLeft;
             this.btnReporte2.UseVisualStyleBackColor = true;
             this.btnReporte2.Click += new System.EventHandler(this.btnReporte2_Click);
@@ -146,11 +152,12 @@ namespace PresentacionEscritorio
             this.btnReporte1.Font = new System.Drawing.Font("Nirmala UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReporte1.ForeColor = System.Drawing.Color.Snow;
             this.btnReporte1.Location = new System.Drawing.Point(0, 0);
+            this.btnReporte1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnReporte1.Name = "btnReporte1";
-            this.btnReporte1.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnReporte1.Size = new System.Drawing.Size(244, 40);
+            this.btnReporte1.Padding = new System.Windows.Forms.Padding(26, 0, 0, 0);
+            this.btnReporte1.Size = new System.Drawing.Size(183, 53);
             this.btnReporte1.TabIndex = 0;
-            this.btnReporte1.Text = "Reporte 1";
+            this.btnReporte1.Text = "Productos más vendidos";
             this.btnReporte1.TextAlign = System.Drawing.ContentAlignment.TopLeft;
             this.btnReporte1.UseVisualStyleBackColor = true;
             this.btnReporte1.Click += new System.EventHandler(this.btnReporte1_Click);
@@ -162,10 +169,11 @@ namespace PresentacionEscritorio
             this.btnReportes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReportes.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReportes.ForeColor = System.Drawing.Color.Snow;
-            this.btnReportes.Location = new System.Drawing.Point(0, 184);
+            this.btnReportes.Location = new System.Drawing.Point(0, 150);
+            this.btnReportes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnReportes.Name = "btnReportes";
-            this.btnReportes.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnReportes.Size = new System.Drawing.Size(244, 45);
+            this.btnReportes.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
+            this.btnReportes.Size = new System.Drawing.Size(183, 37);
             this.btnReportes.TabIndex = 2;
             this.btnReportes.Text = "Reportes";
             this.btnReportes.TextAlign = System.Drawing.ContentAlignment.TopLeft;
@@ -179,10 +187,11 @@ namespace PresentacionEscritorio
             this.btnRepartidores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRepartidores.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRepartidores.ForeColor = System.Drawing.Color.Snow;
-            this.btnRepartidores.Location = new System.Drawing.Point(0, 139);
+            this.btnRepartidores.Location = new System.Drawing.Point(0, 113);
+            this.btnRepartidores.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnRepartidores.Name = "btnRepartidores";
-            this.btnRepartidores.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnRepartidores.Size = new System.Drawing.Size(244, 45);
+            this.btnRepartidores.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
+            this.btnRepartidores.Size = new System.Drawing.Size(183, 37);
             this.btnRepartidores.TabIndex = 1;
             this.btnRepartidores.Text = "Repartidores";
             this.btnRepartidores.TextAlign = System.Drawing.ContentAlignment.TopLeft;
@@ -196,10 +205,11 @@ namespace PresentacionEscritorio
             this.btnPedidos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPedidos.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPedidos.ForeColor = System.Drawing.Color.Snow;
-            this.btnPedidos.Location = new System.Drawing.Point(0, 94);
+            this.btnPedidos.Location = new System.Drawing.Point(0, 76);
+            this.btnPedidos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnPedidos.Name = "btnPedidos";
-            this.btnPedidos.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnPedidos.Size = new System.Drawing.Size(244, 45);
+            this.btnPedidos.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
+            this.btnPedidos.Size = new System.Drawing.Size(183, 37);
             this.btnPedidos.TabIndex = 0;
             this.btnPedidos.Text = "Pedidos";
             this.btnPedidos.TextAlign = System.Drawing.ContentAlignment.TopLeft;
@@ -212,17 +222,19 @@ namespace PresentacionEscritorio
             this.panelLogo.Controls.Add(this.pictureBox1);
             this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelLogo.Location = new System.Drawing.Point(0, 0);
+            this.panelLogo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panelLogo.Name = "panelLogo";
-            this.panelLogo.Size = new System.Drawing.Size(244, 94);
+            this.panelLogo.Size = new System.Drawing.Size(183, 76);
             this.panelLogo.TabIndex = 0;
             // 
             // Pedidos
             // 
             this.Pedidos.Font = new System.Drawing.Font("MS UI Gothic", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Pedidos.ForeColor = System.Drawing.Color.Snow;
-            this.Pedidos.Location = new System.Drawing.Point(97, 15);
+            this.Pedidos.Location = new System.Drawing.Point(73, 12);
+            this.Pedidos.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Pedidos.Name = "Pedidos";
-            this.Pedidos.Size = new System.Drawing.Size(129, 61);
+            this.Pedidos.Size = new System.Drawing.Size(97, 50);
             this.Pedidos.TabIndex = 1;
             this.Pedidos.Text = "Pedidos JQ";
             this.Pedidos.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -231,9 +243,10 @@ namespace PresentacionEscritorio
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(3, 15);
+            this.pictureBox1.Location = new System.Drawing.Point(2, 12);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(88, 61);
+            this.pictureBox1.Size = new System.Drawing.Size(66, 50);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -241,9 +254,10 @@ namespace PresentacionEscritorio
             // panelContenedorHijo
             // 
             this.panelContenedorHijo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelContenedorHijo.Location = new System.Drawing.Point(244, 0);
+            this.panelContenedorHijo.Location = new System.Drawing.Point(183, 0);
+            this.panelContenedorHijo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panelContenedorHijo.Name = "panelContenedorHijo";
-            this.panelContenedorHijo.Size = new System.Drawing.Size(756, 800);
+            this.panelContenedorHijo.Size = new System.Drawing.Size(567, 650);
             this.panelContenedorHijo.TabIndex = 10;
             this.panelContenedorHijo.Paint += new System.Windows.Forms.PaintEventHandler(this.panelContenedorHijo_Paint);
             this.panelContenedorHijo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelContenedorHijo_MouseDown);
@@ -253,22 +267,24 @@ namespace PresentacionEscritorio
             this.panelBarraSuperior.Controls.Add(this.btnCerrar);
             this.panelBarraSuperior.Controls.Add(this.btnMinimizar);
             this.panelBarraSuperior.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelBarraSuperior.Location = new System.Drawing.Point(244, 0);
+            this.panelBarraSuperior.Location = new System.Drawing.Point(183, 0);
+            this.panelBarraSuperior.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panelBarraSuperior.Name = "panelBarraSuperior";
-            this.panelBarraSuperior.Size = new System.Drawing.Size(756, 42);
+            this.panelBarraSuperior.Size = new System.Drawing.Size(567, 34);
             this.panelBarraSuperior.TabIndex = 11;
             this.panelBarraSuperior.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelBarraSuperior_MouseDown);
             // 
             // GeneralForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
-            this.ClientSize = new System.Drawing.Size(1000, 800);
+            this.ClientSize = new System.Drawing.Size(750, 650);
             this.Controls.Add(this.panelBarraSuperior);
             this.Controls.Add(this.panelContenedorHijo);
             this.Controls.Add(this.panelSideMenu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "GeneralForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GestorRepartidores";

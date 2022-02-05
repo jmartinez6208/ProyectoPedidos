@@ -69,7 +69,7 @@ namespace PresentacionEscritorio
 
         private void btnReporte3_Click(object sender, EventArgs e)
         {
-            //Code
+            openChildForm(new Reporte3());
 
             hideSubMenu();
         }
@@ -81,14 +81,14 @@ namespace PresentacionEscritorio
 
         private void btnReporte1_Click(object sender, EventArgs e)
         {
-            //Code
 
+           openChildForm(new Reporte1 ());
             hideSubMenu();
         }
 
         private void btnReporte2_Click(object sender, EventArgs e)
         {
-            //Code
+            openChildForm(new Reporte2());
 
             hideSubMenu();
         }
