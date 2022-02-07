@@ -18,7 +18,7 @@ namespace PresentacionEscritorio
     {
         //propiedades
         private UsuarioWCFClient wcfUsuario = new UsuarioWCFClient();
-        private static UsuarioEntidades usuarioEntidad;
+        public static UsuarioEntidades usuarioEntidad;
         private const int ADMIN = 1;
 
         private String usuario, contraseña;

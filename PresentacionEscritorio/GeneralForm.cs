@@ -17,7 +17,14 @@ namespace PresentacionEscritorio
         {
             InitializeComponent();
             customizeDesing();
+            mensaje();
         }
+
+        private void mensaje()
+        {
+            label_Bienvenida.Text = "Bienvenido admin: " + LoginForm.usuarioEntidad.Nombre;
+        }
+
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
 
@@ -144,6 +151,26 @@ namespace PresentacionEscritorio
         private void btnPedidos_Click(object sender, EventArgs e)
         {
             openChildForm(new PedidosForm());
+        }
+
+        private void label_Bienvenida_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            CerrarSesion();
+        }
+
+        private void CerrarSesion()
+        {
+            if (MessageBox.Show("¿Desea cerrar sesión?", "Cerrar Sesión", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                LoginForm login = new LoginForm();
+                this.Close();
+                login.Show();
+            }
         }
     }
 }
