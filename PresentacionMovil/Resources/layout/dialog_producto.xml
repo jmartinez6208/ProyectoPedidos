@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ImageView
+        android:src="@drawable/placeholder"
+        android:layout_width="200dp"
+        android:layout_height="150dp"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_marginLeft="90dp"
+        android:layout_marginRight="90dp"
+        android:layout_marginTop="15dp"
+        android:id="@+id/imgProductoSeleccionado" />
+    <TextView
+        android:text="Producto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imgProductoSeleccionado"
+        android:layout_marginLeft="100dp"
+        android:layout_marginRight="100dp"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:id="@+id/txtNombreProductoSeleccionado" />
+
+    <RelativeLayout
+        
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/lnrTxt"
+        android:layout_below="@id/txtNombreProductoSeleccionado"
+        android:orientation="horizontal">
+
+        <TextView
+            android:text="Stock"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:gravity="center"
+            android:layout_marginLeft="65dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:id="@+id/txtStock" />
+
+        <TextView
+            android:text="Precio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_toRightOf="@id/txtStock"
+            android:id="@+id/txtPrecio" />
+
+    </RelativeLayout>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_below="@id/lnrTxt"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtCantidad"
+        android:hint="Cantidad"
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginRight="100dp"
+        android:inputType="number"
+        />
+    
+    <Button
+        android:text="Pedir"
+        android:layout_below="@id/txtCantidad"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:id="@+id/btnPedirProducto" />
+
+    <Button
+        android:text="Cancelar"
+        android:layout_below="@id/btnPedirProducto"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="25dp"
+        android:id="@+id/btnCancelarProducto" />
+
+
+
+</RelativeLayout>

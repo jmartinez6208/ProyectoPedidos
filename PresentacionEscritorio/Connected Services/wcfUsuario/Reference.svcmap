@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="04ea30ea-4ed3-4d1d-a77e-618736b34c90" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://proyectopedidos.somee.com/UsuarioWCF.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="UsuarioWCF.xsd" MetadataType="Schema" ID="21cb8016-d852-4a17-b2c7-8567bcc5bdd3" SourceId="1" SourceUrl="http://proyectopedidos.somee.com/UsuarioWCF.svc?xsd=xsd3" />
+    <MetadataFile FileName="UsuarioWCF1.xsd" MetadataType="Schema" ID="ec113736-f9c6-4cb3-8efc-2a36de2e67f3" SourceId="1" SourceUrl="http://proyectopedidos.somee.com/UsuarioWCF.svc?xsd=xsd0" />
+    <MetadataFile FileName="UsuarioWCF2.xsd" MetadataType="Schema" ID="f903a296-30d9-465f-a98c-9d361fbdfd74" SourceId="1" SourceUrl="http://proyectopedidos.somee.com/UsuarioWCF.svc?xsd=xsd2" />
+    <MetadataFile FileName="UsuarioWCF.disco" MetadataType="Disco" ID="00603c3d-8ee6-47e9-b45f-19d5ce0d220e" SourceId="1" SourceUrl="http://proyectopedidos.somee.com/UsuarioWCF.svc?disco" />
+    <MetadataFile FileName="UsuarioWCF.wsdl" MetadataType="Wsdl" ID="9bbb03c8-1faa-4251-bdbd-d67d3269447a" SourceId="1" SourceUrl="http://proyectopedidos.somee.com/UsuarioWCF.svc?wsdl" />
+    <MetadataFile FileName="UsuarioWCF3.xsd" MetadataType="Schema" ID="c870ade7-5b8a-4018-9ac8-47ff08ae42a7" SourceId="1" SourceUrl="http://proyectopedidos.somee.com/UsuarioWCF.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

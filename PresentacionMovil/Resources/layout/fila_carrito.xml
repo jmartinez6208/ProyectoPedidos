@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:src="@drawable/placeholder"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:id="@+id/imgProductoCarrito"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_alignParentLeft="true"/>
+
+    <TextView
+        android:text="Nombre Producto"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_marginTop="15dp"
+        android:layout_toRightOf="@id/imgProductoCarrito"
+        android:layout_marginLeft="15dp"
+        android:id="@+id/txtNombreProductoCarrito" />
+
+    <TextView
+        android:text=""
+        android:textColor="@android:color/holo_green_light"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_marginTop="15dp"
+        android:layout_toRightOf="@id/txtNombreProductoCarrito"
+        android:layout_marginLeft="10dp"
+        android:id="@+id/txtConseguidoProductoCarrito" />
+
+    <TextView
+        android:text=""
+        android:textColor="@android:color/holo_red_light"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_marginTop="15dp"
+        android:layout_toRightOf="@id/txtNombreProductoCarrito"
+        android:layout_marginLeft="10dp"
+        android:id="@+id/txtNoConseguidoProductoCarrito" />
+
+    <TextView
+        android:text=""
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_below="@id/txtNombreProductoCarrito"
+        android:layout_toRightOf="@id/txtTiendaProductoCarrito"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:id="@+id/txtPrecioProductoCarrito" />
+
+    <TextView
+        android:text=""
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_below="@id/txtNombreProductoCarrito"
+        android:layout_toRightOf="@id/txtTiendaProductoCarrito"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:id="@+id/txtDireccionTiendaCarrito" />
+
+    <TextView
+        android:text="Tienda Producto "
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_below="@id/txtNombreProductoCarrito"
+        android:layout_toRightOf="@id/imgProductoCarrito"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="5dp"
+        android:id="@+id/txtTiendaProductoCarrito" />
+
+    <TextView
+        android:text="Cantidad Producto"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_below="@id/txtTiendaProductoCarrito"
+        android:layout_toRightOf="@id/imgProductoCarrito"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="5dp"
+        android:id="@+id/txtCantidadProductoCarrito" />
+
+    <TextView
+        android:text="Subtotal Producto"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_below="@id/txtTiendaProductoCarrito"
+        android:layout_toRightOf="@id/txtCantidadProductoCarrito"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:id="@+id/txtSubtotalProductoCarrito" />
+
+</RelativeLayout>

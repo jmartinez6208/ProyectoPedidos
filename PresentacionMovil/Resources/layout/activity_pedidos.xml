@@ -38,7 +38,7 @@
             android:minHeight="25px"
             android:layout_width="match_parent"
             android:layout_height="480dp"
-            android:id="@+id/listView1"
+            android:id="@+id/listViewPedidos"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="0.0dp" />
         <Button

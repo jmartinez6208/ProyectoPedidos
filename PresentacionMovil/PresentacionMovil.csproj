@@ -38,6 +38,10 @@
     <AndroidUseSharedRuntime>True</AndroidUseSharedRuntime>
     <AndroidLinkMode>None</AndroidLinkMode>
     <EmbedAssembliesIntoApk>False</EmbedAssembliesIntoApk>
+    <AotAssemblies>false</AotAssemblies>
+    <EnableLLVM>false</EnableLLVM>
+    <AndroidEnableProfiledAot>false</AndroidEnableProfiledAot>
+    <BundleAssemblies>false</BundleAssemblies>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>True</DebugSymbols>
@@ -54,6 +58,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="Mono.Android" />
@@ -61,18 +68,185 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Adaptadores\CarritoAdapter.cs" />
+    <Compile Include="Adaptadores\DetallePedidoRepartidorAdapter.cs" />
+    <Compile Include="Adaptadores\PedidosAdapter.cs" />
+    <Compile Include="Adaptadores\PedidosRepartidorAdapter.cs" />
+    <Compile Include="Adaptadores\ProductosTiendaAdapter.cs" />
     <Compile Include="CarritoActivity.cs" />
+    <Compile Include="DetallePedidoActivity.cs" />
+    <Compile Include="DetallePedidoRepartidor.cs" />
+    <Compile Include="DialogProducto.cs" />
     <Compile Include="MainActivity.cs" />
+    <Compile Include="MisPedidosRepartidorActivity.cs" />
     <Compile Include="PedidosActivity.cs" />
     <Compile Include="ProductosActivity.cs" />
     <Compile Include="RegistroActivity.cs" />
+    <Compile Include="RepartidorActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Web References\wcfCategorias\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\wcfDetallePedido\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\wcfPedido\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\wcfProductoTienda\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\wcfProducto\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\wcfTienda\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\wcfUsuario\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
     <None Include="Properties\AndroidManifest.xml" />
     <None Include="Assets\AboutAssets.txt" />
+    <None Include="Web References\wcfCategorias\CategoriaEntidades.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\wcfCategorias\CategoriaWCF.wsdl" />
+    <None Include="Web References\wcfCategorias\CategoriaWCF.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\wcfCategorias\CategoriaWCF0.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\wcfCategorias\CategoriaWCF1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\wcfCategorias\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\wcfDetallePedido\DetallePedido.wsdl" />
+    <None Include="Web References\wcfDetallePedido\DetallePedido.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\wcfDetallePedido\DetallePedido0.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\wcfDetallePedido\DetallePedido1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\wcfDetallePedido\DetallePedidoEntidades.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\wcfDetallePedido\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\wcfPedido\PedidoEntidades.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\wcfPedido\PedidoWCF.wsdl" />
+    <None Include="Web References\wcfPedido\PedidoWCF.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\wcfPedido\PedidoWCF0.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\wcfPedido\PedidoWCF1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\wcfPedido\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\wcfProductoTienda\ProductosTiendaEntidades.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\wcfProductoTienda\ProductoTiendaWCF.wsdl" />
+    <None Include="Web References\wcfProductoTienda\ProductoTiendaWCF.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\wcfProductoTienda\ProductoTiendaWCF0.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\wcfProductoTienda\ProductoTiendaWCF1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\wcfProductoTienda\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\wcfProducto\ProductoEntidades.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\wcfProducto\ProductoWCF.wsdl" />
+    <None Include="Web References\wcfProducto\ProductoWCF.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\wcfProducto\ProductoWCF0.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\wcfProducto\ProductoWCF1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\wcfProducto\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\wcfTienda\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\wcfTienda\TiendaEntidades.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\wcfTienda\TiendaWCF.wsdl" />
+    <None Include="Web References\wcfTienda\TiendaWCF.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\wcfTienda\TiendaWCF0.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\wcfTienda\TiendaWCF1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\wcfUsuario\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\wcfUsuario\UsuarioEntidades.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\wcfUsuario\UsuarioWCF.wsdl" />
+    <None Include="Web References\wcfUsuario\UsuarioWCF.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\wcfUsuario\UsuarioWCF0.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\wcfUsuario\UsuarioWCF1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\wcfUsuario\UsuarioWCF2.xsd">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\activity_main.xml">
@@ -106,7 +280,13 @@
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Square.Picasso">
+      <Version>2.71828.0</Version>
+    </PackageReference>
     <PackageReference Include="Xamarin.AndroidX.AppCompat" Version="1.2.0.5" />
+    <PackageReference Include="Xamarin.AndroidX.ExifInterface">
+      <Version>1.3.3.2</Version>
+    </PackageReference>
     <PackageReference Include="Xamarin.Google.Android.Material" Version="1.0.0.1" />
     <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
   </ItemGroup>
@@ -138,6 +318,162 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\activity_carrito.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Entidades\Entidades.csproj">
+      <Project>{8f1f179b-f417-4fc3-8e2e-736dcc61c162}</Project>
+      <Name>Entidades</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://proyectopedidos.somee.com/CategoriaWCF.svc">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\wcfCategorias\</RelPath>
+      <UpdateFromURL>http://proyectopedidos.somee.com/CategoriaWCF.svc</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>
+      </CachedAppSettingsObjectName>
+      <CachedSettingsPropName>
+      </CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://proyectopedidos.somee.com/DetallePedido.svc">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\wcfDetallePedido\</RelPath>
+      <UpdateFromURL>http://proyectopedidos.somee.com/DetallePedido.svc</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>
+      </CachedAppSettingsObjectName>
+      <CachedSettingsPropName>
+      </CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://proyectopedidos.somee.com/PedidoWCF.svc">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\wcfPedido\</RelPath>
+      <UpdateFromURL>http://proyectopedidos.somee.com/PedidoWCF.svc</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>
+      </CachedAppSettingsObjectName>
+      <CachedSettingsPropName>
+      </CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://proyectopedidos.somee.com/ProductoTiendaWCF.svc">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\wcfProductoTienda\</RelPath>
+      <UpdateFromURL>http://proyectopedidos.somee.com/ProductoTiendaWCF.svc</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>
+      </CachedAppSettingsObjectName>
+      <CachedSettingsPropName>
+      </CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://proyectopedidos.somee.com/ProductoWCF.svc">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\wcfProducto\</RelPath>
+      <UpdateFromURL>http://proyectopedidos.somee.com/ProductoWCF.svc</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>
+      </CachedAppSettingsObjectName>
+      <CachedSettingsPropName>
+      </CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://proyectopedidos.somee.com/TiendaWCF.svc">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\wcfTienda\</RelPath>
+      <UpdateFromURL>http://proyectopedidos.somee.com/TiendaWCF.svc</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>
+      </CachedAppSettingsObjectName>
+      <CachedSettingsPropName>
+      </CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://proyectopedidos.somee.com/UsuarioWCF.svc">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\wcfUsuario\</RelPath>
+      <UpdateFromURL>http://proyectopedidos.somee.com/UsuarioWCF.svc</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>
+      </CachedAppSettingsObjectName>
+      <CachedSettingsPropName>
+      </CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\wcfUsuario\UsuarioWCF.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\wcfPedido\PedidoWCF.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\wcfCategorias\CategoriaWCF.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\wcfProducto\ProductoWCF.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\wcfProductoTienda\ProductoTiendaWCF.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\lupa.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\dialog_producto.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\wcfDetallePedido\DetallePedido.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\fila_carrito.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\activity_detallePedido.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\activity_repartidor.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\activity_detalle_repartidor.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\wcfTienda\TiendaWCF.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\activity_mispedidos_repartidor.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

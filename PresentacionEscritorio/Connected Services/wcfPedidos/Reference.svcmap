@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="da0b0ecf-6335-4d7b-a491-319595c01b20" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://proyectopedidos.somee.com/PedidoWCF.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="PedidoWCF.xsd" MetadataType="Schema" ID="636a396a-805e-450b-af12-bc1d3183600b" SourceId="1" SourceUrl="http://proyectopedidos.somee.com/PedidoWCF.svc?xsd=xsd0" />
+    <MetadataFile FileName="PedidoWCF.disco" MetadataType="Disco" ID="fc703941-be2b-465a-bdbe-7332b3061d48" SourceId="1" SourceUrl="http://proyectopedidos.somee.com/PedidoWCF.svc?disco" />
+    <MetadataFile FileName="PedidoWCF.wsdl" MetadataType="Wsdl" ID="db9f9fc4-8f26-41cb-b406-7768a15ecc0b" SourceId="1" SourceUrl="http://proyectopedidos.somee.com/PedidoWCF.svc?wsdl" />
+    <MetadataFile FileName="PedidoWCF1.xsd" MetadataType="Schema" ID="d891c711-167c-47f5-a2b7-8cc21a6cf240" SourceId="1" SourceUrl="http://proyectopedidos.somee.com/PedidoWCF.svc?xsd=xsd1" />
+    <MetadataFile FileName="PedidoWCF2.xsd" MetadataType="Schema" ID="fe70b489-fee5-4f91-bc54-b5cf2cf1d879" SourceId="1" SourceUrl="http://proyectopedidos.somee.com/PedidoWCF.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
